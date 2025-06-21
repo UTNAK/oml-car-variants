@@ -109,7 +109,22 @@ The name of this project is `oml-template`. You can change it to your own projec
 - `src/shacl/*` (namespaces of ontologies)
 
 
-# Experiment
+# Experiment #1 : Query and Visualize using Quarto Notebook
+
+1. `R --version`
+2. `quarto -V`
+3. `./gradlew build`
+4. `./gradlew load`
+5. `./gradlew query`
+6. Then you can find a file of `build/results/template/objective.json`
+7. Open `/oml-car-variants/script/objective_report.qmd`
+8. `quarto render script/objective_report.qmd
+9. Then you will get the `script/objective_report.html`
+10. Open in browser
+
+
+
+# Experiment #2
 
 ## Query 1: Get All the Car
 

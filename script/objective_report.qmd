@@ -52,7 +52,7 @@ readQueryResultsFromJson <- function(filepath){
 ```{r}
 #| label: Read-Query-Results
 
-rootdir <- sub("oml-imce-vocabulary/.*", "oml-imce-vocabulary", getwd())
+rootdir <- sub("oml-car-variants/.*", "oml-car-variants", getwd())
 path <- paste0(rootdir, "/build/results/template/")
 
 objective <- readQueryResultsFromJson(paste0(path, "objective.json"))
