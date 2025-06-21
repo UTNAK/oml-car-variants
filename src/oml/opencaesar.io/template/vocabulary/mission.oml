@@ -1,0 +1,17 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/mission#> as mission {
+	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as imce-mission
+    extends <http://imce.jpl.nasa.gov/foundation/base#> as imce-base
+	
+	// Objective
+	concept Objective < imce-mission:Objective[
+		restricts all imce-base:aggregates to Objective
+		restricts all imce-base:isAggregatedIn to Objective
+    ]
+
+
+}

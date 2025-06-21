@@ -1,0 +1,38 @@
+@dc:title "Example Description"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+description <http://opencaesar.io/template/description/missions#> as missions {
+
+//	extends <http://opencaesar.io/template/description/components#> as components
+
+	extends <http://opencaesar.io/template/description/objectives#> as objectives
+
+	uses <http://purl.org/dc/elements/1.1/> as dc
+
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+	uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	instance lander : mission:Mission [
+		base:hasCanonicalName "Lander Mission"
+		base:hasIdentifier "M.02"
+		// mission:deploys components:lander-ground-data-system
+		// mission:deploys components:lander-launch-system
+		// mission:deploys components:lander-spacecraft
+		// mission:deploys components:mission-operations-system
+		mission:pursues objectives:characterize-atmosphere
+		mission:pursues objectives:characterize-environment
+		mission:pursues objectives:characterize-rocky-core-shape
+	]
+
+	instance orbiter : mission:Mission [
+		base:hasCanonicalName "Orbiter Mission"
+		base:hasIdentifier "M.01"
+		// mission:deploys components:mission-operations-system
+		// mission:deploys components:orbiter-ground-data-system
+		// mission:deploys components:orbiter-launch-system
+		// mission:deploys components:orbiter-spacecraft
+		mission:pursues objectives:characterize-atmosphere
+		mission:pursues objectives:characterize-environment
+		mission:pursues objectives:characterize-gravitational-field
+	]
+}
