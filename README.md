@@ -167,7 +167,70 @@ WHERE {
 ```
 
 
-# Reasoner Test
+# Expetiment #3 Reasoner Test
+
+## Semantic Validation #1 : Car without Engine
+エンジンをもたない車のインスタンスを定義
+
+Change `descrpition1.oml` as follows,
+
+```oml
+	instance kens-CX-8 : vocabulary1:CX-8 [
+		// vocabulary1:hasEngine kens-SR14-v1
+	]
+```
+Then run `./gradlew build`.
+
+You may get a response like this,
+
+![alt text](img/image.png)
+
+Open `/oml-car-variants/build/logs/template/reasoning.xml`.
+You can find the error of `Individual violates minimum cardinality restriction`.
+
+This error says `Car` must have more than one `Engine`.
+
+
+## Semantic Validation #2 hasEngineにCarを指定
+正しくはEngineを指定する必要がある
+
+Change `descrpition1.oml` as follows,
+
+```oml
+	instance kens-CX-8 : vocabulary1:CX-8 [
+		vocabulary1:hasEngine  kens-CX-8-kaizo
+	]
+```
+
+エディタに埋め込まれたSyntaxエラー検知機能を使って、オントロジーの使い方の間違いを指摘してくれる。
+
+![1750488602204](image/README/1750488602204.png)
+
+
+## Semantic Validation #3 CX-9に異なる型式のエンジンを指定するとエラーとして検知してくれる。
+
+ここでは、CX-9に、LE9というSR14とはことなるエンジンを指定する。
+
+Change `descrpition1.oml` as follows,
+
+```oml
+	instance rocket-le-9 : vocabulary1:LE9 [
+		vocabulary1:hasDisplacement displacement-le-9
+	]
+```
+
+Then run `./gradlew build`.
+
+You may get an error response.
+
+Open `/oml-car-variants/build/logs/template/reasoning.xml`.
+You can find the error of `An individual belongs to a type and its complement`.
+
+![1750488933716](image/README/1750488933716.png)
+
+
+## Semantic Validation #4 : ノード間の関係性（エッジ）に制約を与える
+複数の子をもってはいけない
 
 Change `descrpition1.oml` as follows,
 
