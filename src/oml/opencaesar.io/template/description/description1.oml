@@ -17,11 +17,22 @@ description <http://opencaesar.io/template/description/description1#> as descrip
 
 	instance kens-CX-8 : vocabulary1:CX-8 [
 		vocabulary1:hasEngine kens-SR14-v1
+		vocabulary1:hasHandle type01-v1
+	]
+
+	instance type01-v1 : vocabulary1:type01 [
+	vocabulary1:hasMaterial Material-v1
 	]
 
 	instance bobs-CX-9 : vocabulary1:CX-9 [
 		vocabulary1:hasEngine kens-SR14-v2
+		vocabulary1:hasHandle type01-v2
 	]
+
+   	instance type01-v2 : vocabulary1:type01 [
+	vocabulary1:hasMaterial Material-v2
+	]
+
 
 	instance kens-CX-8-kaizo : vocabulary1:CX-8 [
 		vocabulary1:hasEngine kens-SR14-v2_kaizo
@@ -70,4 +81,11 @@ description <http://opencaesar.io/template/description/description1#> as descrip
 		vim4:hasDoubleNumber "99999000"^^xsd:double
 	]
 
+    instance Material-v1 : vocabulary1:Material [
+		vim4:hasDoubleNumber "11"^^xsd:double
+	]
+
+	instance Material-v2 : vocabulary1:Material [
+		vim4:hasDoubleNumber "22"^^xsd:double
+	]
 }
