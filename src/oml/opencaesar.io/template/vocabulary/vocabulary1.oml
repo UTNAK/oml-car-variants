@@ -40,6 +40,16 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 		functional
 	]
 
+	concept SeatBelt < mission:Component
+
+	relation entity IsSeatBeltOf [
+		from SeatBelt
+		to Car
+		forward isSeatBeltOf
+		reverse hasSeatBelt
+		functional
+	]
+
 	// concept Displacement < vim4:InherentUnitaryQuantity [
 	// 	restricts vim4:instantiates to iso-80000-3.4:volume
 	// ]
