@@ -107,3 +107,74 @@ The name of this project is `oml-template`. You can change it to your own projec
 - `src/oml/*` (namespaces of ontologies)
 - `src/sparcl/*` (namespaces of ontologies)
 - `src/shacl/*` (namespaces of ontologies)
+
+
+# Experiment
+
+## Query 1: Get All the Car
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX vocabulary1:        <http://opencaesar.io/template/vocabulary/vocabulary1#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX vim4: <http://bipm.org/jcgm/vim4#>
+
+SELECT DISTINCT*
+WHERE {
+	?iri a vocabulary1:Car;
+  		vocabulary1:hasEngine [
+      		vocabulary1:hasDisplacement [
+        		vim4:hasDoubleNumber ?displacement
+    	]
+	]
+}ORDER BY ?iri
+```
+
+## Query 2: Get All the CX-8
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX vocabulary1:        <http://opencaesar.io/template/vocabulary/vocabulary1#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX vim4: <http://bipm.org/jcgm/vim4#>
+
+SELECT DISTINCT*
+WHERE {
+	?iri a vocabulary1:CX-8;
+  		vocabulary1:hasEngine [
+      		vocabulary1:hasDisplacement [
+        		vim4:hasDoubleNumber ?displacement
+    	]
+	]
+}ORDER BY ?iri
+```
+
+
+# Reasoner Test
+
+Change `descrpition1.oml` as follows,
+
+```oml
+	instance kens-CX-8 : vocabulary1:CX-8 [
+		vocabulary1:hasEngine kens-SR14-v1
+	]
+
+	instance bobs-CX-9 : vocabulary1:CX-9 [
+		vocabulary1:hasEngine kens-SR14-v1
+	]
+```
+
+Then run `./gradlew build`.
+
+You may get a response like this,
+
+![1750484251853](image/README/1750484251853.png)
+
+Open `/oml-car-variants/build/logs/template/reasoning.xml`.
+You can find the error of `An individual contains a minCardinality restriction that is greater than a maxCardinality restriction`.
+
+This error says the same `Engine` cannot become `isEngineOf` in more than one `Car`.
+
+![1750484404481](image/README/1750484404481.png)
