@@ -22,15 +22,33 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 		restricts hasDisplacement to min 1
 	]
 
+	// concept CX-8 < Car [
+	// 	restricts all hasEngine to SR14
+	// ]
+	// concept CX-9 < Car [
+	// 	restricts all hasEngine to SR14, SR15
+	// ]
+
+	// concept SR14 < Engine
+
+	// concept SR15 < Engine
+
 	concept CX-8 < Car [
 		restricts all hasEngine to SR14
 	]
-
 	concept CX-9 < Car [
-		restricts all hasEngine to SR14
+		restricts all hasEngine to CX-9-Engines
 	]
+	concept SR14 < Engine, CX-9-Engines
 
-	concept SR14 < Engine
+	concept SR15 < Engine, CX-9-Engines
+
+	concept CX-9-Engines < Engine
+
+
+	concept SR14.3 < SR14
+	
+
 
 	relation entity IsEngineOf [
 		from Engine
