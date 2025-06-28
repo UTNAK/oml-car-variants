@@ -266,3 +266,150 @@ This error says the same `Engine` cannot become `isEngineOf` in more than one `C
 As Dr. Maged Elaasar mentions [here](https://bentleyjoakes.github.io/assets/publications/Elaasar2023%20-%20openCAESAR%20Balancing%20Agility%20and%20Rigor%20in%20Model-Based%20Systems%20Engineering.pdf), in openCAESAR, analysis happens at two levels. First, the logical consistency of the models is checked using OML and description logic reasoners. Second, other analyses investigate other properties of the system. OML models can easily be checked for logical consistency with an off-the-shelf descrip- tion logic (DL) reasoner. This check is typically done very early in an analysis pipeline as in the Kepler16b example CI pipeline. Completeness checks can be encoded in a vocabulary directly using minimum/exact cardinality restrictions on properties. They can also be captured using libraries of well-formedness rules that query consistent models. The advantage of the latter is the ability to separate those two concerns, and the ability to use other analyses frameworks than a DL reasoner.
 
 
+# Experiment #4 friend inference
+
+## `Person` `isFriendOf` `Person`
+
+### Vocabulary
+```oml
+    concept Person
+
+	relation entity IsFriendOf[
+		from Person
+		to Person
+		forward isFriendOf
+	]
+```
+
+### Descriptions
+```oml
+    instance person1 : person:Person[
+        person:isFriendOf person2
+    ]
+    instance person2 : person:Person[
+        person:isFriendOf person3
+    ]
+    instance person3 : person:Person
+```
+
+### Query
+
+```sparql
+PREFIX person:        <http://opencaesar.io/template/vocabulary/person#>
+
+SELECT DISTINCT*
+WHERE {
+  ?iri a person:Person;
+  	person:isFriendOf ?firi.
+}ORDER BY ?iri
+```
+
+![alt text](img/image-1.png)
+
+
+## Inference Rule: A friend of a friend is a friend 
+
+Add this rule in the `person.oml`
+
+```oml
+   rule friend-inference [
+        Person ( p1 ) & isFriendOf ( p1, p2 ) & isFriendOf ( p2, p3 ) -> isFriendOf ( p1, p3 )
+   ]
+```
+
+
+![alt text](img/image-2.png)
+
+
+
+Before and After adding rule in `individulas.ttl`
+
+
+### Before
+
+```
+<http://opencaesar.io/template/description/friends#person1>
+        rdf:type    owl:Thing , <http://opencaesar.io/template/vocabulary/person#Person> ;
+        <http://opencaesar.io/template/vocabulary/person#isFriendOf>
+                <http://opencaesar.io/template/description/friends#person2> ;
+        owl:sameAs  <http://opencaesar.io/template/description/friends#person1> .
+
+```
+
+### After
+
+`person3 ` is added as a friend of `person1`
+
+```owl
+<http://opencaesar.io/template/description/friends#person1>
+        rdf:type    owl:Thing , <http://opencaesar.io/template/vocabulary/person#Person> ;
+        <http://opencaesar.io/template/vocabulary/person#isFriendOf>
+                <http://opencaesar.io/template/description/friends#person2> , <http://opencaesar.io/template/description/friends#person3> ;
+        owl:sameAs  <http://opencaesar.io/template/description/friends#person1> .
+
+```
+
+## Using Vocabulary: `Transitive`
+
+Let's say relation entity `isFriendOf` has DL Flag of `Transitive`.
+We remove the above rule at this time.
+Here is revised vocabularies in `person.oml`.
+
+```
+    concept Person
+
+	relation entity IsFriendOf[
+		from Person
+		to Person
+		forward isFriendOf
+        transitive
+	]
+```
+
+After `./gradle load` and then query.
+
+```sparql
+PREFIX person:        <http://opencaesar.io/template/vocabulary/person#>
+
+SELECT DISTINCT*
+WHERE {
+  ?iri a person:Person;
+  	person:isFriendOf ?firi.
+}ORDER BY ?iri
+```
+
+You can get same results with adding a rule.
+
+![alt text](img/image-3.png)
+
+
+
+
+# Experiment #5 : Variants
+
+## car variants
+```
+PREFIX wl: <http://www.wsmo.org/ns/wsmo-lite#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX base:        <http://imce.jpl.nasa.gov/foundation/base#>
+PREFIX vocabulary1:        <http://opencaesar.io/template/vocabulary/vocabulary1#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX vim4: <http://bipm.org/jcgm/vim4#>
+
+SELECT DISTINCT ?car ?engine ?variants ?type
+WHERE {
+  ?cariri rdfs:subClassOf <http://opencaesar.io/template/vocabulary/vocabulary1#Car> .
+#  ?car rdf:type owl:Class .
+  ?cariri rdfs:subClassOf ?restriction .
+  ?restriction rdf:type owl:Restriction .
+  ?restriction owl:onProperty <http://opencaesar.io/template/vocabulary/vocabulary1#hasEngine> .
+  ?restriction owl:allValuesFrom ?engineiri .
+  ?variantsiri a ?engineiri. 
+  
+  BIND(STRAFTER(STR(?cariri), "#") AS ?car) .
+  BIND(STRAFTER(STR(?engineiri), "#") AS ?engine) .
+  BIND(STRAFTER(STR(?variantsiri), "#") AS ?variants) .
+
+}ORDER BY ?car
+```
