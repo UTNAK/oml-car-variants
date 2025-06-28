@@ -7,5 +7,6 @@ vocabulary bundle <http://opencaesar.io/template/vocabulary/bundle#> as vocabula
 
 	includes <http://opencaesar.io/template/vocabulary/vocabulary1#>
 	includes <http://opencaesar.io/template/vocabulary/mission#>
+	includes <http://opencaesar.io/template/vocabulary/friend#>
 
 }
