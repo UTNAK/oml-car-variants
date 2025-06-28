@@ -1,0 +1,21 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/friends#> as friends {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+    concept Person
+
+	relation entity IsFriendOf [
+		from Person
+		to Person
+		forward isFriendOf
+	]
+
+   rule friend-inference [
+        Person ( p1 ) & 
+        isFriendOf ( p1, p2 ) & 
+        isFriendOf ( p2, p3 ) -> isFriendOf ( p1, p3 )
+   ]
+}
