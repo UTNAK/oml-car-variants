@@ -23,7 +23,17 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 	]
 
 
+	concept Navigation < mission:Component[
+		restricts hasNaviData to min 1
+	]
+
+	concept Navi < Navigation
 	
+
+
+
+	
+
 
 
 	concept CX-8 < Car [
@@ -44,6 +54,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 		functional
 	]
 
+
+	relation entity IsNavigationOf[
+		from Navigation
+		to Car
+		forward isNavigationOf
+		reverse hasNavigation
+	
+
 	concept SeatBelt < mission:Component
 
 	relation entity IsSeatBeltOf [
@@ -59,6 +77,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 		forward isWindowOf
 		reverse hasWindow
 		functional
+
 	]
 
 	// concept Displacement < vim4:InherentUnitaryQuantity [
@@ -67,6 +86,18 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 
 	concept LE9 < Engine
 
+
+	// concept NaviData < vim4:UnitaryQuantityValue [
+	// 	restricts vim4:instantiates to iso-80000-3.4:volume
+	// 	restricts vim4:unit to metrology-description:cc
+	// ]
+concept NaviData <  mission:Component
+	relation entity IsNaviDataOf [
+		from NaviData
+		to Navigation
+		forward isNaviDataOf
+		reverse hasNaviData
+	] //< vim4:Characterizes
 
 	concept Displacement < vim4:UnitaryQuantityValue [
 		restricts vim4:instantiates to iso-80000-3.4:volume

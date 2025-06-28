@@ -17,29 +17,33 @@ description <http://opencaesar.io/template/description/description1#> as descrip
 
 	instance kens-CX-8 : vocabulary1:CX-8 [
 		vocabulary1:hasEngine kens-SR14-v1
+
+		vocabulary1:hasNavigation kens-Navi-1
+
 		vocabulary1:hasHandle type01-v1
 	]
 
 	instance type01-v1 : vocabulary1:type01 [
 	vocabulary1:hasMaterial Material-v1
+
 	]
 
 	instance bobs-CX-9 : vocabulary1:CX-9 [
 		vocabulary1:hasEngine kens-SR14-v2
+
+		vocabulary1:hasNavigation kens-Navi-2
+
 		vocabulary1:hasHandle type01-v2
 	]
 
    	instance type01-v2 : vocabulary1:type01 [
 	vocabulary1:hasMaterial Material-v2
+
 	]
 
 
 	instance kens-CX-8-kaizo : vocabulary1:CX-8 [
 		vocabulary1:hasEngine kens-SR14-v2_kaizo
-	]
-
-	instance kens-SR14-v1 : vocabulary1:SR14 [
-		vocabulary1:hasDisplacement displacement-v1
 	]
 
 	instance kens-SR14-v2 : vocabulary1:SR14 [
@@ -50,6 +54,9 @@ description <http://opencaesar.io/template/description/description1#> as descrip
 		vocabulary1:hasDisplacement displacement-v2_kaizo
 	]
 
+	instance kens-SR14-v1 : vocabulary1:SR14[
+		vocabulary1:hasDisplacement displacement-v1
+	]
 	// IF we put the other type of engine, 
 	// we assume reasoner tell us the engine type is mismatched.
 	instance rocket-CX-9 : vocabulary1:CX-9 [
@@ -59,6 +66,14 @@ description <http://opencaesar.io/template/description/description1#> as descrip
 	instance rocket-le-9 : vocabulary1:SR14 [
 		vocabulary1:hasDisplacement displacement-le-9
 	]
+	instance kens-Navi-1 : vocabulary1:Navi[
+	
+		vocabulary1:hasNaviData NaviData-v1
+	]
+	instance kens-Navi-2 : vocabulary1:Navi[
+		vocabulary1:hasNaviData NaviData-v1
+	]
+
 	// instance rocket-le-9 : vocabulary1:LE9 [
 	// 	vocabulary1:hasDisplacement displacement-le-9
 	// ]
@@ -80,6 +95,12 @@ description <http://opencaesar.io/template/description/description1#> as descrip
 	instance displacement-le-9 : vocabulary1:Displacement [
 		vim4:hasDoubleNumber "99999000"^^xsd:double
 	]
+	instance NaviData-v1 : vocabulary1:NaviData 
+	// 	vim4:hasDoubleNumber "2000"^^xsd:double
+	// ]
+	// // instance NaviData-v2 : vocabulary1:NaviData [
+	// 	vim4:hasDoubleNumber "3000"^^xsd:double
+	// ]
 
     instance Material-v1 : vocabulary1:Material [
 		vim4:hasDoubleNumber "11"^^xsd:double
