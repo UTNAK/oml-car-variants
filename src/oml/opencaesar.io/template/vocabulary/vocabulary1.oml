@@ -40,7 +40,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 		functional
 	]
 
+	concept SeatBelt < mission:Component
 
+	relation entity IsSeatBeltOf [
+		from SeatBelt
+		to Car
+		forward isSeatBeltOf
+		reverse hasSeatBelt
+  ]
 	concept Window < mission:Component
 	relation entity IsWindowOf [
 		from Window
