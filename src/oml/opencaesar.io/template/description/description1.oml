@@ -15,6 +15,8 @@ description <http://opencaesar.io/template/description/description1#> as descrip
 
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
 
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+
 	instance kens-CX-8 : vocabulary1:CX-8 [
 		vocabulary1:hasEngine kens-SR14-v1
 
@@ -109,4 +111,21 @@ description <http://opencaesar.io/template/description/description1#> as descrip
 	instance Material-v2 : vocabulary1:Material [
 		vim4:hasDoubleNumber "22"^^xsd:double
 	]
+
+
+
+
+	instance maximum-displacement-constraints : vocabulary1:MaxDisplacementRequirement [
+		base:hasIdentifier "R.01"
+		base:hasDescription "The maximum Displacement of the engine shall not exceed 2100cc."
+		vocabulary1:maxDisplacement "3000.0"^^xsd:double
+	]
+
+
+
+
+
+
+
+
 }
