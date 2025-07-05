@@ -27,7 +27,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept Physicalinfrastructure < mission:Component [
+    concept Physicalinfrastructure < mission:Component,affectedOEDRElement [
 
     ]
 

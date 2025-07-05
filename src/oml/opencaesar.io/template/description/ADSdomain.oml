@@ -1,0 +1,22 @@
+@dc:title "Example Description"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+description <http://opencaesar.io/template/description/ADSdomain#> as ADSdomain {
+
+	uses <http://purl.org/dc/elements/1.1/> as dc
+
+	uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
+
+	// uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	// uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	// uses <http://bipm.org/jcgm/vim4#> as vim4
+
+	// uses <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	instance ADS : ADSdomain:AutomatedDrivingSystem
+    instance environmentalcondition : ADSdomain:EnverionmentalCondition[
+        ADSdomain:affectOEDROf ADSdomain:ADS
+    ]
+}
