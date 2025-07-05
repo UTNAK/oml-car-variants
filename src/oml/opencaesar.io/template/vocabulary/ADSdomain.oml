@@ -1,0 +1,266 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+
+
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+
+	concept AutoamtedDrivingSystemDomain < mission:Component [
+		// restricts hasEngine to exactly 1
+
+	]
+
+    concept JASPARODDDefinitionbasedonNHTSAODDClassificationFramework  < mission:Component [
+
+    ]
+
+    concept AutomatedDrivingSystem < mission:Component [
+
+    ]
+
+    concept AutomatedVehicle < mission:Component [
+
+    ]
+
+    concept Physicalinfrastructure < mission:Component [
+
+    ]
+
+    concept TrafficParticipants < mission:Component [
+
+    ]
+
+    concept OperationalConstraints < mission:Component [
+
+    ]
+
+    concept Zone < mission:Component [
+
+    ]
+
+    concept Connectivity < mission:Component [
+
+    ]
+
+    concept EnverionmentalCondition < mission:Component [
+
+    ]
+
+    concept Weather < mission:Component
+    concept Illumination < mission:Component
+    concept ParticulateMatter < mission:Component
+    concept IntelligentTransportSystem < mission:Component
+    concept V2XCommunicationSystem < mission:Component
+    concept SchoolZone < mission:Component
+    concept Geo-FensingZone < mission:Component
+    concept InterferenceZone < mission:Component
+    concept TrafficManagementZone < mission:Component
+    concept RegionsStates < mission:Component
+    concept SpeedLimit < mission:Component
+    concept TrafficConditions < mission:Component
+    concept NonRoadUser < mission:Component
+    concept RoadUser < mission:Component
+    concept RoadFurniture < mission:Component
+    concept Road < mission:Component
+    concept Signage < mission:Component
+    concept RoadInfrastructure < mission:Component
+    concept RoadMarking < mission:Component
+
+
+
+  	relation entity IsJASPARODDDefinitionbasedonNHTSAODDClassificationFrameworkOf [
+		from JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		to  AutoamtedDrivingSystemDomain
+		forward isASPARODDDefinitionbasedonNHTSAODDClassificationFrameworkOf
+		reverse hasASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+  ]
+
+	relation entity IsEquippedTo [
+		from AutomatedDrivingSystem
+		to AutomatedVehicle
+		forward isEquippedTo
+		reverse equippes
+		functional
+	]
+
+
+	relation entity IsAVOf[
+		from AutomatedVehicle
+		to AutoamtedDrivingSystemDomain
+		forward isAVOf
+		reverse hasAV
+	]
+
+
+	relation entity IsPIOf [
+		from Physicalinfrastructure
+		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		forward isPIOf
+		reverse hasPI
+  ]
+
+	relation entity IsTPOf [
+		from TrafficParticipants
+		to JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		forward isTPOf
+		reverse hasTP
+		functional
+
+	]
+
+	relation entity IsOCOf [
+		from OperationalConstraints
+		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		forward isOCOf
+		reverse hasOC
+  ]
+
+  	relation entity IsZoneOf [
+		from Zone
+		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		forward isZoneOf
+		reverse hasZone
+  ]
+
+  	relation entity IsConnectivityOf [
+		from Connectivity
+		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		forward isConnectivityOf
+		reverse hasConnectivity
+  ]
+
+    	relation entity IsECOf [
+		from EnverionmentalCondition
+		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		forward isECOf
+		reverse hasEC
+  ]
+	// concept Displacement < vim4:InherentUnitaryQuantity [
+	// 	restricts vim4:instantiates to iso-80000-3.4:volume
+	// ]
+
+    	relation entity IsWeatherOf [
+		from Weather
+		to  EnverionmentalCondition
+		forward isWeatherOf
+		reverse hasWeather
+  ]
+    	relation entity IsIlluminationOf [
+		from Illumination
+		to  EnverionmentalCondition
+		forward isIlluminationOf
+		reverse hasIllumination
+  ]    	
+        
+        relation entity IsParticulateMatterOf [
+		from ParticulateMatter
+		to  EnverionmentalCondition
+		forward isParticulateMatterOf
+		reverse hasParticulateMatter
+  ]    	
+        
+        relation entity IsIntelligentTransportSystemOf [
+		from IntelligentTransportSystem
+		to  Connectivity
+		forward isIntelligentTransportSystemOf
+		reverse hasIntelligentTransportSystem
+  ]    	
+        relation entity IsV2XCommunicationSystemOf [
+		from V2XCommunicationSystem
+		to  Connectivity
+		forward isV2XCommunicationSystemOf
+		reverse hasV2XCommunicationSystem
+  ]
+        relation entity IsSchoolZoneOf [
+		from SchoolZone
+		to  Zone
+		forward isSchoolZoneOf
+		reverse hasSchoolZone
+  ]
+        relation entity IsGeo-FensingZoneOf [
+		from Geo-FensingZone
+		to  Zone
+		forward isGeo-FensingZoneOf
+		reverse hasGeo-FensingZone
+  ]
+
+        relation entity IsInterferenceZoneOf [
+		from InterferenceZone
+		to  EnverionmentalCondition
+		forward isInterferenceZoneOf
+		reverse hasInterferenceZone
+  ]
+        relation entity IsTrafficManagementZoneOf [
+		from TrafficManagementZone
+		to  Zone
+		forward isTrafficManagementZoneOf
+		reverse hasTrafficManagementZone
+  ]
+        relation entity IsRegionsStatesOf [
+		from RegionsStates
+		to  Zone
+		forward isRegionsStatesOf
+		reverse hasRegionsStates
+  ]
+        relation entity IsSpeedLimitOf [
+		from SpeedLimit
+		to  OperationalConstraints
+		forward isSpeedLimitOf
+		reverse hasSpeedLimit
+  ]
+        relation entity IsTrafficConditionsOf [
+		from TrafficConditions
+		to  OperationalConstraints
+		forward isTrafficConditionsOf
+		reverse hasTrafficConditions
+  ]
+        relation entity IsNonRoadUserOf [
+		from NonRoadUser
+		to  TrafficParticipants
+		forward isNonRoadUserOf
+		reverse hasNonRoadUser
+  ]
+        relation entity IsRoadUserOf [
+		from RoadUser
+		to  TrafficParticipants
+		forward isRoadUserOf
+		reverse hasRoadUser
+  ]
+        relation entity IsRFOf [
+		from RoadFurniture
+		to  Physicalinfrastructure
+		forward isRoadFurnitureOf
+		reverse hasRoadFurniture
+  ]
+
+        relation entity IsRoadOf [
+		from Road
+		to  Physicalinfrastructure
+		forward isRoadOf
+		reverse hasRoad
+  ]
+        relation entity IsSignageOf [
+		from Signage
+		to  Physicalinfrastructure
+		forward isSignageOf
+		reverse hasSignage
+  ]
+        relation entity IsRoadInfrastructureOf [
+		from RoadInfrastructure
+		to  Physicalinfrastructure
+		forward isRoadInfrastructureOf
+		reverse hasRoadInfrastructure
+  ]
+        relation entity IsRoadMarkingOf [
+		from RoadMarking
+		to  Physicalinfrastructure
+		forward isRoadMarkingOf
+		reverse hasRoadMarking
+  ]
+
+}
