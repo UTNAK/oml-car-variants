@@ -60,6 +60,16 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 	]
 
 
+    concept Wiper < mission:Component
+
+	relation entity IsWiperOf [
+		from Wiper
+		to Car
+		forward isWiperOf
+		reverse hasWiper
+		functional
+
+]
 	relation entity IsNavigationOf[
 		from Navigation
 		to Car
@@ -82,6 +92,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1#> as vocabulary
 		forward isWindowOf
 		reverse hasWindow
 		functional
+
 
 	]
 
