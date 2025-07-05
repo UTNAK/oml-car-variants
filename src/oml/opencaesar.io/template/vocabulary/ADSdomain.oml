@@ -31,7 +31,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept TrafficParticipants < mission:Component [
+    concept TrafficParticipants < mission:Component,affectedOEDRElement [
 
     ]
 
@@ -47,7 +47,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept EnverionmentalCondition < mission:Component [
+    concept EnverionmentalCondition < mission:Component,affectedOEDRElement [
 
     ]
 
@@ -71,7 +71,13 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
     concept RoadInfrastructure < mission:Component
     concept RoadMarking < mission:Component
 
-
+    aspect affectedOEDRElement
+    relation entity AffectOEDROf [
+        from affectedOEDRElement
+        to AutomatedDrivingSystem
+        forward affectOEDROf
+        reverse isAffectedBy
+    ]
 
   	relation entity IsJASPARODDDefinitionbasedonNHTSAODDClassificationFrameworkOf [
 		from JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
@@ -133,6 +139,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 		forward isConnectivityOf
 		reverse hasConnectivity
   ]
+  
 
     	relation entity IsECOf [
 		from EnverionmentalCondition
