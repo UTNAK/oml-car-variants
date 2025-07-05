@@ -266,3 +266,22 @@ This error says the same `Engine` cannot become `isEngineOf` in more than one `C
 As Dr. Maged Elaasar mentions [here](https://bentleyjoakes.github.io/assets/publications/Elaasar2023%20-%20openCAESAR%20Balancing%20Agility%20and%20Rigor%20in%20Model-Based%20Systems%20Engineering.pdf), in openCAESAR, analysis happens at two levels. First, the logical consistency of the models is checked using OML and description logic reasoners. Second, other analyses investigate other properties of the system. OML models can easily be checked for logical consistency with an off-the-shelf descrip- tion logic (DL) reasoner. This check is typically done very early in an analysis pipeline as in the Kepler16b example CI pipeline. Completeness checks can be encoded in a vocabulary directly using minimum/exact cardinality restrictions on properties. They can also be captured using libraries of well-formedness rules that query consistent models. The advantage of the latter is the ability to separate those two concerns, and the ability to use other analyses frameworks than a DL reasoner.
 
 
+## SWRLB
+
+```
+PREFIX vocabulary1:        <http://opencaesar.io/template/vocabulary/vocabulary1#>
+PREFIX mission:        <http://imce.jpl.nasa.gov/foundation/mission#>
+PREFIX vim4:        <http://bipm.org/jcgm/vim4#>
+
+SELECT DISTINCT*
+WHERE {
+  
+  ?iri a vocabulary1:notValidMaxDisplacementRequirement;
+  		vocabulary1:isSpecifiedBy ?riri;
+    	vim4:hasDoubleNumber ?niri.
+    OPTIONAL{
+      ?riri vocabulary1:maxDisplacement ?miri; 
+  	}
+  	
+}ORDER BY ?iri
+```
