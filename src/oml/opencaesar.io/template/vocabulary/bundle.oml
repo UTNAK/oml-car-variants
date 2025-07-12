@@ -4,8 +4,10 @@
 vocabulary bundle <http://opencaesar.io/template/vocabulary/bundle#> as vocabulary-bundle {
 		
 	includes <http://purl.org/dc/elements/1.1/> as dc	
+	extends <http://bipm.org/jcgm/jcgm-bundle#>
 
 	includes <http://opencaesar.io/template/vocabulary/vocabulary1#>
 	includes <http://opencaesar.io/template/vocabulary/mission#>
+	includes <http://opencaesar.io/template/vocabulary/NHTSA-ODD#> 
 
 }
