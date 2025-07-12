@@ -35,11 +35,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept OperationalConstraints < mission:Component,followedElement [
+    concept OperationalConstraints < mission:Component, collectedElement [
 
     ]
 
-    concept Zone < mission:Component, enteredElement [
+    concept Zone < mission:Component, collectedElement [
 
     ]
 
@@ -94,26 +94,26 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         reverse connectWith
     ]
 
-	aspect followedElement
+
     relation entity Follow [
         from AutomatedDrivingSystem
-        to followedElement
+        to OperationalConstraints
         forward follow
         reverse isfollowedBy
     ]
 
-	aspect collectElement
+	aspect collectedElement
     relation entity Collect [
-        from collectElement
-        to OperationalConstraints
+        from Connectivity
+        to collectedElement
         forward collect
         reverse collectedBy
     ]
 
-	aspect enteredElement
+	
     relation entity EnterTo [
         from AutomatedDrivingSystem
-        to enteredElement
+        to Zone
         forward enterTo
         reverse enteredBy
     ]
