@@ -4,7 +4,7 @@
 vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
-	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
 
 
 	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
@@ -19,7 +19,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept AutomatedDrivingSystem < mission:Component, ConnectedElement [
+    concept AutomatedDrivingSystem < mission:Component, connectedElement [
 
     ]
 
@@ -27,14 +27,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-	@rdfs:label "PhysicalInfrastructure"
-	@dc:description "[=Physical infrastructure=] refers to facilities and systems that serve a country, 
-    city, or area and enable its economy to function."
-    concept Physicalinfrastructure < mission:Component,affectedOEDRElement, ConnectedElement [
+    concept Physicalinfrastructure < mission:Component,affectedOEDRElement, connectedElement [
 
     ]
 
-    concept TrafficParticipants < mission:Component,affectedOEDRElement, ConnectedElement [
+    concept TrafficParticipants < mission:Component,affectedOEDRElement, connectedElement [
 
     ]
 
@@ -46,7 +43,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    // concept Connectivity < mission:Component,connectivity [
+    // concept Connectivity < mission:Component,connectivity, collectElement, connectedElement [
 
     // ]
 
@@ -57,24 +54,22 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
     concept Weather < EnverionmentalCondition
     concept Illumination < EnverionmentalCondition
     concept ParticulateMatter < EnverionmentalCondition
- 
-    
-    concept IntelligentTransportSystem < mission:Component
-    concept V2XCommunicationSystem < mission:Component, Connectivity
-    concept SchoolZone < mission:Component
-    concept Geo-FensingZone < mission:Component
-    concept InterferenceZone < mission:Component
-    concept TrafficManagementZone < mission:Component
-    concept RegionsStates < mission:Component
-    concept SpeedLimit < mission:Component
-    concept TrafficConditions < mission:Component
-    concept NonRoadUser < mission:Component
-    concept RoadUser < mission:Component
-    concept RoadFurniture < mission:Component
-    concept Road < mission:Component
-    concept Signage < mission:Component
-    concept RoadInfrastructure < mission:Component
-    concept RoadMarking < mission:Component
+    concept IntelligentTransportSystem < Connectivity
+    concept V2XCommunicationSystem < Connectivity
+    concept SchoolZone < Zone
+    concept Geo-FensingZone < Zone
+    concept InterferenceZone < Zone
+    concept TrafficManagementZone < Zone
+    concept RegionsStates < Zone
+    concept SpeedLimit < OperationalConstraints
+    concept TrafficConditions < OperationalConstraints
+    concept NonRoadUser < TrafficParticipants
+    concept RoadUser < TrafficParticipants
+    concept RoadFurniture < Physicalinfrastructure
+    concept Road < Physicalinfrastructure
+    concept Signage < Physicalinfrastructure
+    concept RoadInfrastructure < Physicalinfrastructure
+    concept RoadMarking < Physicalinfrastructure
 
     aspect affectedOEDRElement
     relation entity AffectOEDROf [
@@ -84,24 +79,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         reverse isAffectedBy
     ]
 
-	aspect ConnectedElement
+	aspect connectedElement
 	aspect Connectivity
     relation entity Connected [
         from Connectivity
-        to ConnectedElement
+        to connectedElement
         forward connected
         reverse connectWith
     ]
-    
-    relation entity ADSConnected [
-        from Connectivity
-        to AutomatedDrivingSystem
-        forward adsConnected
-        reverse adsConnectWith
-    ]
-        
-    
-    
 	// aspect connecteElement
     // relation entity Connected [
     //     from AutomatedDrivingSystem
