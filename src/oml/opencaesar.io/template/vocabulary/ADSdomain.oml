@@ -43,10 +43,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    // concept Connectivity < mission:Component,connectivity, collectElement, connectedElement [
-
-    // ]
-
     concept EnverionmentalCondition < mission:Component,affectedOEDRElement [
 
     ]
@@ -54,18 +50,28 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
     concept Weather < EnverionmentalCondition
     concept Illumination < EnverionmentalCondition
     concept ParticulateMatter < EnverionmentalCondition
+
+
     concept IntelligentTransportSystem < Connectivity
     concept V2XCommunicationSystem < Connectivity
-    concept SchoolZone < Zone
+    
+	
+	concept SchoolZone < Zone
     concept Geo-FensingZone < Zone
     concept InterferenceZone < Zone
     concept TrafficManagementZone < Zone
     concept RegionsStates < Zone
-    concept SpeedLimit < OperationalConstraints
+    
+	
+	concept SpeedLimit < OperationalConstraints
     concept TrafficConditions < OperationalConstraints
-    concept NonRoadUser < TrafficParticipants
+    
+	
+	concept NonRoadUser < TrafficParticipants
     concept RoadUser < TrafficParticipants
-    concept RoadFurniture < Physicalinfrastructure
+    
+	
+	concept RoadFurniture < Physicalinfrastructure
     concept Road < Physicalinfrastructure
     concept Signage < Physicalinfrastructure
     concept RoadInfrastructure < Physicalinfrastructure
@@ -87,13 +93,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         forward connected
         reverse connectWith
     ]
-	// aspect connecteElement
-    // relation entity Connected [
-    //     from AutomatedDrivingSystem
-    //     to connectedElement
-    //     forward connectwith
-    //     reverse connected
-    // ]
+
 	aspect followedElement
     relation entity Follow [
         from AutomatedDrivingSystem
