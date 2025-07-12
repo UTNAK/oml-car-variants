@@ -14,7 +14,7 @@ buildscript {
 		classpath "org.yaml:snakeyaml:2.+"
 		classpath "io.opencaesar.owl:owl-fuseki-gradle:$owl"
 		classpath "io.opencaesar.owl:owl-query-gradle:$owl"
-		classpath "io.opencaesar.owl:owl-shacl-gradle:+"
+		classpath "io.opencaesar.owl:owl-shacl-gradle:2.15.0"
 		classpath "io.opencaesar.owl:owl-load-gradle:$owl"
 		classpath "io.opencaesar.owl:owl-save-gradle:$owl"
 		classpath "io.opencaesar.owl:owl-reason-gradle:$owl"

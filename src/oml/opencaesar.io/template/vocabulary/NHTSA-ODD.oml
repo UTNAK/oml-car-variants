@@ -1,0 +1,28 @@
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+@dc:description "The Base vocabulary defines foundation concepts that are common to multiple specialized ontologies."
+@dc:title "NHTSA-ODD"
+vocabulary <http://opencaesar.io/template/vocabulary/NHTSA-ODD#> as NHTSA-ODD {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as imce-mission
+    extends <http://imce.jpl.nasa.gov/foundation/base#> as imce-base
+
+	@rdfs:label "PhysicalInfrastructure"
+	@dc:description "[=Physical infrastructure=] refers to facilities and systems that serve a country, 
+    city, or area and enable its economy to function."
+	concept PhysicalInfrastructure
+
+
+
+
+	@rdfs:label "Roadway Types"
+	@dc:description "Divided highway, undivided highway, arterial, urban, rural, parking, multi-lane, single lane, high-occupancy vehicle (HOV) lane, on/off ramps, emergency evacuation routes, one-way, turn-only lanes, private roads, reversible lanes, intersections (signaled, U- turns, 4-way/2-way stop, roundabout, merge lanes, turn-only lanes, crosswalk, toll plaza, railroad crossing) (FHWA, 2012)."
+    concept RoadwayTypes < PhysicalInfrastructure
+
+
+
+
+}
