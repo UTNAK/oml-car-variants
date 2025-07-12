@@ -4,7 +4,7 @@
 vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
-
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
 
 
 	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
@@ -27,6 +27,9 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
+	@rdfs:label "PhysicalInfrastructure"
+	@dc:description "[=Physical infrastructure=] refers to facilities and systems that serve a country, 
+    city, or area and enable its economy to function."
     concept Physicalinfrastructure < mission:Component,affectedOEDRElement [
 
     ]
