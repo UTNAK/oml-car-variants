@@ -17,10 +17,10 @@ description <http://opencaesar.io/template/description/ADSdomain#> as ADSdomain 
 
 	instance ADS : ADSdomain:AutomatedDrivingSystem
 	instance V2Xcommunicationsystem : ADSdomain:V2XCommunicationSystem[
-		ADSdomain:adsConnected ADS
+		ADSdomain:connected ADS
 		ADSdomain:connected physicalinfrastructure
 	]
-	instance physicalinfrastructure : ADSdomain:Physicalinfrastructure[
+	instance physicalinfrastructure : ADSdomain:Physicalinfrastructure
 	
 //	
 //	
