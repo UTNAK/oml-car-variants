@@ -11,7 +11,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 
 	concept AutoamtedDrivingSystemDomain < mission:Component [
-		// restricts hasEngine to exactly 1
+
 
 	]
 
