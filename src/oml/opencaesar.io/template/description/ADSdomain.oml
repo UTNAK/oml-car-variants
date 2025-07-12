@@ -18,9 +18,9 @@ description <http://opencaesar.io/template/description/ADSdomain#> as ADSdomain 
 	instance ADS : ADSdomain:AutomatedDrivingSystem
 	instance V2Xcommunicationsystem : ADSdomain:V2XCommunicationSystem[
 		ADSdomain:connected ADS
-		ADSdomain:connected physicalinfrastructure
+		ADSdomain:connected two-rane-road
 	]
-	instance physicalinfrastructure : ADSdomain:Physicalinfrastructure
+	instance two-rane-road : ADSdomain:Road
 	
 //	
 //	
