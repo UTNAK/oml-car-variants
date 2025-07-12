@@ -19,7 +19,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept AutomatedDrivingSystem < mission:Component [
+    concept AutomatedDrivingSystem < mission:Component, connectedElement [
 
     ]
 
@@ -27,25 +27,25 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept Physicalinfrastructure < mission:Component,affectedOEDRElement [
+    concept Physicalinfrastructure < mission:Component,affectedOEDRElement, connectedElement [
 
     ]
 
-    concept TrafficParticipants < mission:Component,affectedOEDRElement [
+    concept TrafficParticipants < mission:Component,affectedOEDRElement, connectedElement [
 
     ]
 
-    concept OperationalConstraints < mission:Component [
+    concept OperationalConstraints < mission:Component,followedElement [
 
     ]
 
-    concept Zone < mission:Component [
+    concept Zone < mission:Component, enteredElement [
 
     ]
 
-    concept Connectivity < mission:Component [
+    // concept Connectivity < mission:Component,connectivity [
 
-    ]
+    // ]
 
     concept EnverionmentalCondition < mission:Component,affectedOEDRElement [
 
@@ -79,6 +79,44 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         reverse isAffectedBy
     ]
 
+	aspect connectedElement
+	aspect Connectivity
+    relation entity Connected [
+        from Connectivity
+        to connectedElement
+        forward connected
+        reverse connectWith
+    ]
+	// aspect connecteElement
+    // relation entity Connected [
+    //     from AutomatedDrivingSystem
+    //     to connectedElement
+    //     forward connectwith
+    //     reverse connected
+    // ]
+	aspect followedElement
+    relation entity Follow [
+        from AutomatedDrivingSystem
+        to followedElement
+        forward follow
+        reverse isfollowedBy
+    ]
+
+	aspect collectElement
+    relation entity Collect [
+        from collectElement
+        to OperationalConstraints
+        forward collect
+        reverse collectedBy
+    ]
+
+	aspect enteredElement
+    relation entity EnterTo [
+        from AutomatedDrivingSystem
+        to enteredElement
+        forward enterTo
+        reverse enteredBy
+    ]
   	relation entity IsJASPARODDDefinitionbasedonNHTSAODDClassificationFrameworkOf [
 		from JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
 		to  AutoamtedDrivingSystemDomain
@@ -162,6 +200,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 		to  EnverionmentalCondition
 		forward isIlluminationOf
 		reverse hasIllumination
+	
   ]    	
         
         relation entity IsParticulateMatterOf [
@@ -198,7 +237,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
         relation entity IsInterferenceZoneOf [
 		from InterferenceZone
-		to  EnverionmentalCondition
+		to  Zone
 		forward isInterferenceZoneOf
 		reverse hasInterferenceZone
   ]
