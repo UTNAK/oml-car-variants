@@ -19,7 +19,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept AutomatedDrivingSystem < mission:Component, connectedElement [
+    concept AutomatedDrivingSystem < mission:Component, ConnectedElement [
 
     ]
 
@@ -30,11 +30,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 	@rdfs:label "PhysicalInfrastructure"
 	@dc:description "[=Physical infrastructure=] refers to facilities and systems that serve a country, 
     city, or area and enable its economy to function."
-    concept Physicalinfrastructure < mission:Component,affectedOEDRElement, connectedElement [
+    concept Physicalinfrastructure < mission:Component,affectedOEDRElement, ConnectedElement [
 
     ]
 
-    concept TrafficParticipants < mission:Component,affectedOEDRElement, connectedElement [
+    concept TrafficParticipants < mission:Component,affectedOEDRElement, ConnectedElement [
 
     ]
 
@@ -54,11 +54,13 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept Weather < mission:Component
-    concept Illumination < mission:Component
-    concept ParticulateMatter < mission:Component
+    concept Weather < EnverionmentalCondition
+    concept Illumination < EnverionmentalCondition
+    concept ParticulateMatter < EnverionmentalCondition
+ 
+    
     concept IntelligentTransportSystem < mission:Component
-    concept V2XCommunicationSystem < mission:Component
+    concept V2XCommunicationSystem < mission:Component, Connectivity
     concept SchoolZone < mission:Component
     concept Geo-FensingZone < mission:Component
     concept InterferenceZone < mission:Component
@@ -82,14 +84,24 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         reverse isAffectedBy
     ]
 
-	aspect connectedElement
+	aspect ConnectedElement
 	aspect Connectivity
     relation entity Connected [
         from Connectivity
-        to connectedElement
+        to ConnectedElement
         forward connected
         reverse connectWith
     ]
+    
+    relation entity ADSConnected [
+        from Connectivity
+        to AutomatedDrivingSystem
+        forward adsConnected
+        reverse adsConnectWith
+    ]
+        
+    
+    
 	// aspect connecteElement
     // relation entity Connected [
     //     from AutomatedDrivingSystem
