@@ -93,7 +93,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         reverse connectWith
     ]
 
-	aspect followedElement
+	
     relation entity Follow [
         from AutomatedDrivingSystem
         to OperationalConstraints
