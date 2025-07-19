@@ -1,0 +1,297 @@
+@dc:title "Example Description"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+description <http://opencaesar.io/template/description/scene/scene01#> as scene01 {
+
+	uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
+    uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as weather
+    uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as illumination
+
+    instance odd-01 : adsdomain:JASPARODD[
+        adsdomain:hasEC heavyRain
+        adsdomain:hasEC day
+    ]
+
+    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+
+    instance heavyRain : weather:HeavyRain
+    instance day : illumination:Day
+
+
+
+	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/Weather#> as Weather
+	// uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure#> as Physicalinfrastructure
+	// // uses <http://opencaesar.io/template/vocabulary/Connectivity#> as Connectivity
+	// // uses <http://opencaesar.io/template/vocabulary/TrafficParticipants#> as TrafficParticipants
+	// // uses <http://opencaesar.io/template/vocabulary/OperationalConstraints#> as OperationalConstraints
+	// // uses <http://opencaesar.io/template/vocabulary/Zone#> as Zone
+
+	// // uses <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+	// // uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	// // uses <http://bipm.org/jcgm/vim4#> as vim4
+
+	// // uses <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	// instance
+
+	// instance environmentalcondition : ADSdomain:EnverionmentalCondition
+	// instance two-rane-road : ADSdomain:Road
+	// instance heavyrain :ADSdomain:Weather
+	// instance weather : ADSdomain:rain[
+		
+		
+	// ]
+
+	
+//  instance environmentalcondition : ADSdomain:EnverionmentalCondition[
+//        ADSdomain:affectOEDROf ADSdomain:ADS
+//    ]
+// 	instance physicalinfrastructure : ADSdomain:Physicalinfrastructure[
+// 		ADSdomain:affectOEDROf ADSdomain:ADS
+// 	]
+// 	instance connectivity : ADSdomain:Connectivity[
+// 		ADSdomain:connected ADSdomain:ADS
+// 	]
+// 	instance trafficparticipants : ADSdomain:TrafficParticipants[
+// 		ADSdomain:affectOEDROf ADSdomain:ADS
+// 	]
+// 	instance operationalconstraints : ADSdomain:OperationalConstraints[
+// 		ADSdomain:followedBy ADSdomain:ADS
+// 	]
+// 	instance zone : ADSdomain:Zone[
+// 		ADSdomain:enteredBy ADSdomain:ADS
+// 	]
+// 	instance weather : ADSdomain:Weather[
+// 		ADSdomain:isWeatherOf ADSdomain:environmentalcondition
+// 	]
+// 	instance illumination : ADSdomain:Illumination[
+// 		ADSdomain:isIlluminationOf ADSdomain:environmentalcondition
+// 	]
+// 	instance particulatematter : ADSdomain:ParticulateMatter[
+// 		ADSdomain:isParticulateMatterOf ADSdomain:environmentalcondition
+// 	]
+// 	instance intelligenttransportsystem : ADSdomain:IntelligentTransportSystem[
+// 		ADSdomain:isIntelligentTransportSystemOf ADSdomain:connectivity
+// 	]
+// 	instance V2Xcommunicationsystem : ADSdomain:V2XCommunicationSystem[
+// 		ADSdomain:isV2XCommunicationSystemOf ADSdomain:connectivity
+// 	]
+// 	instance schoolzone : ADSdomain:SchoolZone[
+// 		ADSdomain:isSchoolZoneOf ADSdomain:zone
+// 	]
+// 	instance Geo-Fensingzone : ADSdomain:Geo-FensingZone[
+// 		ADSdomain:isGeo-FensingZoneOf ADSdomain:zone
+// 	]
+// 	instance interferencezone :ADSdomain:InterferenceZone[
+// 		ADSdomain:isInterferenceZoneOf ADSdomain:zone
+// 	]
+// 	instance trafficmanagementzone :ADSdomain:TrafficManagementZone[
+// 		ADSdomain:isTrafficManagementZoneOf ADSdomain:zone
+// 	]
+// 	instance regionsstates : ADSdomain:RegionsStates[
+// 		ADSdomain:isRegionsStatesOf ADSdomain:zone
+// 	]
+// 	instance speedlimit : ADSdomain:SpeedLimit[
+// 		ADSdomain:isSpeedLimitOf ADSdomain:operationalconstraints
+// 	]
+// 	instance trafficconditions : ADSdomain:TrafficConditions[
+// 		ADSdomain:isTrafficConditionsOf ADSdomain:operationalconstraints
+// 	]
+// 	instance nonroaduser : ADSdomain:NonRoadUser[
+// 		ADSdomain:isNonRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance roaduser : ADSdomain:RoadUser[
+// 		ADSdomain:isRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance roadfurniture : ADSdomain:RoadFurniture[
+// 		ADSdomain:isRoadFurnitureOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance road : ADSdomain:Road[
+// 		ADSdomain:isRoadOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance sigange : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance roadinfrastructure : ADSdomain:RoadInfrastructure[
+// 		ADSdomain:isRoadInfrastructureOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance roadmarking : ADSdomain:RoadMarking[
+// 		ADSdomain:isRoadMarkingOf ADSdomain:physicalinfrastructure
+// 	]
+	
+// 	// instance of operational constrains
+// 	instance minimumspeedlimit : ADSdomain:SpeedLimit[
+// 		ADSdomain:isSpeedLimitOf ADSdomain:operationalconstraints
+// 	]
+// 	instance maximumspeedlimit : ADSdomain:SpeedLimit[
+// 		ADSdomain:isSpeedLimitOf ADSdomain:operationalconstraints
+// 	]
+// 	instance minimumtraffic : ADSdomain:TrafficConditions[
+// 		ADSdomain:isTrafficConditionsOf ADSdomain:operationalconstraints
+// 	]
+// 	instance normaltraffic : ADSdomain:TrafficConditions[
+// 		ADSdomain:isTrafficConditionsOf ADSdomain:operationalconstraints
+// 	]
+// 	instance bumpertobumper-rushhourtraffic : ADSdomain:TrafficConditions[
+// 		ADSdomain:isTrafficConditionsOf ADSdomain:operationalconstraints
+// 	]
+// 	instance altered : ADSdomain:TrafficConditions[
+// 		ADSdomain:isTrafficConditionsOf ADSdomain:operationalconstraints
+// 	]
+// 	instance signs : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance trafficsignals : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance crosswalks : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance railroadcrossing : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance stoppedbuses : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance constructionsignage : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance firstrespondersignals : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance distresssignals : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance roadwayusersignals : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	instance handsignals : ADSdomain:Signage[
+// 		ADSdomain:isSignageOf ADSdomain:physicalinfrastructure
+// 	]
+// 	// instance of traffic participants
+// 	instance vehicletypes : ADSdomain:RoadUser[
+// 		ADSdomain:isRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance stoppedvehicles : ADSdomain:RoadUser[
+// 		ADSdomain:isRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance movingvehicles : ADSdomain:RoadUser[
+// 		ADSdomain:isRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance pedestrians : ADSdomain:RoadUser[
+// 		ADSdomain:isRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance cyclists : ADSdomain:RoadUser[
+// 		ADSdomain:isRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance animals : ADSdomain:NonRoadUser[
+// 		ADSdomain:isNonRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance stoppingcarts : ADSdomain:NonRoadUser[
+// 		ADSdomain:isNonRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance debris : ADSdomain:NonRoadUser[
+// 		ADSdomain:isNonRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance constructionequipment : ADSdomain:NonRoadUser[
+// 		ADSdomain:isNonRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance nonroaduserpedestrians : ADSdomain:NonRoadUser[
+// 		ADSdomain:isNonRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	instance nonroadusercyclists : ADSdomain:NonRoadUser[
+// 		ADSdomain:isNonRoadUserOf ADSdomain:trafficparticipants
+// 	]
+// 	// instance of environmental condition
+// 	// instance of weather
+//    instance lowrain :ADSdomain:Weather[
+//        ADSdomain:isWeatherOf ADSdomain:environmentalcondition
+//    ]
+// 	instance moderaterain :ADSdomain:Weather[
+//        ADSdomain:isWeatherOf ADSdomain:environmentalcondition
+//    ]
+// 	instance heavyrain :ADSdomain:Weather[
+//        ADSdomain:isWeatherOf ADSdomain:environmentalcondition
+//    ]
+// 	instance snow :ADSdomain:Weather[
+//        ADSdomain:isWeatherOf ADSdomain:environmentalcondition
+//    ]
+// 	instance wind :ADSdomain:Weather[
+//        ADSdomain:isWeatherOf ADSdomain:environmentalcondition
+//    ]
+// 	instance temperature :ADSdomain:Weather[
+//        ADSdomain:isWeatherOf ADSdomain:environmentalcondition
+//    ]
+// 	// instance of Particulate Matter
+// 	instance fog : ADSdomain:ParticulateMatter[
+// 		ADSdomain:isParticulateMatterOf ADSdomain:environmentalcondition
+// 	]
+// 	instance smok : ADSdomain:ParticulateMatter[
+// 		ADSdomain:isParticulateMatterOf ADSdomain:environmentalcondition
+// 	]
+// 	instance smog : ADSdomain:ParticulateMatter[
+// 		ADSdomain:isParticulateMatterOf ADSdomain:environmentalcondition
+// 	]
+// 	instance dustordirt : ADSdomain:ParticulateMatter[
+// 		ADSdomain:isParticulateMatterOf ADSdomain:environmentalcondition
+// 	]
+// 	instance mud : ADSdomain:ParticulateMatter[
+// 		ADSdomain:isParticulateMatterOf ADSdomain:environmentalcondition
+// 	]
+// 	// instance of Illumination
+// 	instance day : ADSdomain:Illumination[
+// 		ADSdomain:isIlluminationOf ADSdomain:environmentalcondition
+// 	]
+// 	instance dawn : ADSdomain:Illumination[
+// 		ADSdomain:isIlluminationOf ADSdomain:environmentalcondition
+// 	]
+// 	instance dusk : ADSdomain:Illumination[
+// 		ADSdomain:isIlluminationOf ADSdomain:environmentalcondition
+// 	]
+// 	instance night : ADSdomain:Illumination[
+// 		ADSdomain:isIlluminationOf ADSdomain:environmentalcondition
+// 	]
+// 	instance streetlights : ADSdomain:Illumination[
+// 		ADSdomain:isIlluminationOf ADSdomain:environmentalcondition
+// 	]
+// 	instance headlights : ADSdomain:Illumination[
+// 		ADSdomain:isIlluminationOf ADSdomain:environmentalcondition
+// 	]
+// 	instance oncomingvehiclelights : ADSdomain:Illumination[
+// 		ADSdomain:isIlluminationOf ADSdomain:environmentalcondition
+// 	]
+// 	// instance of ODD
+// 	instance environmentalcondition1 : ADSdomain:EnverionmentalCondition[
+// 		ADSdomain:hasIllumination day
+// 		ADSdomain:hasWeather heavyrain
+// 		ADSdomain:hasParticulateMatter fog
+// 	] 
+// instance environmentalcondition2 : ADSdomain:EnverionmentalCondition[
+	// 	ADSdomain:hasIllumination night
+	// 	ADSdomain:hasWeather snow
+	// 	ADSdomain:hasParticulateMatter fog
+	// ] 
+// 	instance zone1 : ADSdomain:Zone[
+// 		ADSdomain:hasSchoolZone schoolzone 
+// 	]
+// 	instance operationalconstrains1 : ADSdomain:OperationalConstraints[
+// 		ADSdomain:hasSpeedLimit minimumspeedlimit
+// 		ADSdomain:hasSpeedLimit maximumspeedlimit
+// 		ADSdomain:hasTrafficConditions normaltraffic
+// 	]
+// 	instance Senario1 : ADSdomain:JASPARODDDefinitionbasedonNHTSAODDClassificationFramework[
+// 		ADSdomain:hasZone zone1
+// 		ADSdomain:hasOC operationalconstrains1
+// 		ADSdomain:hasEC environmentalcondition1
+// 	]	
+// instance Senario2 : ADSdomain:JASPARODDDefinitionbasedonNHTSAODDClassificationFramework[
+// 		ADSdomain:hasZone zone1
+// 		ADSdomain:hasOC operationalconstrains1
+// 		ADSdomain:hasEC environmentalcondition2
+// 	]	
+	
+	
+}
