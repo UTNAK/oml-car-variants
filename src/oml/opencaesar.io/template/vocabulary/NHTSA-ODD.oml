@@ -7,22 +7,104 @@ vocabulary <http://opencaesar.io/template/vocabulary/NHTSA-ODD#> as NHTSA-ODD {
 	extends <http://purl.org/dc/elements/1.1/> as dc
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
 
-	extends <http://imce.jpl.nasa.gov/foundation/mission#> as imce-mission
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
     extends <http://imce.jpl.nasa.gov/foundation/base#> as imce-base
 
+	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
+
+	// The ODD, which is specified by the manufacturer or developing entity, 
+	// describes the specific operating domains and conditions in which the system can function. 
+
+	// OEDR refers to the subtasks of the DDT that include monitoring the driving environment
+	//  (detecting, recognizing, and classifying objects and events and preparing to respond as needed)
+	//  and executing an appropriate response to such objects and events 
+	// (i.e., as needed to complete the DDT and/or DDT fallback) (SAE International, 2016).
+
+	// DDT dynamic driving task
+
+	@rdfs:label "OperationalDesignDomain"
+	@dc:description "[=Operational Design Domain=] refers to facilities and systems that serve a country, 
+    city, or area and enable its economy to function."
+	concept OperationalDesignDomain < base:IdentifiedElement[
+		// restricts hasPhysicalInfrastructure to exactly 1
+		// restricts all hasPhysicalInfrastructure to PhysicalInfrastructure
+		restricts hasEnvironmentalConditions to exactly 1
+	]
+
+	aspect ODDElements
+	relation entity HasODDElements[
+		from OperationalDesignDomain
+		to ODDElements
+		forward hasODDElements
+		reverse isODDElementsOf
+	]
 	@rdfs:label "PhysicalInfrastructure"
 	@dc:description "[=Physical infrastructure=] refers to facilities and systems that serve a country, 
     city, or area and enable its economy to function."
-	concept PhysicalInfrastructure
+	concept PhysicalInfrastructure < ODDElements
+	concept OperationalConstraints < ODDElements
+	concept Objects < ODDElements
+	concept Connectivity < ODDElements
+	concept EnvironmentalConditions < base:IdentifiedElement, ODDElements 
+	concept Zones < ODDElements
 
+	relation entity HasPhysicalInfrastructure[
+		from OperationalDesignDomain
+		to PhysicalInfrastructure
+		forward hasPhysicalInfrastructure
+		asymmetric
+	]
+	relation entity HasObjects[
+		from OperationalDesignDomain
+		to Objects
+		forward hasObjects
+		asymmetric
+	]
+	relation entity HasOperationalConstraints[
+		from OperationalDesignDomain
+		to OperationalConstraints
+		forward hasOperationalConstraints
+		asymmetric
+	]
 
+	relation entity HasConnectivity[
+		from OperationalDesignDomain
+		to Connectivity
+		forward hasConnectivity
+		asymmetric
+	]
 
+	relation entity HasEnvironmentalConditions[
+		from OperationalDesignDomain
+		to EnvironmentalConditions
+		forward hasEnvironmentalConditions
+		reverse isEnvironmentalConditionsOf
+		asymmetric
+	] < HasODDElements
+	relation entity HasZone[
+		from OperationalDesignDomain
+		to Zones
+		forward hasZone
+		asymmetric
+	] < HasODDElements
 
-	@rdfs:label "Roadway Types"
-	@dc:description "Divided highway, undivided highway, arterial, urban, rural, parking, multi-lane, single lane, high-occupancy vehicle (HOV) lane, on/off ramps, emergency evacuation routes, one-way, turn-only lanes, private roads, reversible lanes, intersections (signaled, U- turns, 4-way/2-way stop, roundabout, merge lanes, turn-only lanes, crosswalk, toll plaza, railroad crossing) (FHWA, 2012)."
-    concept RoadwayTypes < PhysicalInfrastructure
+	// @rdfs:label "Roadway Types"
+	// @dc:description "Divided highway, undivided highway, arterial, urban, rural, parking, multi-lane, single lane, high-occupancy vehicle (HOV) lane, on/off ramps, emergency evacuation routes, one-way, turn-only lanes, private roads, reversible lanes, intersections (signaled, U- turns, 4-way/2-way stop, roundabout, merge lanes, turn-only lanes, crosswalk, toll plaza, railroad crossing) (FHWA, 2012)."
+    // concept RoadwayTypes < PhysicalInfrastructure
 
+	@rdfs:label "Weather"
+	@dc:description "Weather acts through visibility impairments, precipitation, high winds, and temperature extremes 
+	to affect driver capabilities, vehicle performance (i.e., traction, stability, and maneuverability), 
+	pavement friction, roadway infrastructure, crash risk, traffic flow, and agency productivity (FHWA, 2017a)."
+    concept Weather
 
+	relation entity HasWeather[
+		from EnvironmentalConditions
+		to Weather
+		forward hasWeather
+		asymmetric
+	]
 
-
+	concept Rain < Weather
+	concept Clear < Weather
 }

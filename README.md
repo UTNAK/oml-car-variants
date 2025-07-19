@@ -281,3 +281,26 @@ As Dr. Maged Elaasar mentions [here](https://bentleyjoakes.github.io/assets/publ
 
 ![1751698134350](image/README/1751698134350.png)
 
+
+
+
+### Query
+```
+PREFIX analysis:	<http://imce.jpl.nasa.gov/foundation/analysis#>
+PREFIX constraint:	<http://opencaesar.io/firesat-telecom/telecom-supplier/vocabulary/constraint#>
+PREFIX rdfs:		<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nhtsa-odd:	<http://opencaesar.io/template/vocabulary/NHTSA-ODD#>
+
+SELECT DISTINCT*
+
+WHERE {
+  ?odd a nhtsa-odd:OperationalDesignDomain.
+  # EnvironmentalConditions
+  OPTIONAL{
+    ?odd nhtsa-odd:hasEnvironmentalConditions[ nhtsa-odd:hasWeather ?weather].
+  }
+  OPTIONAL{
+    ?odd nhtsa-odd:hasZone ?zone.
+  }
+}
+```
