@@ -7,16 +7,23 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
     uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as weather
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as illumination
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as road
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as roadFurniture
 
     instance odd-01 : adsdomain:JASPARODD[
         adsdomain:hasEC heavyRain
         adsdomain:hasEC day
+		adsdomain:hasPI dividedHighway
+		adsdomain:hasPI curb
     ]
 
     // instance environmentalCondition : adsdomain:EnverionmentalCondition
 
     instance heavyRain : weather:HeavyRain
     instance day : illumination:Day
+
+	instance dividedHighway : road:DividedHighway
+	instance curb : roadFurniture:Curb
 
 
 
