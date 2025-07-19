@@ -1,16 +1,27 @@
 @dc:title "Example Description"
 @dc:creator "Example Company"
 @dc:rights "Copyright 2019, by Example Company"
-description <http://opencaesar.io/template/description/ADSdomain#> as ADSdomain {
+description <http://opencaesar.io/template/description/scene/scene01#> as scene01 {
 
 	uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
+    uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as weather
+    uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as illumination
+
+    instance odd-01 : adsdomain:JASPARODD[
+        adsdomain:hasEC heavyRain
+        adsdomain:hasEC day
+    ]
+
+    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+
+    instance heavyRain : weather:HeavyRain
+    instance day : illumination:Day
 
 
 
 	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/Weather#> as Weather
 	// uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure#> as Physicalinfrastructure
-	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/EnvironmentalCodition#> as EnvironmentalCodition
-	uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
 	// // uses <http://opencaesar.io/template/vocabulary/Connectivity#> as Connectivity
 	// // uses <http://opencaesar.io/template/vocabulary/TrafficParticipants#> as TrafficParticipants
 	// // uses <http://opencaesar.io/template/vocabulary/OperationalConstraints#> as OperationalConstraints
@@ -24,10 +35,9 @@ description <http://opencaesar.io/template/description/ADSdomain#> as ADSdomain 
 
 	// // uses <http://www.w3.org/2001/XMLSchema#> as xsd
 
-	
+	// instance
 
-	instance environmentalcondition1 :ADSdomain:EnverionmentalCondition
-	
+	// instance environmentalcondition : ADSdomain:EnverionmentalCondition
 	// instance two-rane-road : ADSdomain:Road
 	// instance heavyrain :ADSdomain:Weather
 	// instance weather : ADSdomain:rain[
