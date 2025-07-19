@@ -9,14 +9,16 @@ description <http://opencaesar.io/template/description/scene/scene04#> as scene0
 
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as Weather
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as Illumination
+    uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as Road
 
     instance odd-04 :  Adsdomain:JASPARODD[
         Adsdomain:hasEC wind
         Adsdomain:hasEC dawn
-        
+        Adsdomain:hasPI multi-Lane
     ]
     instance wind : Weather:Wind
     instance dawn : Illumination:Dawn
+    instance multi-Lane : Road:Multi-Lane
     
 
 }
