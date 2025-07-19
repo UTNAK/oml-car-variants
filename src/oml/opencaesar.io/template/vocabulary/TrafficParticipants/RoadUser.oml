@@ -6,6 +6,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUse
 	extends <http://purl.org/dc/elements/1.1/> as dc
 
 	extends <http://opencaesar.io/template/vocabulary/TrafficParticipants/TrafficParticipants#> as TrafficParticipants
+    
  
     
     concept VehicleTypes < TrafficParticipants:RoadUser
