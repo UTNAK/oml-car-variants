@@ -1,7 +1,7 @@
 @dc:title "Example Description"
 @dc:creator "Example Company"
 @dc:rights "Copyright 2019, by Example Company"
-description <http://opencaesar.io/template/description/scene04#> as scene04 {
+description <http://opencaesar.io/template/description/scene/scene04#> as scene04 {
 	
 	uses <http://purl.org/dc/elements/1.1/> as dc
 
@@ -11,12 +11,12 @@ description <http://opencaesar.io/template/description/scene04#> as scene04 {
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as Illumination
 
     instance odd-04 :  Adsdomain:JASPARODD[
-        Adsdomain:hasEC snow
-        Adsdomain:hasEC day
+        Adsdomain:hasEC wind
+        Adsdomain:hasEC dawn
         
     ]
-    instance snow : Weather:Snow
-    instance day : Illumination:Day
+    instance wind : Weather:Wind
+    instance dawn : Illumination:Dawn
     
 
 }
