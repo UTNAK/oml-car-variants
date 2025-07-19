@@ -1,0 +1,46 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/TrafficParticipants/TrafficParticipants#> as TrafficParticipants {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
+    // concept TrafficParticipants < ADSdomain:TrafficParticipants
+    
+    concept RoadUser < ADSdomain:TrafficParticipants
+    concept NonRoadUser < ADSdomain:TrafficParticipants
+
+    // concept VehicleTypes < TrafficParticipants:RoadUser
+
+    // concept Cars < TrafficParticipants:VehicleTypes
+    // concept LightTrucks < TrafficParticipants:VehicleTypes
+    // concept LargeTrucks < TrafficParticipants:VehicleTypes
+    // concept Buses < TrafficParticipants:VehicleTypes
+    // concept Motorcycles < TrafficParticipants:VehicleTypes
+    // concept Wide-load < TrafficParticipants:VehicleTypes
+    // concept EmergencyVehicles < TrafficParticipants:VehicleTypes
+    // concept VehicleTypes-ConstructionEquipment < TrafficParticipants:VehicleTypes
+    // concept Horse-drawnCarriagesBuggies < TrafficParticipants:VehicleTypes
+
+    // concept StoppedVehicles < TrafficParticipants:RoadUser
+    // concept MovingVehicles < TrafficParticipants:RoadUser
+    // concept ManualMovingVehicles < TrafficParticipants:MovingVehicles
+    // concept AutonomousMovingVehicles < TrafficParticipants:MovingVehicles
+    // concept RoadUserCyclists < TrafficParticipants:RoadUser
+    // concept RoadUserPedestrians < TrafficParticipants:RoadUser
+
+
+    // concept Animals < TrafficParticipants:NonRoadUser
+    // concept Dogs < TrafficParticipants:Animals
+    // concept Deer < TrafficParticipants:Animals
+    // concept StoppingCarts < TrafficParticipants:NonRoadUser
+    // concept Debris < TrafficParticipants:NonRoadUser
+    // concept PiecesofTire < TrafficParticipants:Debris
+    // concept Trash < TrafficParticipants:Debris
+    // concept Ladders < TrafficParticipants:Debris
+    // concept ConstructionEquipment < TrafficParticipants:NonRoadUser
+    // concept NonRoadUserPedestrians < TrafficParticipants:NonRoadUser
+    // concept NonRoadUserCyclists < TrafficParticipants:NonRoadUser
+
+    }

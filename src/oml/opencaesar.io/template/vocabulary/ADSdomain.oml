@@ -10,12 +10,12 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
 
 
-	concept AutoamtedDrivingSystemDomain < mission:Component [
+	concept AutomatedDrivingSystemDomain < mission:Component [
 
 
 	]
 
-    concept JASPARODDDefinitionbasedonNHTSAODDClassificationFramework  < mission:Component [
+    concept JASPARODD  < mission:Component [
 
     ]
 
@@ -35,7 +35,9 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept OperationalConstraints < mission:Component, collectedElement 
+    concept OperationalConstraints < mission:Component, collectedElement [
+
+    ] 
 
 
     concept Zone < mission:Component, collectedElement [
@@ -46,37 +48,59 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept Weather < EnverionmentalCondition
-    concept Illumination < EnverionmentalCondition
-    concept ParticulateMatter < EnverionmentalCondition
+    concept Weather < EnverionmentalCondition [
+    ]
+	// concept rain < Weather [
+    // ]
+    concept Illumination < EnverionmentalCondition [
+    ]
+    concept ParticulateMatter < EnverionmentalCondition [
+    ]
 
 
-    concept IntelligentTransportSystem < Connectivity
-    concept V2XCommunicationSystem < Connectivity
+    concept IntelligentTransportSystem < Connectivity [
+    ]
+    concept V2XCommunicationSystem < Connectivity [
+    ]
     
 	
-	concept SchoolZone < Zone
-    concept Geo-FensingZone < Zone
-    concept InterferenceZone < Zone
-    concept TrafficManagementZone < Zone
-    concept RegionsStates < Zone
+	concept SchoolZone < Zone [
+    ]
+    concept Geo-FensingZone < Zone [
+    ]
+    concept InterferenceZone < Zone [
+    ]
+    concept TrafficManagementZone < Zone [
+    ]
+    concept RegionsStates < Zone [
+    ]
     
 	
-	concept SpeedLimit < OperationalConstraints
-    concept TrafficConditions < OperationalConstraints
+	concept SpeedLimit < OperationalConstraints [
+    ]
+    concept TrafficConditions < OperationalConstraints [
+    ]
     
 	
-	concept NonRoadUser < TrafficParticipants
-    concept RoadUser < TrafficParticipants
+	concept NonRoadUser < TrafficParticipants [
+    ]
+    concept RoadUser < TrafficParticipants [
+    ]
     
 	
-	concept RoadFurniture < Physicalinfrastructure
-    concept Road < Physicalinfrastructure
-    concept Signage < Physicalinfrastructure
-    concept RoadInfrastructure < Physicalinfrastructure
-    concept RoadMarking < Physicalinfrastructure
+	concept RoadFurniture < Physicalinfrastructure [
+    ]
+    concept Road < Physicalinfrastructure [
+    ]
+    concept Signage < Physicalinfrastructure [
+    ]
+    concept RoadInfrastructure < Physicalinfrastructure [
+    ]
+    concept RoadMarking < Physicalinfrastructure [
+    ]
 
-    aspect affectedOEDRElement
+    aspect affectedOEDRElement [
+    ]
     relation entity AffectOEDROf [
         from affectedOEDRElement
         to AutomatedDrivingSystem
@@ -84,8 +108,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         reverse isAffectedBy
     ]
 
-	aspect connectedElement
-	aspect Connectivity
+	aspect connectedElement [
+    ]
+	aspect Connectivity [
+    ]
     relation entity Connected [
         from Connectivity
         to connectedElement
@@ -101,7 +127,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         reverse isfollowedBy
     ]
 
-	aspect collectedElement
+	aspect collectedElement [
+    ]
     relation entity Collect [
         from Connectivity
         to collectedElement
@@ -116,11 +143,13 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         forward enterTo
         reverse enteredBy
     ]
-  	relation entity IsJASPARODDDefinitionbasedonNHTSAODDClassificationFrameworkOf [
-		from JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
-		to  AutoamtedDrivingSystemDomain
-		forward isASPARODDDefinitionbasedonNHTSAODDClassificationFrameworkOf
-		reverse hasASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+
+
+  	relation entity IsJASPARODDOf [
+		from JASPARODD
+		to  AutomatedDrivingSystemDomain
+		forward isJASPARODDOf
+		reverse hasJASPARODD
   ]
 
 	relation entity IsEquippedTo [
@@ -134,7 +163,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 	relation entity IsAVOf[
 		from AutomatedVehicle
-		to AutoamtedDrivingSystemDomain
+		to AutomatedDrivingSystemDomain
 		forward isAVOf
 		reverse hasAV
 	]
@@ -142,14 +171,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 	relation entity IsPIOf [
 		from Physicalinfrastructure
-		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		to  JASPARODD
 		forward isPIOf
 		reverse hasPI
   ]
 
 	relation entity IsTPOf [
 		from TrafficParticipants
-		to JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		to JASPARODD
 		forward isTPOf
 		reverse hasTP
 		functional
@@ -158,21 +187,21 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 	relation entity IsOCOf [
 		from OperationalConstraints
-		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		to  JASPARODD
 		forward isOCOf
 		reverse hasOC
   ]
 
   	relation entity IsZoneOf [
 		from Zone
-		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		to  JASPARODD
 		forward isZoneOf
 		reverse hasZone
   ]
 
   	relation entity IsConnectivityOf [
 		from Connectivity
-		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		to  JASPARODD
 		forward isConnectivityOf
 		reverse hasConnectivity
   ]
@@ -180,7 +209,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     	relation entity IsECOf [
 		from EnverionmentalCondition
-		to  JASPARODDDefinitionbasedonNHTSAODDClassificationFramework
+		to  JASPARODD
 		forward isECOf
 		reverse hasEC
   ]
@@ -188,124 +217,124 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 	// 	restricts vim4:instantiates to iso-80000-3.4:volume
 	// ]
 
-    	relation entity IsWeatherOf [
-		from Weather
-		to  EnverionmentalCondition
-		forward isWeatherOf
-		reverse hasWeather
-  ]
-    	relation entity IsIlluminationOf [
-		from Illumination
-		to  EnverionmentalCondition
-		forward isIlluminationOf
-		reverse hasIllumination
+//     	relation entity IsWeatherOf [
+// 		from Weather
+// 		to  EnverionmentalCondition
+// 		forward isWeatherOf
+// 		reverse hasWeather
+//   ]
+//     	relation entity IsIlluminationOf [
+// 		from Illumination
+// 		to  EnverionmentalCondition
+// 		forward isIlluminationOf
+// 		reverse hasIllumination
 	
-  ]    	
+//   ]    	
         
-        relation entity IsParticulateMatterOf [
-		from ParticulateMatter
-		to  EnverionmentalCondition
-		forward isParticulateMatterOf
-		reverse hasParticulateMatter
-  ]    	
+//         relation entity IsParticulateMatterOf [
+// 		from ParticulateMatter
+// 		to  EnverionmentalCondition
+// 		forward isParticulateMatterOf
+// 		reverse hasParticulateMatter
+//   ]    	
         
-        relation entity IsIntelligentTransportSystemOf [
-		from IntelligentTransportSystem
-		to  Connectivity
-		forward isIntelligentTransportSystemOf
-		reverse hasIntelligentTransportSystem
-  ]    	
-        relation entity IsV2XCommunicationSystemOf [
-		from V2XCommunicationSystem
-		to  Connectivity
-		forward isV2XCommunicationSystemOf
-		reverse hasV2XCommunicationSystem
-  ]
-        relation entity IsSchoolZoneOf [
-		from SchoolZone
-		to  Zone
-		forward isSchoolZoneOf
-		reverse hasSchoolZone
-  ]
-        relation entity IsGeo-FensingZoneOf [
-		from Geo-FensingZone
-		to  Zone
-		forward isGeo-FensingZoneOf
-		reverse hasGeo-FensingZone
-  ]
+//         relation entity IsIntelligentTransportSystemOf [
+// 		from IntelligentTransportSystem
+// 		to  Connectivity
+// 		forward isIntelligentTransportSystemOf
+// 		reverse hasIntelligentTransportSystem
+//   ]    	
+//         relation entity IsV2XCommunicationSystemOf [
+// 		from V2XCommunicationSystem
+// 		to  Connectivity
+// 		forward isV2XCommunicationSystemOf
+// 		reverse hasV2XCommunicationSystem
+//   ]
+//         relation entity IsSchoolZoneOf [
+// 		from SchoolZone
+// 		to  Zone
+// 		forward isSchoolZoneOf
+// 		reverse hasSchoolZone
+//   ]
+//         relation entity IsGeo-FensingZoneOf [
+// 		from Geo-FensingZone
+// 		to  Zone
+// 		forward isGeo-FensingZoneOf
+// 		reverse hasGeo-FensingZone
+//   ]
 
-        relation entity IsInterferenceZoneOf [
-		from InterferenceZone
-		to  Zone
-		forward isInterferenceZoneOf
-		reverse hasInterferenceZone
-  ]
-        relation entity IsTrafficManagementZoneOf [
-		from TrafficManagementZone
-		to  Zone
-		forward isTrafficManagementZoneOf
-		reverse hasTrafficManagementZone
-  ]
-        relation entity IsRegionsStatesOf [
-		from RegionsStates
-		to  Zone
-		forward isRegionsStatesOf
-		reverse hasRegionsStates
-  ]
-        relation entity IsSpeedLimitOf [
-		from SpeedLimit
-		to  OperationalConstraints
-		forward isSpeedLimitOf
-		reverse hasSpeedLimit
-  ]
-        relation entity IsTrafficConditionsOf [
-		from TrafficConditions
-		to  OperationalConstraints
-		forward isTrafficConditionsOf
-		reverse hasTrafficConditions
-  ]
-        relation entity IsNonRoadUserOf [
-		from NonRoadUser
-		to  TrafficParticipants
-		forward isNonRoadUserOf
-		reverse hasNonRoadUser
-  ]
-        relation entity IsRoadUserOf [
-		from RoadUser
-		to  TrafficParticipants
-		forward isRoadUserOf
-		reverse hasRoadUser
-  ]
-        relation entity IsRFOf [
-		from RoadFurniture
-		to  Physicalinfrastructure
-		forward isRoadFurnitureOf
-		reverse hasRoadFurniture
-  ]
+//         relation entity IsInterferenceZoneOf [
+// 		from InterferenceZone
+// 		to  Zone
+// 		forward isInterferenceZoneOf
+// 		reverse hasInterferenceZone
+//   ]
+//         relation entity IsTrafficManagementZoneOf [
+// 		from TrafficManagementZone
+// 		to  Zone
+// 		forward isTrafficManagementZoneOf
+// 		reverse hasTrafficManagementZone
+//   ]
+//         relation entity IsRegionsStatesOf [
+// 		from RegionsStates
+// 		to  Zone
+// 		forward isRegionsStatesOf
+// 		reverse hasRegionsStates
+//   ]
+//         relation entity IsSpeedLimitOf [
+// 		from SpeedLimit
+// 		to  OperationalConstraints
+// 		forward isSpeedLimitOf
+// 		reverse hasSpeedLimit
+//   ]
+//         relation entity IsTrafficConditionsOf [
+// 		from TrafficConditions
+// 		to  OperationalConstraints
+// 		forward isTrafficConditionsOf
+// 		reverse hasTrafficConditions
+//   ]
+//         relation entity IsNonRoadUserOf [
+// 		from NonRoadUser
+// 		to  TrafficParticipants
+// 		forward isNonRoadUserOf
+// 		reverse hasNonRoadUser
+//   ]
+//         relation entity IsRoadUserOf [
+// 		from RoadUser
+// 		to  TrafficParticipants
+// 		forward isRoadUserOf
+// 		reverse hasRoadUser
+//   ]
+//         relation entity IsRFOf [
+// 		from RoadFurniture
+// 		to  Physicalinfrastructure
+// 		forward isRoadFurnitureOf
+// 		reverse hasRoadFurniture
+//   ]
 
-        relation entity IsRoadOf [
-		from Road
-		to  Physicalinfrastructure
-		forward isRoadOf
-		reverse hasRoad
-  ]
-        relation entity IsSignageOf [
-		from Signage
-		to  Physicalinfrastructure
-		forward isSignageOf
-		reverse hasSignage
-  ]
-        relation entity IsRoadInfrastructureOf [
-		from RoadInfrastructure
-		to  Physicalinfrastructure
-		forward isRoadInfrastructureOf
-		reverse hasRoadInfrastructure
-  ]
-        relation entity IsRoadMarkingOf [
-		from RoadMarking
-		to  Physicalinfrastructure
-		forward isRoadMarkingOf
-		reverse hasRoadMarking
-  ]
+//         relation entity IsRoadOf [
+// 		from Road
+// 		to  Physicalinfrastructure
+// 		forward isRoadOf
+// 		reverse hasRoad
+//   ]
+//         relation entity IsSignageOf [
+// 		from Signage
+// 		to  Physicalinfrastructure
+// 		forward isSignageOf
+// 		reverse hasSignage
+//   ]
+//         relation entity IsRoadInfrastructureOf [
+// 		from RoadInfrastructure
+// 		to  Physicalinfrastructure
+// 		forward isRoadInfrastructureOf
+// 		reverse hasRoadInfrastructure
+//   ]
+//         relation entity IsRoadMarkingOf [
+// 		from RoadMarking
+// 		to  Physicalinfrastructure
+// 		forward isRoadMarkingOf
+// 		reverse hasRoadMarking
+//   ]
 
 }

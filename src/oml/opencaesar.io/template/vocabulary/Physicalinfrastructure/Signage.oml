@@ -1,0 +1,35 @@
+
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Signage#> as Signage {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#> as Physicalinfrastructure
+    
+    // Signs
+    concept Signs < Physicalinfrastructure:Signage
+    concept Stop < Signage:Signs
+    concept Yield < Signage:Signs
+    concept Pedestrian < Signage:Signs
+    concept Railroad < Signage:Signs
+    concept SchoolZone < Signage:Signs
+
+    // Traffic Signals
+    concept TrafficSignals < Physicalinfrastructure:Signage
+    concept Flashing < Signage:TrafficSignals
+    concept SchoolZoneSignal < Signage:TrafficSignals
+    concept FireDepartmentZone < Signage:TrafficSignals
+
+    // signage-related elements
+    concept Crosswalks < Physicalinfrastructure:Signage
+    concept RailroadCrossing < Physicalinfrastructure:Signage
+    concept StoppedBuses < Physicalinfrastructure:Signage
+    concept ConstructionSignage < Physicalinfrastructure:Signage
+    concept FirstResponderSignals < Physicalinfrastructure:Signage
+    concept DistressSignals < Physicalinfrastructure:Signage
+    concept RoadwayUserSignals < Physicalinfrastructure:Signage
+    concept HandSignals < Physicalinfrastructure:Signage
+    
+    }

@@ -1,0 +1,21 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as RoadFurniture {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#> as Physicalinfrastructure
+
+    concept LineMarkers < Physicalinfrastructure:RoadFurniture
+    concept Temporarylinemarkers < Physicalinfrastructure:RoadFurniture
+    concept Shoulder < Physicalinfrastructure:RoadFurniture
+    concept PavedShoulder <  RoadFurniture:Shoulder
+    concept GravelShoulder < RoadFurniture:Shoulder
+    concept GrasslShoulder < Physicalinfrastructure:RoadFurniture
+    concept ConcreteBarriers < Physicalinfrastructure:RoadFurniture
+    concept Grating < Physicalinfrastructure:RoadFurniture
+    concept Rails < Physicalinfrastructure:RoadFurniture
+    concept Curb < Physicalinfrastructure:RoadFurniture
+    concept Cones < Physicalinfrastructure:RoadFurniture
+    }

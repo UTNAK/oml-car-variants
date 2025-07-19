@@ -1,0 +1,17 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/Zone/Zone#> as Zone {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
+    // concept TrafficParticipants < ADSdomain:TrafficParticipants
+    
+	concept SchoolZone < ADSdomain:Zone
+    concept Geo-FensingZone < ADSdomain:Zone
+    concept InterferenceZone < ADSdomain:Zone
+    concept TrafficManagementZone < ADSdomain:Zone
+    concept RegionsStates < ADSdomain:Zone
+
+    }

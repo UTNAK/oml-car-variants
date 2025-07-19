@@ -1,0 +1,29 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as RoadUser {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/TrafficParticipants/TrafficParticipants#> as TrafficParticipants
+ 
+    
+    concept VehicleTypes < TrafficParticipants:RoadUser
+    concept Cars < RoadUser:VehicleTypes
+    concept LightTrucks < RoadUser:VehicleTypes
+    concept LargeTrucks < RoadUser:VehicleTypes
+    concept Buses < RoadUser:VehicleTypes
+    concept Motorcycles < RoadUser:VehicleTypes
+    concept Wide-load < RoadUser:VehicleTypes
+    concept EmergencyVehicles < RoadUser:VehicleTypes
+    concept VehicleTypes-ConstructionEquipment < RoadUser:VehicleTypes
+    concept Horse-drawnCarriagesBuggies < RoadUser:VehicleTypes
+
+    concept StoppedVehicles < TrafficParticipants:RoadUser
+    concept MovingVehicles < TrafficParticipants:RoadUser
+    concept ManualMovingVehicles < RoadUser:MovingVehicles
+    concept AutonomousMovingVehicles < RoadUser:MovingVehicles
+    concept RoadUserCyclists < TrafficParticipants:RoadUser
+    concept RoadUserPedestrians < TrafficParticipants:RoadUser
+
+ }

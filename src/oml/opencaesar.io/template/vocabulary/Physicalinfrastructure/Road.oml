@@ -1,0 +1,40 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as Road {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#> as Physicalinfrastructure
+
+    concept DividedHighway < Physicalinfrastructure:Road
+    concept UndividedHighway < Physicalinfrastructure:Road
+    concept Arterial < Physicalinfrastructure:Road
+    concept Urban < Physicalinfrastructure:Road
+    concept Rural < Physicalinfrastructure:Road
+    concept Parking < Physicalinfrastructure:Road
+    concept Multi-Lane < Physicalinfrastructure:Road
+    concept Single-Lane < Physicalinfrastructure:Road
+    concept High-OccupancyVehicleHOVLane < Physicalinfrastructure:Road
+    concept On-OffRamps < Physicalinfrastructure:Road
+    concept EmergencyEvacuationRoutes < Physicalinfrastructure:Road
+    concept One-way < Physicalinfrastructure:Road
+    concept Turn-onlyLanes < Physicalinfrastructure:Road
+    concept PrivateRoads < Physicalinfrastructure:Road
+    concept ReversibleLanes < Physicalinfrastructure:Road
+    concept Intersections < Physicalinfrastructure:Road
+
+    concept Signaled < Road:Intersections
+    concept U-turns < Road:Intersections
+    concept 4-waystop < Road:Intersections
+    concept 2-waystop < Road:Intersections
+    concept Roundabout < Road:Intersections
+    concept MergeLanes < Road:Intersections
+    concept Turn-onlyLanesIntersections < Road:Intersections
+    concept Crosswalk < Road:Intersections
+    concept TollPlaza < Road:Intersections
+    concept RailroadCrossing < Road:Intersections
+    }
+
+
+

@@ -1,0 +1,48 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadInfrastructure#> as RoadInfrastructure {
+
+    extends <http://purl.org/dc/elements/1.1/> as dc
+
+    extends <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#> as Physicalinfrastructure
+
+    // Roadway Surfaces
+    concept RoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept Asphalt < RoadInfrastructure:RoadSurface
+    concept Concrete < RoadInfrastructure:RoadSurface
+    concept Mixed < RoadInfrastructure:RoadSurface
+    concept Grating < RoadInfrastructure:RoadSurface
+    concept Brick < RoadInfrastructure:RoadSurface
+    concept Dirt < RoadInfrastructure:RoadSurface
+    concept Gravel < RoadInfrastructure:RoadSurface
+    concept ScrapedRoad < RoadInfrastructure:RoadSurface
+    concept PartiallyOccluded < RoadInfrastructure:RoadSurface
+    concept SpeedBumps < RoadInfrastructure:RoadSurface
+    concept Potholes < RoadInfrastructure:RoadSurface
+    concept Grass < RoadInfrastructure:RoadSurface
+
+    // Roadway Edges
+    concept RoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept LineMarkers < RoadInfrastructure:RoadEdge
+    concept TemporaryLineMarkers < RoadInfrastructure:RoadEdge
+    concept ShoulderPaved < RoadInfrastructure:RoadEdge
+    concept ShoulderGravel < RoadInfrastructure:RoadEdge
+    concept ShoulderGrass < RoadInfrastructure:RoadEdge
+    concept ConcreteBarriers < RoadInfrastructure:RoadEdge
+    concept Rails < RoadInfrastructure:RoadEdge
+    concept Curb < RoadInfrastructure:RoadEdge
+    concept Cones < RoadInfrastructure:RoadEdge
+
+    // Roadway Geometry
+    concept RoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept Straightaways < RoadInfrastructure:RoadGeometry
+    concept Curves < RoadInfrastructure:RoadGeometry
+    concept Hills < RoadInfrastructure:RoadGeometry
+    concept LateralCrests < RoadInfrastructure:RoadGeometry
+    concept Corners < RoadInfrastructure:RoadGeometry
+    concept RegularCorners < RoadInfrastructure:Corners
+    concept BlindCorners < RoadInfrastructure:Corners
+    concept NegativeObstacles < RoadInfrastructure:RoadGeometry
+    concept LaneWidth < RoadInfrastructure:RoadGeometry
+}

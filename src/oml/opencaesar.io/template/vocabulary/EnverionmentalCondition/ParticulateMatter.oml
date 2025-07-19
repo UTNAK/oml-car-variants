@@ -1,0 +1,16 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/ParticulateMatter#> as ParticulateMatter {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
+
+    concept Fog < EnverionmentalCondition:ParticulateMatter
+    concept Smoke < EnverionmentalCondition:ParticulateMatter
+    concept Smog < EnverionmentalCondition:ParticulateMatter
+    concept Dustordirt < EnverionmentalCondition:ParticulateMatter
+    concept Mud < EnverionmentalCondition:ParticulateMatter
+
+    }

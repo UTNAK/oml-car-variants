@@ -1,0 +1,17 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as Weather {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
+
+    concept LowRain < EnverionmentalCondition:Weather
+    concept ModerateRain < EnverionmentalCondition:Weather
+    concept HeavyRain < EnverionmentalCondition:Weather
+    concept Snow < EnverionmentalCondition:Weather
+    concept Wind < EnverionmentalCondition:Weather
+    concept Temprature < EnverionmentalCondition:Weather
+     
+    }

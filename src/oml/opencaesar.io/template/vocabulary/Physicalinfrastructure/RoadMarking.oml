@@ -1,0 +1,22 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadMarking#> as RoadMarking {
+
+    extends <http://purl.org/dc/elements/1.1/> as dc
+
+    extends <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#> as Physicalinfrastructure
+
+    concept RoadMarking < Physicalinfrastructure:Road
+
+    concept SolidLine < RoadMarking:RoadMarking
+    concept DashedLine < RoadMarking:RoadMarking
+    concept DoubleYellowLine < RoadMarking:RoadMarking
+    concept LaneDivider < RoadMarking:RoadMarking
+    concept EdgeLine < RoadMarking:RoadMarking
+    concept CrosswalkMarking < RoadMarking:RoadMarking
+    concept StopLine < RoadMarking:RoadMarking
+    concept ArrowMarking < RoadMarking:RoadMarking
+    concept SpeedLimitMarking < RoadMarking:RoadMarking
+    concept TextMarking < RoadMarking:RoadMarking
+}

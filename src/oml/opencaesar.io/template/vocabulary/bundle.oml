@@ -10,5 +10,26 @@ vocabulary bundle <http://opencaesar.io/template/vocabulary/bundle#> as vocabula
 	includes <http://opencaesar.io/template/vocabulary/mission#>
 	includes <http://opencaesar.io/template/vocabulary/NHTSA-ODD#> 
 	includes <http://opencaesar.io/template/vocabulary/ADSdomain#>
+	includes <http://opencaesar.io/template/vocabulary/Zone/Zone#>
+	includes <http://opencaesar.io/template/vocabulary/OperationalConstraints/OperationalConstraints#>
+	includes <http://opencaesar.io/template/vocabulary/OperationalConstraints/SpeedLimit#>
+	includes <http://opencaesar.io/template/vocabulary/OperationalConstraints/TrafficConditions#>
+	includes <http://opencaesar.io/template/vocabulary/Connectivity/Connectivity#>
+	includes <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#>
+	includes <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/ParticulateMatter#>
+	includes <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#>
+	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#>
+	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#>
+	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#>
+	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadInfrastructure#>
+	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadMarking#>
+	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Signage#>
+	includes <http://opencaesar.io/template/vocabulary/TrafficParticipants/TrafficParticipants#>
+	includes <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#>
+	includes <http://opencaesar.io/template/vocabulary/TrafficParticipants/NonRoadUser#>
+
+
+
+
 
 }

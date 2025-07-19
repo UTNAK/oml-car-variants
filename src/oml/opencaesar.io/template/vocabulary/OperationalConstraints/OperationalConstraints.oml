@@ -1,0 +1,19 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/OperationalConstraints/OperationalConstraints#> as OperationalConstraints {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+
+	extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
+
+    concept SpeedLimit < ADSdomain:OperationalConstraints
+    concept TrafficConditions < ADSdomain:OperationalConstraints 
+
+    // concept MinimumSpeedLimit < OperationalConstraints:SpeedLimit
+    // concept MaximumSpeedLimit < OperationalConstraints:SpeedLimit
+    // concept MinimumTraffic < OperationalConstraints:TrafficConditions
+    // concept NormalTraffic < OperationalConstraints:TrafficConditions
+    // concept Bumpertobumper-Rushhourtraffic < OperationalConstraints:TrafficConditions
+    // concept Altered < OperationalConstraints:TrafficConditions
+    }
