@@ -18,6 +18,7 @@ vocabulary bundle <http://opencaesar.io/template/vocabulary/bundle#> as vocabula
 	includes <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#>
 	includes <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/ParticulateMatter#>
 	includes <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#>
+	includes <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#>
 	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#>
 	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#>
 	includes <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#>

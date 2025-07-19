@@ -6,15 +6,19 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 	uses <http://purl.org/dc/elements/1.1/> as dc
     uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as weather
-	 uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as illumination
+	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as illumination
+    uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as road
 
     instance odd-01 : adsdomain:JASPARODD[
 		adsdomain:hasEC snow
 		adsdomain:hasEC day
-	]
+		adsdomain:hasPI dividedHighway
+	]  
 
 	instance snow : weather:Snow
 	instance day : illumination:Day
+
+	instance dividedHighway : road:DividedHighway
 
 	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/Weather#> as Weather
 	// uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure#> as Physicalinfrastructure
