@@ -15,9 +15,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Wea
     concept Wind < EnverionmentalCondition:Weather
     concept Temprature < EnverionmentalCondition:Weather
 
+    /// Parameters for CARLA
     scalar property cloudness[
 		domain HeavyRain
 		range xsd:decimal
     ]
 
-    }
+}
