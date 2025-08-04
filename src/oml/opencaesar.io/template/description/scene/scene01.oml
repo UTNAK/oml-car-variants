@@ -9,12 +9,15 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as illumination
 	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as road
 	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as roadFurniture
+	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as roaduser
 
     instance odd-01 : adsdomain:JASPARODD[
         adsdomain:hasEC heavyRain
         adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
 		adsdomain:hasPI curb
+		adsdomain:hasTP pov-1
+		adsdomain:hasTP pov-2
     ]
 
     // instance environmentalCondition : adsdomain:EnverionmentalCondition
@@ -24,6 +27,9 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 
 	instance dividedHighway : road:DividedHighway
 	instance curb : roadFurniture:Curb
+
+	instance pov-1 : roaduser:ManualMovingVehicles
+	instance pov-2 : roaduser:ManualMovingVehicles
 
 
 
