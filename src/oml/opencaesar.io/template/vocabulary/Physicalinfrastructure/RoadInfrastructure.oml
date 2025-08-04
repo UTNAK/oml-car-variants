@@ -7,42 +7,81 @@ vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road
 
     extends <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#> as Physicalinfrastructure
 
-    // Roadway Surfaces
+    // // Roadway Surfaces
+    // concept RoadSurface < Physicalinfrastructure:RoadInfrastructure
+    // concept Asphalt < RoadInfrastructure:RoadSurface
+    // concept Concrete < RoadInfrastructure:RoadSurface
+    // concept Mixed < RoadInfrastructure:RoadSurface
+    // concept Grating < RoadInfrastructure:RoadSurface
+    // concept Brick < RoadInfrastructure:RoadSurface
+    // concept Dirt < RoadInfrastructure:RoadSurface
+    // concept Gravel < RoadInfrastructure:RoadSurface
+    // concept ScrapedRoad < RoadInfrastructure:RoadSurface
+    // concept PartiallyOccluded < RoadInfrastructure:RoadSurface
+    // concept SpeedBumps < RoadInfrastructure:RoadSurface
+    // concept Potholes < RoadInfrastructure:RoadSurface
+    // concept Grass < RoadInfrastructure:RoadSurface
+
+    // // Roadway Edges
+    // concept RoadEdge < Physicalinfrastructure:RoadInfrastructure
+    // concept LineMarkers < Physicalinfrastructure:RoadInfrastructure
+    // concept TemporaryLineMarkers < Physicalinfrastructure:RoadInfrastructure
+    // concept ShoulderPaved < Physicalinfrastructure:RoadInfrastructure
+    // concept ShoulderGravel < Physicalinfrastructure:RoadInfrastructure
+    // concept ShoulderGrass < Physicalinfrastructure:RoadInfrastructure
+    // concept ConcreteBarriers < Physicalinfrastructure:RoadInfrastructure
+    // concept Rails < Physicalinfrastructure:RoadInfrastructure
+    // concept Curb < Physicalinfrastructure:RoadInfrastructure
+    // concept Cones < Physicalinfrastructure:RoadInfrastructure
+
+    // // Roadway Geometry
+    // concept RoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    // concept Straightaways < Physicalinfrastructure:RoadInfrastructure
+    // concept Curves < Physicalinfrastructure:RoadInfrastructure
+    // concept Hills < Physicalinfrastructure:RoadInfrastructure
+    // concept LateralCrests < Physicalinfrastructure:RoadInfrastructure
+    // concept Corners < Physicalinfrastructure:RoadInfrastructure
+    // concept RegularCorners < RoadInfrastructure:Corners
+    // concept BlindCorners < RoadInfrastructure:Corners
+    // concept NegativeObstacles < Physicalinfrastructure:RoadInfrastructure
+    // concept LaneWidth < Physicalinfrastructure:RoadInfrastructure
+
+        // Roadway Surfaces
     concept RoadSurface < Physicalinfrastructure:RoadInfrastructure
-    concept Asphalt < RoadInfrastructure:RoadSurface
-    concept Concrete < RoadInfrastructure:RoadSurface
-    concept Mixed < RoadInfrastructure:RoadSurface
-    concept Grating < RoadInfrastructure:RoadSurface
-    concept Brick < RoadInfrastructure:RoadSurface
-    concept Dirt < RoadInfrastructure:RoadSurface
-    concept Gravel < RoadInfrastructure:RoadSurface
-    concept ScrapedRoad < RoadInfrastructure:RoadSurface
-    concept PartiallyOccluded < RoadInfrastructure:RoadSurface
-    concept SpeedBumps < RoadInfrastructure:RoadSurface
-    concept Potholes < RoadInfrastructure:RoadSurface
-    concept Grass < RoadInfrastructure:RoadSurface
+    concept AsphaltRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept ConcreteRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept MixedRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept GratingRoadSurface< Physicalinfrastructure:RoadInfrastructure
+    concept BrickRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept DirtRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept GravelRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept ScrapedRoadRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept PartiallyOccludedRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept SpeedBumpsRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept PotholesRoadSurface < Physicalinfrastructure:RoadInfrastructure
+    concept GrassRoadSurface < Physicalinfrastructure:RoadInfrastructure
 
     // Roadway Edges
     concept RoadEdge < Physicalinfrastructure:RoadInfrastructure
-    concept LineMarkers < RoadInfrastructure:RoadEdge
-    concept TemporaryLineMarkers < RoadInfrastructure:RoadEdge
-    concept ShoulderPaved < RoadInfrastructure:RoadEdge
-    concept ShoulderGravel < RoadInfrastructure:RoadEdge
-    concept ShoulderGrass < RoadInfrastructure:RoadEdge
-    concept ConcreteBarriers < RoadInfrastructure:RoadEdge
-    concept Rails < RoadInfrastructure:RoadEdge
-    concept Curb < RoadInfrastructure:RoadEdge
-    concept Cones < RoadInfrastructure:RoadEdge
+    concept LineMarkersRoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept TemporaryLineMarkersRoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept ShoulderPavedRoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept ShoulderGravelRoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept ShoulderGrassRoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept ConcreteBarriersRoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept RailsRoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept CurbRoadEdge < Physicalinfrastructure:RoadInfrastructure
+    concept ConesRoadEdge < Physicalinfrastructure:RoadInfrastructure
 
     // Roadway Geometry
     concept RoadGeometry < Physicalinfrastructure:RoadInfrastructure
-    concept Straightaways < RoadInfrastructure:RoadGeometry
-    concept Curves < RoadInfrastructure:RoadGeometry
-    concept Hills < RoadInfrastructure:RoadGeometry
-    concept LateralCrests < RoadInfrastructure:RoadGeometry
-    concept Corners < RoadInfrastructure:RoadGeometry
-    concept RegularCorners < RoadInfrastructure:Corners
-    concept BlindCorners < RoadInfrastructure:Corners
-    concept NegativeObstacles < RoadInfrastructure:RoadGeometry
-    concept LaneWidth < RoadInfrastructure:RoadGeometry
+    concept StraightawaysRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept CurvesRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept HillsRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept LateralCrestsRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept CornersRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept RegularCornersRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept BlindCornersRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept NegativeObstaclesRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept LaneWidthRoadGeometry < Physicalinfrastructure:RoadInfrastructure
 }

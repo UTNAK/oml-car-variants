@@ -10,4 +10,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/Connectivity/Connectivity#>
     
     concept IntelligentTransportSystem < ADSdomain:Connectivity
     concept V2XCommunicationSystem < ADSdomain:Connectivity
+    concept DigitalInfrastructure < ADSdomain:Connectivity
+    concept GPS < ADSdomain:Connectivity
+    concept 3-DMaps < ADSdomain:Connectivity
+    concept PotholeLocations < ADSdomain:Connectivity
+    concept WeatherData < ADSdomain:Connectivity
+    concept InfrastructureData < ADSdomain:Connectivity
     }

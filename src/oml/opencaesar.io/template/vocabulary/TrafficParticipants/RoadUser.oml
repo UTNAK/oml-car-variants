@@ -10,20 +10,31 @@ vocabulary <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUse
  
     
     concept VehicleTypes < TrafficParticipants:RoadUser
-    concept Cars < RoadUser:VehicleTypes
-    concept LightTrucks < RoadUser:VehicleTypes
-    concept LargeTrucks < RoadUser:VehicleTypes
-    concept Buses < RoadUser:VehicleTypes
-    concept Motorcycles < RoadUser:VehicleTypes
-    concept Wide-load < RoadUser:VehicleTypes
-    concept EmergencyVehicles < RoadUser:VehicleTypes
-    concept VehicleTypes-ConstructionEquipment < RoadUser:VehicleTypes
-    concept Horse-drawnCarriagesBuggies < RoadUser:VehicleTypes
+    concept CarsVehicleTypes < TrafficParticipants:RoadUser
+    concept LightTrucksVehicleTypes < TrafficParticipants:RoadUser
+    concept LargeTrucksVehicleTypes < TrafficParticipants:RoadUser
+    concept BusesVehicleTypes < TrafficParticipants:RoadUser
+    concept MotorcyclesVehicleTypes < TrafficParticipants:RoadUser
+    concept Wide-loadVehicleTypes < TrafficParticipants:RoadUser
+    concept EmergencyVehiclesVehicleTypes < TrafficParticipants:RoadUser
+    concept VehicleTypes-ConstructionEquipmentVehicleTypes < TrafficParticipants:RoadUser
+    concept Horse-drawnCarriagesBuggiesVehicleTypes < TrafficParticipants:RoadUser
+    // concept Cars < RoadUser:VehicleTypes
+    // concept LightTrucks < RoadUser:VehicleTypes
+    // concept LargeTrucks < RoadUser:VehicleTypes
+    // concept Buses < RoadUser:VehicleTypes
+    // concept Motorcycles < RoadUser:VehicleTypes
+    // concept Wide-load < RoadUser:VehicleTypes
+    // concept EmergencyVehicles < RoadUser:VehicleTypes
+    // concept VehicleTypes-ConstructionEquipment < RoadUser:VehicleTypes
+    // concept Horse-drawnCarriagesBuggies < RoadUser:VehicleTypes
 
     concept StoppedVehicles < TrafficParticipants:RoadUser
     concept MovingVehicles < TrafficParticipants:RoadUser
-    concept ManualMovingVehicles < RoadUser:MovingVehicles
-    concept AutonomousMovingVehicles < RoadUser:MovingVehicles
+    // concept ManualMovingVehicles < RoadUser:MovingVehicles
+    // concept AutonomousMovingVehicles < RoadUser:MovingVehicles
+    concept ManualMovingVehicles < TrafficParticipants:RoadUser
+    concept AutonomousMovingVehicles < TrafficParticipants:RoadUser
     concept RoadUserCyclists < TrafficParticipants:RoadUser
     concept RoadUserPedestrians < TrafficParticipants:RoadUser
 

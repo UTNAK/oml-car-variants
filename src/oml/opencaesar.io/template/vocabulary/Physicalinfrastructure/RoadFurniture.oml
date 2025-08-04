@@ -10,8 +10,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road
     concept LineMarkers < Physicalinfrastructure:RoadFurniture
     concept Temporarylinemarkers < Physicalinfrastructure:RoadFurniture
     concept Shoulder < Physicalinfrastructure:RoadFurniture
-    concept PavedShoulder <  RoadFurniture:Shoulder
-    concept GravelShoulder < RoadFurniture:Shoulder
+    concept PavedShoulder <  Physicalinfrastructure:RoadFurniture
+    concept GravelShoulder < Physicalinfrastructure:RoadFurniture
+    concept ClearLaneMakers < Physicalinfrastructure:RoadFurniture
+    // concept PavedShoulder <  RoadFurniture:Shoulder
+    // concept GravelShoulder < RoadFurniture:Shoulder
     concept GrasslShoulder < Physicalinfrastructure:RoadFurniture
     concept ConcreteBarriers < Physicalinfrastructure:RoadFurniture
     concept Grating < Physicalinfrastructure:RoadFurniture

@@ -8,13 +8,15 @@ vocabulary <http://opencaesar.io/template/vocabulary/TrafficParticipants/NonRoad
 	extends <http://opencaesar.io/template/vocabulary/TrafficParticipants/TrafficParticipants#> as TrafficParticipants
 
     concept Animals < TrafficParticipants:NonRoadUser
-    concept Dogs < NonRoadUser:Animals
-    concept Deer < NonRoadUser:Animals
+    concept DogsAnimals < TrafficParticipants:NonRoadUser
+    concept DeerAnimals < TrafficParticipants:NonRoadUser
+    // concept Dogs < NonRoadUser:Animals
+    // concept Deer < NonRoadUser:Animals
     concept StoppingCarts < TrafficParticipants:NonRoadUser
     concept Debris < TrafficParticipants:NonRoadUser
-    concept PiecesofTire < NonRoadUser:Debris
-    concept Trash < NonRoadUser:Debris
-    concept Ladders < NonRoadUser:Debris
+    concept PiecesofTireDebris < TrafficParticipants:NonRoadUser
+    concept TrashDebris < TrafficParticipants:NonRoadUser
+    concept LaddersDebris < TrafficParticipants:NonRoadUser
     concept ConstructionEquipment < TrafficParticipants:NonRoadUser
     concept NonRoadUserPedestrians < TrafficParticipants:NonRoadUser
     concept NonRoadUserCyclists < TrafficParticipants:NonRoadUser 

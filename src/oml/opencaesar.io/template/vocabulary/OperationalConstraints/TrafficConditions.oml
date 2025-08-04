@@ -11,5 +11,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/OperationalConstraints/Traf
     concept NormalTraffic < OperationalConstraints:TrafficConditions
     concept Bumpertobumper-Rushhourtraffic < OperationalConstraints:TrafficConditions
     concept Altered < OperationalConstraints:TrafficConditions
+    concept HeavyTraffic < OperationalConstraints:TrafficConditions
     }
  

@@ -11,20 +11,14 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as Illumination
 	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as Road
 	uses <http://opencaesar.io/template/vocabulary/Zone/Zone#> as Zone
-	uses <http://opencaesar.io/template/vocabulary/OperationalConstraints/OperationalConstraints#> as OperationalConstraints
 	uses <http://opencaesar.io/template/vocabulary/OperationalConstraints/SpeedLimit#> as SpeedLimit
 	uses <http://opencaesar.io/template/vocabulary/OperationalConstraints/TrafficConditions#> as TrafficConditions
 	uses <http://opencaesar.io/template/vocabulary/Connectivity/Connectivity#> as Connectivity
-	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/ParticulateMatter#> as ParticulateMatter
-	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as Weather
-	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#> as Physicalinfrastructure
-	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as Road
 	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as RoadFurniture
 	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadInfrastructure#> as RoadInfrastructure
 	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadMarking#> as RoadMarking
-	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Signage#> as Signage 
-	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/TrafficParticipants#> as TrafficParticipants
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Signage#> as Signage
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as RoadUser
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/NonRoadUser#> as NonRoadUser 
 	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/EnvironmentalCodition#> as EnvironmentalCodition
@@ -46,18 +40,46 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 	instance odd-01 : ADSdomain:JASPARODD[
 		ADSdomain:hasEC snow
 		ADSdomain:hasEC day
-		ADSdomain:hasPI DividedHighway
-		ADSdomain:hasPI ConcreteBarriers
-		ADSdomain:hasPI SolidLine
+		ADSdomain:hasPI dividedHighway
+		ADSdomain:hasPI concreteBarriers
+		ADSdomain:hasPI solidLine
+		ADSdomain:hasZone schoolZone
+		ADSdomain:hasOC 60kph
+		ADSdomain:hasOC 100kph
+		ADSdomain:hasOC normalTraffic
+		ADSdomain:hasTP buses
+		ADSdomain:hasTP deer
+		ADSdomain:hasEC fog
+		ADSdomain:hasConnectivity V2X
+		ADSdomain:hasPI asphalt
+		ADSdomain:hasPI trafficSignals
+		ADSdomain:hasPI stopSign
+		ADSdomain:hasPI crosswalk
+
 	]
 	// instance environmentalcondition1 :ADSdomain:EnverionmentalCondition[
 
 
 	instance snow : Weather:Snow
 	instance day : Illumination:Day
-	instance DividedHighway : Road:DividedHighway
-	instance ConcreteBarriers : RoadFurniture:ConcreteBarriers
-	instance SolidLine : RoadMarking:SolidLine
+	instance dividedHighway : Road:DividedHighway
+	instance concreteBarriers : RoadFurniture:ConcreteBarriers
+	instance solidLine : RoadMarking:SolidLine
+	instance schoolZone : Zone:SchoolZone
+	instance 60kph : SpeedLimit:MinimumSpeedLimit
+	instance 100kph : SpeedLimit:MaximumSpeedLimit
+	instance normalTraffic : TrafficConditions:NormalTraffic
+	instance buses : RoadUser:BusesVehicleTypes
+	instance deer : NonRoadUser:DeerAnimals
+	instance fog : ParticulateMatter:Fog
+	instance V2X :  Connectivity:V2XCommunicationSystem
+	instance asphalt : RoadInfrastructure:AsphaltRoadSurface
+	instance trafficSignals : Signage:TrafficSignals
+	instance stopSign : Signage:StopSigns
+	instance crosswalk : RoadMarking:CrosswalkMarking
+
+
+
 	
 	// instance two-rane-road : ADSdomain:Road
 	// instance heavyrain :ADSdomain:Weather

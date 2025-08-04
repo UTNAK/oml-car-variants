@@ -23,17 +23,30 @@ vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road
     concept PrivateRoads < Physicalinfrastructure:Road
     concept ReversibleLanes < Physicalinfrastructure:Road
     concept Intersections < Physicalinfrastructure:Road
+    concept ManagedLanes < Physicalinfrastructure:Road
 
-    concept Signaled < Road:Intersections
-    concept U-turns < Road:Intersections
-    concept 4-waystop < Road:Intersections
-    concept 2-waystop < Road:Intersections
-    concept Roundabout < Road:Intersections
-    concept MergeLanes < Road:Intersections
-    concept Turn-onlyLanesIntersections < Road:Intersections
-    concept Crosswalk < Road:Intersections
-    concept TollPlaza < Road:Intersections
-    concept RailroadCrossing < Road:Intersections
+    concept SignaledIntersections < Physicalinfrastructure:Road
+    concept U-turnsIntersections < Physicalinfrastructure:Road
+    concept 4-waystopIntersections < Physicalinfrastructure:Road
+    concept 3-waystopIntersections < Physicalinfrastructure:Road
+    concept 2-waystopIntersections < Physicalinfrastructure:Road
+    concept RoundaboutIntersections < Physicalinfrastructure:Road
+    concept MergeLanesIntersections < Physicalinfrastructure:Road
+    concept Turn-onlyLanesIntersections < Physicalinfrastructure:Road
+    concept CrosswalkIntersections < Physicalinfrastructure:Road
+    concept TollPlazaIntersections < Physicalinfrastructure:Road
+    concept RailroadCrossingIntersections < Physicalinfrastructure:Road
+
+    // concept Signaled < Road:Intersections
+    // concept U-turns < Road:Intersections
+    // concept 4-waystop < Road:Intersections
+    // concept 2-waystop < Road:Intersections
+    // concept Roundabout < Road:Intersections
+    // concept MergeLanes < Road:Intersections
+    // concept Turn-onlyLanesIntersections < Road:Intersections
+    // concept Crosswalk < Road:Intersections
+    // concept TollPlaza < Road:Intersections
+    // concept RailroadCrossing < Road:Intersections
     }
 
 

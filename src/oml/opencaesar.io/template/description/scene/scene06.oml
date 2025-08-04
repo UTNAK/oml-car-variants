@@ -1,0 +1,129 @@
+@dc:title "Example Description"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+description <http://opencaesar.io/template/description/scene/scene06#> as scene06 {
+
+	uses <http://purl.org/dc/elements/1.1/> as dc
+
+
+	uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
+	// Connectivity
+	uses <http://opencaesar.io/template/vocabulary/Connectivity/Connectivity#> as Connectivity
+	// Environmental Conditions
+	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as Weather
+	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as Illumination
+	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/ParticulateMatter#> as ParticulateMatter
+	// Operational Constraints
+	uses <http://opencaesar.io/template/vocabulary/OperationalConstraints/SpeedLimit#> as SpeedLimit
+	uses <http://opencaesar.io/template/vocabulary/OperationalConstraints/TrafficConditions#> as TrafficConditions
+	// Physical Infrastructure
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as Road
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as RoadFurniture
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadInfrastructure#> as RoadInfrastructure
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadMarking#> as RoadMarking
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Signage#> as Signage
+	// Traffic Participants
+	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as RoadUser
+	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/NonRoadUser#> as NonRoadUser 
+	// Zone
+	uses <http://opencaesar.io/template/vocabulary/Zone/Zone#> as Zone
+
+
+	
+	instance L3ConditionalTrafficJamDrive : ADSdomain:JASPARODD[
+
+		ADSdomain:hasPI DividedHighway
+		ADSdomain:hasPI Multi-lane
+		ADSdomain:hasPI HOV-HOT
+		ADSdomain:hasPI OneWay
+		ADSdomain:hasPI PrivateRoads
+		ADSdomain:hasPI ReversibleLanes
+		ADSdomain:hasPI 4-wayIntersections
+		ADSdomain:hasPI 3-wayIntersections
+		ADSdomain:hasPI TollPlazaIntersections
+		ADSdomain:hasPI Asphalt
+		ADSdomain:hasPI ConcreteRoadSurface
+		ADSdomain:hasPI MixedRoadSurface
+		ADSdomain:hasPI ClearMarkers
+		ADSdomain:hasPI PavedShoulder
+		ADSdomain:hasPI GrassShoulder
+		ADSdomain:hasPI ConcreteBarriers
+		ADSdomain:hasPI Grating
+		ADSdomain:hasPI BarrierRails
+		ADSdomain:hasPI Straightaways
+		ADSdomain:hasOC 0mph
+		ADSdomain:hasOC 37mph
+		ADSdomain:hasOC HeavyinAdjacentLane
+		ADSdomain:hasTP CarsVehicleTypes
+		ADSdomain:hasTP Trucks-LightTrucks
+		ADSdomain:hasTP Trucks-LargeTrucks
+		ADSdomain:hasTP OtherAutomatedVehicles
+		ADSdomain:hasEC MildRain
+		ADSdomain:hasConnectivity V2I
+		ADSdomain:hasConnectivity GPS
+		ADSdomain:hasConnectivity 3-DMaps
+
+		
+
+
+
+	]
+	// instance environmentalcondition1 :ADSdomain:EnverionmentalCondition[
+	instance DividedHighway : Road:DividedHighway
+	instance Multi-lane : Road:Multi-Lane
+	instance HOV-HOT : Road:ManagedLanes
+	instance OneWay : Road:One-way
+	instance PrivateRoads : Road:PrivateRoads
+	instance ReversibleLanes : Road:ReversibleLanes
+	instance 4-wayIntersections : Road:4-waystopIntersections
+	instance 3-wayIntersections : Road:3-waystopIntersections
+	instance TollPlazaIntersections : Road:TollPlazaIntersections
+	instance Asphalt : RoadInfrastructure:AsphaltRoadSurface
+	instance ConcreteRoadSurface : RoadInfrastructure:ConcreteRoadSurface
+	instance MixedRoadSurface : RoadInfrastructure:MixedRoadSurface
+	instance ClearMarkers : RoadFurniture:ClearLaneMakers
+	instance PavedShoulder : RoadFurniture:PavedShoulder
+	instance GrassShoulder : RoadFurniture:GrasslShoulder
+	instance ConcreteBarriers : RoadFurniture:ConcreteBarriers
+	instance Grating : RoadFurniture:Grating
+	instance BarrierRails : RoadFurniture:Rails
+	instance Straightaways : RoadInfrastructure:StraightawaysRoadGeometry
+	instance 0mph : SpeedLimit:MinimumSpeedLimit
+	instance 37mph : SpeedLimit:MaximumSpeedLimit
+	instance HeavyinAdjacentLane : TrafficConditions:HeavyTraffic
+	instance CarsVehicleTypes : RoadUser:CarsVehicleTypes
+	instance Trucks-LightTrucks : RoadUser:LightTrucksVehicleTypes
+	instance Trucks-LargeTrucks : RoadUser:LargeTrucksVehicleTypes
+	instance OtherAutomatedVehicles : RoadUser:AutonomousMovingVehicles
+	instance MildRain : Weather:LowRain
+	instance V2I : Connectivity:V2XCommunicationSystem
+	instance GPS : Connectivity:GPS
+	instance 3-DMaps : Connectivity:3-DMaps
+
+
+
+	// instance snow : Weather:Snow
+	// instance day : Illumination:Day
+	// instance dividedHighway : Road:DividedHighway
+	// instance concreteBarriers : RoadFurniture:ConcreteBarriers
+	// instance solidLine : RoadMarking:SolidLine
+	// instance schoolZone : Zone:SchoolZone
+	// instance 60kph : SpeedLimit:MinimumSpeedLimit
+	// instance 100kph : SpeedLimit:MaximumSpeedLimit
+	// instance normalTraffic : TrafficConditions:NormalTraffic
+	// instance buses : RoadUser:BusesVehicleTypes
+	// instance deer : NonRoadUser:DeerAnimals
+	// instance fog : ParticulateMatter:Fog
+	// instance V2X :  Connectivity:V2XCommunicationSystem
+	// instance asphalt : RoadInfrastructure:AsphaltRoadSurface
+	// instance trafficSignals : Signage:TrafficSignals
+	// instance stopSign : Signage:StopSigns
+	// instance crosswalk : RoadMarking:CrosswalkMarking
+
+
+
+	
+
+	
+	
+}
