@@ -4,6 +4,7 @@
 vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as Weather {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
 	extends <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 
@@ -13,5 +14,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Wea
     concept Snow < EnverionmentalCondition:Weather
     concept Wind < EnverionmentalCondition:Weather
     concept Temprature < EnverionmentalCondition:Weather
-     
+
+    scalar property cloudness[
+		domain HeavyRain
+		range xsd:decimal
+    ]
+
     }

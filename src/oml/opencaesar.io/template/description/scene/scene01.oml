@@ -22,7 +22,10 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 
     // instance environmentalCondition : adsdomain:EnverionmentalCondition
 
-    instance heavyRain : weather:HeavyRain
+    instance heavyRain : weather:HeavyRain[
+		weather:cloudness 10
+	]
+
     instance day : illumination:Day
 
 	instance dividedHighway : road:DividedHighway
