@@ -4,11 +4,23 @@
 vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
 	extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
     // concept EnverionmentalCondition < ADSdomain:EnverionmentalCondition [
     // ]
     concept Weather < ADSdomain:EnverionmentalCondition
+
+    /// Parameters for CARLA
+    scalar property cloudness[
+		domain Weather
+		range xsd:decimal
+    ]
+    scalar property fog_density[
+		domain Weather
+		range xsd:decimal
+    ]
+
     concept Illumination < ADSdomain:EnverionmentalCondition
     concept ParticulateMatter < ADSdomain:EnverionmentalCondition
 

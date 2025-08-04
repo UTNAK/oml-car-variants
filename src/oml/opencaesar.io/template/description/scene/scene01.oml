@@ -10,6 +10,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as road
 	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as roadFurniture
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as roaduser
+	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 
     instance odd-01 : adsdomain:JASPARODD[
         adsdomain:hasEC heavyRain
@@ -23,7 +24,8 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
     // instance environmentalCondition : adsdomain:EnverionmentalCondition
 
     instance heavyRain : weather:HeavyRain[
-		weather:cloudness 10
+		EnverionmentalCondition:cloudness 10
+		EnverionmentalCondition:fog_density 30
 	]
 
     instance day : illumination:Day
