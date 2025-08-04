@@ -4,6 +4,8 @@
 vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
 
 
 
@@ -27,7 +29,9 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept Physicalinfrastructure < mission:Component,affectedOEDRElement, connectedElement [
+	aspect ODDElements
+
+    concept Physicalinfrastructure < mission:Component,affectedOEDRElement, connectedElement, ODDElements [
 
     ]
 
@@ -44,7 +48,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept EnverionmentalCondition < mission:Component,affectedOEDRElement [
+    concept EnverionmentalCondition < mission:Component,affectedOEDRElement, ODDElements [
 
     ]
 

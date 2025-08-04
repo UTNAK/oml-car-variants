@@ -281,3 +281,24 @@ As Dr. Maged Elaasar mentions [here](https://bentleyjoakes.github.io/assets/publ
 
 ![1751698134350](image/README/1751698134350.png)
 
+
+
+## Scene and Query
+
+```sparql
+PREFIX analysis:	<http://imce.jpl.nasa.gov/foundation/analysis#>
+PREFIX constraint:	<http://opencaesar.io/firesat-telecom/telecom-supplier/vocabulary/constraint#>
+PREFIX rdfs:		<http://www.w3.org/2000/01/rdf-schema#>
+PREFIX odd:	<http://opencaesar.io/template/vocabulary/ADSdomain#>
+
+SELECT DISTINCT ?odd ?oe ?iri
+
+WHERE {
+#  <http://opencaesar.io/template/description/scene/scene02#odd-2> a odd:JASPARODD;
+  VALUES ?oe { odd:Physicalinfrastructure odd:EnverionmentalCondition odd:TrafficParticipants}
+  VALUES ?relation { odd:isPIOf odd:isECOf odd:IsTPOf}
+  ?iri a ?oe;
+     ?relation <http://opencaesar.io/template/description/scene/scene01#odd-01>
+
+}ORDER BY ?odd ?oe
+```
