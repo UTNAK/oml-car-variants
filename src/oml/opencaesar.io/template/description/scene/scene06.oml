@@ -64,11 +64,6 @@ description <http://opencaesar.io/template/description/scene/scene06#> as scene0
 		ADSdomain:hasConnectivity V2I
 		ADSdomain:hasConnectivity GPS
 		ADSdomain:hasConnectivity 3-DMaps
-
-		
-
-
-
 	]
 	// instance environmentalcondition1 :ADSdomain:EnverionmentalCondition[
 	instance DividedHighway : Road:DividedHighway
