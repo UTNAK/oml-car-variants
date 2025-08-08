@@ -11,6 +11,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Env
     // ]
     concept Weather < ADSdomain:EnverionmentalCondition
 
+    scalar property weatherPattern[
+		  domain Weather
+		  range xsd:string
+    ]
+
     /// Parameters for CARLA
     scalar property cloudiness[
 		  domain Weather
