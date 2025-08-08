@@ -13,12 +13,14 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 		adsdomain:hasEC snow
 		adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
+		adsdomain:hasPI privateRoads
 	]  
 
 	instance snow : weather:Snow
 	instance day : illumination:Day
 
 	instance dividedHighway : road:DividedHighway
+	instance privateRoads : road:PrivateRoads
 
 	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/Weather#> as Weather
 	// uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure#> as Physicalinfrastructure
