@@ -1,5 +1,5 @@
 @dc:title "Example Description"
-@dc:creator "Example Company"
+@dc:creator "ut"
 @dc:rights "Copyright 2019, by Example Company"
 description <http://opencaesar.io/template/description/scene/scene01#> as scene01 {
 
@@ -23,6 +23,10 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
     ]
 
     // instance environmentalCondition : adsdomain:EnverionmentalCondition
+
+
+
+	// ClearNoon = { 5.0f, 0.0f, 0.0f, 10.0f, -1.0f, 45.0f, 2.0f, 0.75f, 0.1f, 0.0f, 1.0f, 0.03f, 0.0331f, 0.0f }
 
     instance clearNoon : weather:ClearNoon[
 		EnverionmentalCondition:cloudiness "5.0"^^xsd:float
