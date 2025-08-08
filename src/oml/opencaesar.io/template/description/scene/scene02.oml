@@ -18,7 +18,6 @@ description <http://opencaesar.io/template/description/scene/scene02#> as scene0
 		adsdomain:hasPI intersections
 		adsdomain:hasPI rails
 		adsdomain:hasEC day
-
 	]
 
 	instance lowRain : weather:LowRain[
