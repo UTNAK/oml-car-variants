@@ -12,6 +12,8 @@ description <http://opencaesar.io/template/description/scene/scene04#> as scene0
     uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as Road
 
     uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as RoadFurniture
+    uses <http://www.w3.org/2001/XMLSchema#> as xsd
+	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 
     instance odd-04 :  Adsdomain:JASPARODD[
         Adsdomain:hasEC Wind
@@ -20,7 +22,22 @@ description <http://opencaesar.io/template/description/scene/scene04#> as scene0
         Adsdomain:hasPI LineMarkers
         Adsdomain:hasPI Shoulder
     ]
-    instance Wind : Weather:Wind
+    instance Wind : Weather:Wind[
+        EnverionmentalCondition:cloudiness "100.0"^^xsd:float
+		EnverionmentalCondition:dust_storm "0.0"^^xsd:float
+		EnverionmentalCondition:fog_density "0.0"^^xsd:float
+		EnverionmentalCondition:fog_distance "100.0"^^xsd:float
+		EnverionmentalCondition:fog_falloff "-1.0"^^xsd:float
+		EnverionmentalCondition:mie_scattering_scale "45.0"^^xsd:float
+		EnverionmentalCondition:precipitation "2.0"^^xsd:float
+		EnverionmentalCondition:precipitation_deposits "0.75"^^xsd:float
+		EnverionmentalCondition:rayleigh_scattering_scale "0.1"^^xsd:float
+		EnverionmentalCondition:scattering_intensity "0.0"^^xsd:float
+		EnverionmentalCondition:sun_altitude_angle "1.0"^^xsd:float
+		EnverionmentalCondition:sun_azimuth_angle "0.03"^^xsd:float
+		EnverionmentalCondition:wetness "0.0331"^^xsd:float
+		EnverionmentalCondition:wind_intensity "100.0"^^xsd:float
+    ]
     instance Dawn : Illumination:Dawn
     instance Multi-Lane : Road:Multi-Lane
     instance LineMarkers : RoadFurniture:LineMarkers

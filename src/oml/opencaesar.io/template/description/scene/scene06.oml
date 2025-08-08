@@ -27,6 +27,8 @@ description <http://opencaesar.io/template/description/scene/scene06#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/NonRoadUser#> as NonRoadUser 
 	// Zone
 	uses <http://opencaesar.io/template/vocabulary/Zone/Zone#> as Zone
+	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 
 
 	
