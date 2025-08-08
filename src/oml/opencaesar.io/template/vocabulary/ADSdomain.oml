@@ -2,9 +2,12 @@
 @dc:creator "Example Company"
 @dc:rights "Copyright 2019, by Example Company"
 vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://bipm.org/jcgm/vim4#> as vim4
+    
 
 
 
@@ -28,6 +31,85 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
     concept AutomatedVehicle < mission:Component [
 
     ]
+
+    concept Vehicle < vim4:Object [
+
+    ]
+    aspect CarlaParameter < vim4:QuantityValue
+
+    @rdfs:label "hasFloatNumber"
+    scalar property hasFloatNumber [
+      domain CarlaParameter
+      range xsd:float
+      functional
+    ]
+    @rdfs:label "hasString"
+    scalar property hasString [
+        domain CarlaParameter
+        range xsd:string
+        functional
+        ]   
+
+    concept Pos-X < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+    ]
+    relation entity IsPos-XOf [
+      from Pos-X
+      to Vehicle
+      forward isPos-XOf
+      reverse hasPos-X
+    ] < vim4:Characterizes
+
+
+    concept Pos-Y < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+    ]   
+    relation entity IsPos-YOf [
+      from Pos-Y
+      to Vehicle
+      forward isPos-YOf
+      reverse hasPos-Y
+    ] < vim4:Characterizes
+
+    concept Pos-Z < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+    ]
+    relation entity IsPos-ZOf [
+      from Pos-Z
+      to Vehicle
+      forward isPos-ZOf
+      reverse hasPos-Z
+    ] < vim4:Characterizes
+
+    concept Velocity < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+    ]
+    relation entity IsVelocityOf [
+      from Velocity
+      to Vehicle
+      forward isVelocityOf
+      reverse hasVelocity
+    ] < vim4:Characterizes
+
+    concept Acceleration < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+    ]
+    relation entity IsAccelerationOf [
+      from Acceleration
+      to Vehicle
+      forward isAccelerationOf
+      reverse hasAcceleration
+    ] < vim4:Characterizes
+
+    concept VehicleType < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+    ]
+    relation entity IsVehicleTypeOf [
+      from VehicleType
+      to Vehicle
+      forward isVehicleTypeOf
+      reverse hasVehicleType
+    ] < vim4:Characterizes
 
 	aspect ODDElements
 
