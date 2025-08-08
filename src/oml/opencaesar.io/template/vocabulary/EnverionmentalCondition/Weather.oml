@@ -15,6 +15,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Wea
     concept Wind < EnverionmentalCondition:Weather
     concept Temprature < EnverionmentalCondition:Weather
     concept ClearNoon < EnverionmentalCondition:Weather
+    concept Duststorm < EnverionmentalCondition:Weather
 
 
 
