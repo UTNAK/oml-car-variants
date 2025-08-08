@@ -1,5 +1,5 @@
 @dc:title "Example Description"
-@dc:creator "Example Company"
+@dc:creator "ut"
 @dc:rights "Copyright 2019, by Example Company"
 description <http://opencaesar.io/template/description/scene/scene01#> as scene01 {
 
@@ -14,7 +14,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
 
     instance odd-01 : adsdomain:JASPARODD[
-        adsdomain:hasEC heavyRain
+        adsdomain:hasEC clearNoon
         adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
 		adsdomain:hasPI curb
@@ -24,9 +24,12 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 
     // instance environmentalCondition : adsdomain:EnverionmentalCondition
 
-    instance heavyRain : weather:HeavyRain[
-		EnverionmentalCondition:cloudiness "100.0"^^xsd:float
+    instance clearNoon : weather:ClearNoon[
+		EnverionmentalCondition:cloudiness "0.0"^^xsd:float
+		EnverionmentalCondition:dust_storm "0.0"^^xsd:float
 		EnverionmentalCondition:fog_density "90.0"^^xsd:float
+		EnverionmentalCondition:fog_distance "0.0"^^xsd:float
+		EnverionmentalCondition:fog_falloff "0.0"^^xsd:float
 	]
 
     instance day : illumination:Day
