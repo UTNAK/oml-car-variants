@@ -17,6 +17,7 @@ description <http://opencaesar.io/template/description/scene/scene02#> as scene0
 		adsdomain:hasEC headlights
 		adsdomain:hasPI intersections
 		adsdomain:hasPI rails
+		adsdomain:hasEC day
 
 	]
 
@@ -40,6 +41,7 @@ description <http://opencaesar.io/template/description/scene/scene02#> as scene0
 	
 	instance intersections : road:Intersections
 	instance rails : roadFurniture:Rails
+	instance day : illumination:Day
 
 
 
