@@ -14,6 +14,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Wea
     concept Snow < EnverionmentalCondition:Weather
     concept Wind < EnverionmentalCondition:Weather
     concept Temprature < EnverionmentalCondition:Weather
+    concept ClearNoon < EnverionmentalCondition:Weather
 
 
 

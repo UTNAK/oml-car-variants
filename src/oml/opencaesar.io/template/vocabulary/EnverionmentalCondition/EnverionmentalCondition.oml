@@ -12,15 +12,62 @@ vocabulary <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Env
     concept Weather < ADSdomain:EnverionmentalCondition
 
     /// Parameters for CARLA
-    scalar property cloudness[
-		domain Weather
-		range xsd:decimal
+    scalar property cloudiness[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property dust_storm[
+		  domain Weather
+		  range xsd:float
     ]
     scalar property fog_density[
-		domain Weather
-		range xsd:decimal
+		  domain Weather
+		  range xsd:float
     ]
-
+    scalar property fog_distance[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property fog_falloff[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property mie_scattering_scale[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property precipitation[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property precipitation_deposits[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property rayleigh_scattering_scale[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property scattering_intensity[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property sun_altitude_angle[
+		  domain Weather  
+		  range xsd:float
+    ]
+    scalar property sun_azimuth_angle[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property wetness[
+		  domain Weather
+		  range xsd:float
+    ]
+    scalar property wind_intensity[
+		  domain Weather
+		  range xsd:float
+    ]
     concept Illumination < ADSdomain:EnverionmentalCondition
     concept ParticulateMatter < ADSdomain:EnverionmentalCondition
 
