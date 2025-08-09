@@ -36,10 +36,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         restricts hasPos-Y to exactly 1
         restricts hasPos-Z to exactly 1
         restricts hasVelocity to exactly 1
-        restricts hasAcceleration to exactly 1
-        restricts hasOrientation to exactly 1
-        restricts hasSteering to exactly 1
-        restricts hasVehicleType to exactly 1
     ]
     aspect CarlaParameter < vim4:QuantityValue
 
