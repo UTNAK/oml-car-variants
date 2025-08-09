@@ -13,13 +13,18 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
 
+	instance ads-test-case01 : adsdomain:AutomatedDrivingSystemDomain[
+		adsdomain:hasAV sv
+		adsdomain:hasJASPARODD odd-01
+	]
+
     instance odd-01 : adsdomain:JASPARODD[
         adsdomain:hasEC clearNoon
         adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
 		adsdomain:hasPI curb
 		adsdomain:hasTP pov-1
-		adsdomain:hasTP pov-2
+		// adsdomain:hasTP pov-2
     ]
 
 	instance sv : adsdomain:AutomatedVehicle[
@@ -89,8 +94,46 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	instance dividedHighway : road:DividedHighway
 	instance curb : roadFurniture:Curb
 
-	instance pov-1 : roaduser:ManualMovingVehicles
-	instance pov-2 : roaduser:ManualMovingVehicles
+	// instance pov-1 : roaduser:ManualMovingVehicles
+	// instance pov-2 : roaduser:ManualMovingVehicles
+
+	instance pov-1 : roaduser:ManualMovingVehicles[
+		adsdomain:hasVehicleType pv1.type
+		adsdomain:hasPos-X pv1.pos.x
+		adsdomain:hasPos-Y pv1.pos.y
+		adsdomain:hasPos-Z pv1.pos.z
+		adsdomain:hasVelocity pv1.velocity
+		adsdomain:hasAcceleration pv1.acceleration
+		adsdomain:hasSteering pv1.steering
+		adsdomain:hasOrientation pv1.orientation
+	]
+
+
+	instance pv1.type : adsdomain:VehicleType[
+		adsdomain:hasString "Car"
+	]
+	instance pv1.pos.x : adsdomain:Pos-X[
+		adsdomain:hasFloatNumber "10"^^xsd:float
+	]
+	instance pv1.pos.y : adsdomain:Pos-Y[
+		adsdomain:hasFloatNumber "20"^^xsd:float
+	]
+	instance pv1.pos.z : adsdomain:Pos-Z[
+		adsdomain:hasFloatNumber "30"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv1.velocity : adsdomain:Velocity[
+		adsdomain:hasFloatNumber "60"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv1.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "2"^^xsd:float
+
+	]
+	instance pv1.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "0.5"^^xsd:float
+	]
+	instance pv1.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0.1"^^xsd:float
+	]
 
 
 
