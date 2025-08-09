@@ -16,8 +16,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 
 	concept AutomatedDrivingSystemDomain < mission:Component [
-
-
+        restricts hasAV to exactly 1
 	]
 
     concept JASPARODD  < mission:Component [
@@ -28,12 +27,15 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept AutomatedVehicle < mission:Component [
+    concept AutomatedVehicle < Vehicle [
 
     ]
 
     concept Vehicle < vim4:Object [
-
+        restricts hasPos-X to exactly 1
+        restricts hasPos-Y to exactly 1
+        restricts hasPos-Z to exactly 1
+        restricts hasVelocity to exactly 1
     ]
     aspect CarlaParameter < vim4:QuantityValue
 
