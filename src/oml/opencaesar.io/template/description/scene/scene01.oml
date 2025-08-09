@@ -28,6 +28,10 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasPos-Y sv.pos.y
 		adsdomain:hasPos-Z sv.pos.z
 		adsdomain:hasVelocity sv.velocity
+		adsdomain:hasAcceleration sv.acceleration
+		adsdomain:hasSteering sv.steering
+		adsdomain:hasOrientation sv.orientation
+		adsdomain:hasVehicleType sv.type
 	]
 	instance sv.type : adsdomain:VehicleType[
 		adsdomain:hasString "Car"
@@ -44,6 +48,19 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	instance sv.velocity : adsdomain:Velocity[
 		adsdomain:hasFloatNumber "60"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance sv.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "2"^^xsd:float
+	]   
+	instance sv.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "0.5"^^xsd:float
+	]
+	instance sv.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0.1"^^xsd:float
+	]
+
+
+
+	
 
 
 
