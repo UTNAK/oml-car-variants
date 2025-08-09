@@ -19,7 +19,7 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 	]  
 
 	instance sv : adsdomain:AutomatedVehicle[
-		// adsdomain:hasVehicleType "Car"
+		adsdomain:hasVehicleType sv.type
 		adsdomain:hasPos-X sv.pos.x
 		adsdomain:hasPos-Y sv.pos.y
 		adsdomain:hasPos-Z sv.pos.z
