@@ -12,10 +12,12 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as roaduser
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 
 	instance ads-test-case01 : adsdomain:AutomatedDrivingSystemDomain[
 		adsdomain:hasAV sv
 		adsdomain:hasJASPARODD odd-01
+		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Simple Positive 15 PLC_SP_15"
 	]
 
     instance odd-01 : adsdomain:JASPARODD[
@@ -43,26 +45,26 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasString "Car"
 	]
 	instance sv.pos.x : adsdomain:Pos-X[
-		adsdomain:hasFloatNumber "10"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance sv.pos.y : adsdomain:Pos-Y[
-		adsdomain:hasFloatNumber "20"^^xsd:float
+		adsdomain:hasFloatNumber "-3.6"^^xsd:float
 	]
 	instance sv.pos.z : adsdomain:Pos-Z[
-		adsdomain:hasFloatNumber "30"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 	instance sv.velocity : adsdomain:Velocity[
-		adsdomain:hasFloatNumber "60"^^xsd:float
+		adsdomain:hasFloatNumber "6.667"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 	instance sv.acceleration : adsdomain:Acceleration[
-		adsdomain:hasFloatNumber "2"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 
 	]
 	instance sv.steering : adsdomain:Steering[
-		adsdomain:hasFloatNumber "0.5"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance sv.orientation : adsdomain:Orientation[
-		adsdomain:hasFloatNumber "0.1"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 
 
@@ -73,20 +75,20 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 
     instance clearNoon : weather:ClearNoon[
 		EnverionmentalCondition:weatherPattern "ClearNooN"
-		EnverionmentalCondition:cloudiness "5.0"^^xsd:float
-		EnverionmentalCondition:dust_storm "0.0"^^xsd:float
-		EnverionmentalCondition:fog_density "0.0"^^xsd:float
-		EnverionmentalCondition:fog_distance "10.0"^^xsd:float
-		EnverionmentalCondition:fog_falloff "-1.0"^^xsd:float
-		EnverionmentalCondition:mie_scattering_scale "45.0"^^xsd:float
-		EnverionmentalCondition:precipitation "2.0"^^xsd:float
-		EnverionmentalCondition:precipitation_deposits "0.75"^^xsd:float
-		EnverionmentalCondition:rayleigh_scattering_scale "0.1"^^xsd:float
-		EnverionmentalCondition:scattering_intensity "0.0"^^xsd:float
-		EnverionmentalCondition:sun_altitude_angle "1.0"^^xsd:float
-		EnverionmentalCondition:sun_azimuth_angle "0.03"^^xsd:float
-		EnverionmentalCondition:wetness "0.0331"^^xsd:float
-		EnverionmentalCondition:wind_intensity "0.0"^^xsd:float
+		// EnverionmentalCondition:cloudiness "5.0"^^xsd:float
+		// EnverionmentalCondition:dust_storm "0.0"^^xsd:float
+		// EnverionmentalCondition:fog_density "0.0"^^xsd:float
+		// EnverionmentalCondition:fog_distance "10.0"^^xsd:float
+		// EnverionmentalCondition:fog_falloff "-1.0"^^xsd:float
+		// EnverionmentalCondition:mie_scattering_scale "45.0"^^xsd:float
+		// EnverionmentalCondition:precipitation "2.0"^^xsd:float
+		// EnverionmentalCondition:precipitation_deposits "0.75"^^xsd:float
+		// EnverionmentalCondition:rayleigh_scattering_scale "0.1"^^xsd:float
+		// EnverionmentalCondition:scattering_intensity "0.0"^^xsd:float
+		// EnverionmentalCondition:sun_altitude_angle "1.0"^^xsd:float
+		// EnverionmentalCondition:sun_azimuth_angle "0.03"^^xsd:float
+		// EnverionmentalCondition:wetness "0.0331"^^xsd:float
+		// EnverionmentalCondition:wind_intensity "0.0"^^xsd:float
 	]
 
     instance day : illumination:Day
@@ -97,6 +99,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	// instance pov-1 : roaduser:ManualMovingVehicles
 	// instance pov-2 : roaduser:ManualMovingVehicles
 
+	// Rear bumper 6 m (20 ft) in front of SV front bumper
 	instance pov-1 : roaduser:ManualMovingVehicles[
 		adsdomain:hasVehicleType pv1.type
 		adsdomain:hasPos-X pv1.pos.x
@@ -108,31 +111,30 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasOrientation pv1.orientation
 	]
 
-
 	instance pv1.type : adsdomain:VehicleType[
 		adsdomain:hasString "Car"
 	]
 	instance pv1.pos.x : adsdomain:Pos-X[
-		adsdomain:hasFloatNumber "10"^^xsd:float
+		adsdomain:hasFloatNumber "6.0"^^xsd:float
 	]
 	instance pv1.pos.y : adsdomain:Pos-Y[
-		adsdomain:hasFloatNumber "20"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance pv1.pos.z : adsdomain:Pos-Z[
-		adsdomain:hasFloatNumber "30"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 	instance pv1.velocity : adsdomain:Velocity[
-		adsdomain:hasFloatNumber "60"^^xsd:float
+		adsdomain:hasFloatNumber "6.667"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 	instance pv1.acceleration : adsdomain:Acceleration[
-		adsdomain:hasFloatNumber "2"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 
 	]
 	instance pv1.steering : adsdomain:Steering[
-		adsdomain:hasFloatNumber "0.5"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance pv1.orientation : adsdomain:Orientation[
-		adsdomain:hasFloatNumber "0.1"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 
 
