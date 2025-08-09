@@ -18,6 +18,40 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 		adsdomain:hasPI privateRoads
 	]  
 
+	instance sv : adsdomain:AutomatedVehicle[
+		// adsdomain:hasVehicleType "Car"
+		adsdomain:hasPos-X sv.pos.x
+		adsdomain:hasPos-Y sv.pos.y
+		adsdomain:hasPos-Z sv.pos.z
+		adsdomain:hasVelocity sv.velocity
+		adsdomain:hasAcceleration sv.acceleration
+	]
+
+	instance sv.type : adsdomain:VehicleType[
+		adsdomain:hasString "Car"
+	]
+
+	instance sv.pos.x : adsdomain:Pos-X[
+		adsdomain:hasFloatNumber "50"^^xsd:float
+	]
+
+	instance sv.pos.y : adsdomain:Pos-Y[
+		adsdomain:hasFloatNumber "50"^^xsd:float
+	]
+
+	instance sv.pos.z : adsdomain:Pos-Z[
+		adsdomain:hasFloatNumber "50"^^xsd:float
+	]  
+
+	instance sv.velocity : adsdomain:Velocity[
+		adsdomain:hasFloatNumber "50"^^xsd:float
+	]   
+
+	instance sv.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "1.5"^^xsd:float
+	]     
+
+
 	instance duststorm : weather:Duststorm[
 		EnverionmentalCondition:weatherPattern "DustStorm"
 		EnverionmentalCondition:cloudiness "100.0"^^xsd:float
