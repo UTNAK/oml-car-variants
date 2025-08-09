@@ -16,8 +16,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
 
 	concept AutomatedDrivingSystemDomain < mission:Component [
-
-
+        restricts hasAV to exactly 1
 	]
 
     concept JASPARODD  < mission:Component [
