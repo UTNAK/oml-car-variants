@@ -25,6 +25,9 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 		adsdomain:hasPos-Z sv.pos.z
 		adsdomain:hasVelocity sv.velocity
 		adsdomain:hasAcceleration sv.acceleration
+		adsdomain:hasSteering sv.steering
+		adsdomain:hasOrientation sv.orientation
+		
 	]
 
 	instance sv.type : adsdomain:VehicleType[
@@ -32,23 +35,31 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 	]
 
 	instance sv.pos.x : adsdomain:Pos-X[
-		adsdomain:hasFloatNumber "50"^^xsd:float
+		adsdomain:hasFloatNumber "50.0"^^xsd:float
 	]
 
 	instance sv.pos.y : adsdomain:Pos-Y[
-		adsdomain:hasFloatNumber "50"^^xsd:float
+		adsdomain:hasFloatNumber "50.0"^^xsd:float
 	]
 
 	instance sv.pos.z : adsdomain:Pos-Z[
-		adsdomain:hasFloatNumber "50"^^xsd:float
+		adsdomain:hasFloatNumber "50.0"^^xsd:float
 	]  
 
 	instance sv.velocity : adsdomain:Velocity[
-		adsdomain:hasFloatNumber "50"^^xsd:float
+		adsdomain:hasFloatNumber "50.0"^^xsd:float
 	]   
 
 	instance sv.acceleration : adsdomain:Acceleration[
 		adsdomain:hasFloatNumber "1.5"^^xsd:float
+	]
+
+	instance sv.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "1.0"^^xsd:float
+	]
+
+	instance sv.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0.5"^^xsd:float
 	]     
 
 
