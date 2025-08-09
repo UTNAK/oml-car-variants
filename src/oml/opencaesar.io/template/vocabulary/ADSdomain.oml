@@ -28,12 +28,19 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     ]
 
-    concept AutomatedVehicle < mission:Component [
+    concept AutomatedVehicle < Vehicle [
 
     ]
 
     concept Vehicle < vim4:Object [
-
+        restricts hasPos-X to exactly 1
+        restricts hasPos-Y to exactly 1
+        restricts hasPos-Z to exactly 1
+        restricts hasVelocity to exactly 1
+        restricts hasAcceleration to exactly 1
+        restricts hasOrientation to exactly 1
+        restricts hasSteering to exactly 1
+        restricts hasVehicleType to exactly 1
     ]
     aspect CarlaParameter < vim4:QuantityValue
 
@@ -99,6 +106,26 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
       to Vehicle
       forward isAccelerationOf
       reverse hasAcceleration
+    ] < vim4:Characterizes
+
+    concept Orientation < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+    ]
+    relation entity IsOrientationOf [
+      from Orientation
+      to Vehicle
+      forward isOrientationOf
+      reverse hasOrientation
+    ] < vim4:Characterizes
+
+    concept Steering < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+    ]
+    relation entity IsSteeringOf [
+      from Steering
+      to Vehicle
+      forward isSteeringOf
+      reverse hasSteering
     ] < vim4:Characterizes
 
     concept VehicleType < CarlaParameter[

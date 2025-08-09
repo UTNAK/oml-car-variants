@@ -59,6 +59,40 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 
 	]
 	// instance environmentalcondition1 :ADSdomain:EnverionmentalCondition[
+	instance sv :ADSdomain:AutomatedVehicle[
+		ADSdomain:hasPos-X sv.pos.x
+		ADSdomain:hasPos-Y sv.pos.y
+		ADSdomain:hasPos-Z sv.pos.z
+		ADSdomain:hasVelocity sv.v
+		ADSdomain:hasVehicleType sv.type
+		ADSdomain:hasAcceleration sv.acc
+		ADSdomain:hasOrientation sv.orientation
+		ADSdomain:hasSteering sv.steering
+	]
+	instance sv.pos.x : ADSdomain:Pos-X[
+		ADSdomain:hasFloatNumber "10.0"^^xsd:float
+	]
+	instance sv.pos.y : ADSdomain:Pos-Y[
+		ADSdomain:hasFloatNumber "20.0"^^xsd:float
+	]
+	instance sv.pos.z : ADSdomain:Pos-Z[
+		ADSdomain:hasFloatNumber "10.0"^^xsd:float
+	]
+	instance sv.v : ADSdomain:Velocity[
+		ADSdomain:hasFloatNumber "23.0"^^xsd:float
+	]
+	instance sv.type : ADSdomain:VehicleType[
+		ADSdomain:hasString "Car"
+	]
+	instance sv.acc : ADSdomain:Acceleration[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance sv.orientation : ADSdomain:Orientation[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance sv.steering : ADSdomain:Steering[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
 
 
 	instance heavyRain : Weather:HeavyRain[
