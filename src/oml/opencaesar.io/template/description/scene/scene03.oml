@@ -25,6 +25,9 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 		adsdomain:hasPos-Z sv.pos.z
 		adsdomain:hasVelocity sv.velocity
 		adsdomain:hasAcceleration sv.acceleration
+		adsdomain:hasSteering sv.steering
+		adsdomain:hasOrientation sv.orientation
+		
 	]
 
 	instance sv.type : adsdomain:VehicleType[
