@@ -31,7 +31,6 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasAcceleration sv.acceleration
 		adsdomain:hasSteering sv.steering
 		adsdomain:hasOrientation sv.orientation
-		adsdomain:hasVehicleType sv.type
 	]
 
 
