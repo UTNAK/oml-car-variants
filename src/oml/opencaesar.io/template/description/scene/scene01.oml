@@ -22,6 +22,13 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasTP pov-2
     ]
 
+	instance sv : adsdomain:Vehicle[
+		// adsdomain:hasVehicleType "Car"
+		adsdomain:hasPos-X "10"^^xsd:float
+		// adsdomain:hasPos-Y "20"^^xsd:float
+		// adsdomain:hasPos-Z "30"^^xsd:float
+	]
+
     // instance environmentalCondition : adsdomain:EnverionmentalCondition
 
 
