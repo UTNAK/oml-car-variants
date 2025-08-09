@@ -23,11 +23,12 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
     ]
 
 	instance sv : adsdomain:AutomatedVehicle[
-		// adsdomain:hasVehicleType "Car"
+		adsdomain:hasVehicleType sv.type
 		adsdomain:hasPos-X sv.pos.x
 		adsdomain:hasPos-Y sv.pos.y
 		adsdomain:hasPos-Z sv.pos.z
 		adsdomain:hasVelocity sv.velocity
+		adsdomain:hasAcceleration sv.acceleration
 	]
 	instance sv.type : adsdomain:VehicleType[
 		adsdomain:hasString "Car"
@@ -44,7 +45,9 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	instance sv.velocity : adsdomain:Velocity[
 		adsdomain:hasFloatNumber "60"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
-
+	instance sv.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "2"^^xsd:float
+	]
 
 
 	// ClearNoon = { 5.0f, 0.0f, 0.0f, 10.0f, -1.0f, 45.0f, 2.0f, 0.75f, 0.1f, 0.0f, 1.0f, 0.03f, 0.0331f, 0.0f }
