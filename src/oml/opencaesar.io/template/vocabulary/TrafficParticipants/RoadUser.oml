@@ -6,6 +6,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUse
 	extends <http://purl.org/dc/elements/1.1/> as dc
 
 	extends <http://opencaesar.io/template/vocabulary/TrafficParticipants/TrafficParticipants#> as TrafficParticipants
+    extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
     
  
     
@@ -29,12 +30,12 @@ vocabulary <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUse
     // concept VehicleTypes-ConstructionEquipment < RoadUser:VehicleTypes
     // concept Horse-drawnCarriagesBuggies < RoadUser:VehicleTypes
 
-    concept StoppedVehicles < TrafficParticipants:RoadUser
-    concept MovingVehicles < TrafficParticipants:RoadUser
+    concept StoppedVehicles < TrafficParticipants:RoadUser, ADSdomain:Vehicle
+    concept MovingVehicles < TrafficParticipants:RoadUser, ADSdomain:Vehicle
     // concept ManualMovingVehicles < RoadUser:MovingVehicles
     // concept AutonomousMovingVehicles < RoadUser:MovingVehicles
-    concept ManualMovingVehicles < TrafficParticipants:RoadUser
-    concept AutonomousMovingVehicles < TrafficParticipants:RoadUser
+    concept ManualMovingVehicles < TrafficParticipants:RoadUser, ADSdomain:Vehicle
+    concept AutonomousMovingVehicles < TrafficParticipants:RoadUser, ADSdomain:Vehicle
     concept RoadUserCyclists < TrafficParticipants:RoadUser
     concept RoadUserPedestrians < TrafficParticipants:RoadUser
 

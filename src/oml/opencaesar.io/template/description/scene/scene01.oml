@@ -13,13 +13,18 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
 
+	instance ads-test-case01 : adsdomain:AutomatedDrivingSystemDomain[
+		adsdomain:hasAV sv
+		adsdomain:hasJASPARODD odd-01
+	]
+
     instance odd-01 : adsdomain:JASPARODD[
         adsdomain:hasEC clearNoon
         adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
 		adsdomain:hasPI curb
-		adsdomain:hasTP pov-1
-		adsdomain:hasTP pov-2
+		// adsdomain:hasTP pov-1
+		// adsdomain:hasTP pov-2
     ]
 
 	instance sv : adsdomain:AutomatedVehicle[
@@ -89,8 +94,8 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	instance dividedHighway : road:DividedHighway
 	instance curb : roadFurniture:Curb
 
-	instance pov-1 : roaduser:ManualMovingVehicles
-	instance pov-2 : roaduser:ManualMovingVehicles
+	// instance pov-1 : roaduser:ManualMovingVehicles
+	// instance pov-2 : roaduser:ManualMovingVehicles
 
 
 

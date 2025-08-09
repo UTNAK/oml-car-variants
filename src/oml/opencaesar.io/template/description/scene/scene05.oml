@@ -23,6 +23,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as RoadUser
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/NonRoadUser#> as NonRoadUser 
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/EnvironmentalCodition#> as EnvironmentalCodition
 	
 	// // uses <http://opencaesar.io/template/vocabulary/Connectivity#> as Connectivity
@@ -38,7 +39,12 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 
 	// // uses <http://www.w3.org/2001/XMLSchema#> as xsd
 
-	
+	instance ads-test-case01 : ADSdomain:AutomatedDrivingSystemDomain[
+		ADSdomain:hasAV sv
+		ADSdomain:hasJASPARODD odd-01
+		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Simple Negative 15 PLC_SN_15"
+	]
+
 	instance odd-01 : ADSdomain:JASPARODD[
 		ADSdomain:hasEC heavyRain
 		ADSdomain:hasEC day
@@ -56,6 +62,9 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasPI trafficSignals
 		ADSdomain:hasPI stopSign
 		ADSdomain:hasPI crosswalk
+	    ADSdomain:hasTP pov-1
+		ADSdomain:hasTP pov-2
+		ADSdomain:hasTP pov-3
 
 	]
 	// instance environmentalcondition1 :ADSdomain:EnverionmentalCondition[
@@ -70,16 +79,16 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasSteering sv.steering
 	]
 	instance sv.pos.x : ADSdomain:Pos-X[
-		ADSdomain:hasFloatNumber "10.0"^^xsd:float
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance sv.pos.y : ADSdomain:Pos-Y[
-		ADSdomain:hasFloatNumber "20.0"^^xsd:float
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance sv.pos.z : ADSdomain:Pos-Z[
-		ADSdomain:hasFloatNumber "10.0"^^xsd:float
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance sv.v : ADSdomain:Velocity[
-		ADSdomain:hasFloatNumber "23.0"^^xsd:float
+		ADSdomain:hasFloatNumber "6.6667"^^xsd:float
 	]
 	instance sv.type : ADSdomain:VehicleType[
 		ADSdomain:hasString "Car"
@@ -94,7 +103,112 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 
+	instance pov-1 : RoadUser:ManualMovingVehicles[
+		ADSdomain:hasPos-X pov-1.pos.x
+		ADSdomain:hasPos-Y pov-1.pos.y
+		ADSdomain:hasPos-Z pov-1.pos.z
+		ADSdomain:hasVelocity pov-1.v
+		ADSdomain:hasVehicleType pov-1.type
+		ADSdomain:hasAcceleration pov-1.acc
+		ADSdomain:hasOrientation pov-1.orientation
+		ADSdomain:hasSteering pov-1.steering
+	]
+	instance pov-1.pos.x : ADSdomain:Pos-X[
+		ADSdomain:hasFloatNumber "5.0"^^xsd:float
+	]
+	instance pov-1.pos.y : ADSdomain:Pos-Y[
+		ADSdomain:hasFloatNumber "-3.6"^^xsd:float
+	]
+	instance pov-1.pos.z : ADSdomain:Pos-Z[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-1.v : ADSdomain:Velocity[
+		ADSdomain:hasFloatNumber "6.6667"^^xsd:float
+	]
+	instance pov-1.type : ADSdomain:VehicleType[
+		ADSdomain:hasString "Car"
+	]
+	instance pov-1.acc : ADSdomain:Acceleration[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-1.orientation : ADSdomain:Orientation[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-1.steering : ADSdomain:Steering[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	
+	instance pov-2 : RoadUser:ManualMovingVehicles[
+		ADSdomain:hasPos-X pov-2.pos.x
+		ADSdomain:hasPos-Y pov-2.pos.y
+		ADSdomain:hasPos-Z pov-2.pos.z
+		ADSdomain:hasVelocity pov-2.v
+		ADSdomain:hasVehicleType pov-2.type
+		ADSdomain:hasAcceleration pov-2.acc
+		ADSdomain:hasOrientation pov-2.orientation
+		ADSdomain:hasSteering pov-2.steering
+	]
+	instance pov-2.pos.x : ADSdomain:Pos-X[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-2.pos.y : ADSdomain:Pos-Y[
+		ADSdomain:hasFloatNumber "-3.6"^^xsd:float
+	]
+	instance pov-2.pos.z : ADSdomain:Pos-Z[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-2.v : ADSdomain:Velocity[
+		ADSdomain:hasFloatNumber "6.6667"^^xsd:float
+	]
+	instance pov-2.type : ADSdomain:VehicleType[
+		ADSdomain:hasString "Car"
+	]
+	instance pov-2.acc : ADSdomain:Acceleration[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-2.orientation : ADSdomain:Orientation[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-2.steering : ADSdomain:Steering[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
 
+	instance pov-3 : RoadUser:ManualMovingVehicles[
+		ADSdomain:hasPos-X pov-3.pos.x
+		ADSdomain:hasPos-Y pov-3.pos.y
+		ADSdomain:hasPos-Z pov-3.pos.z
+		ADSdomain:hasVelocity pov-3.v
+		ADSdomain:hasVehicleType pov-3.type
+		ADSdomain:hasAcceleration pov-3.acc
+		ADSdomain:hasOrientation pov-3.orientation
+		ADSdomain:hasSteering pov-3.steering
+	]
+	instance pov-3.pos.x : ADSdomain:Pos-X[
+		ADSdomain:hasFloatNumber "-5.0"^^xsd:float
+	]
+	instance pov-3.pos.y : ADSdomain:Pos-Y[
+		ADSdomain:hasFloatNumber "-3.6"^^xsd:float
+	]
+	instance pov-3.pos.z : ADSdomain:Pos-Z[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-3.v : ADSdomain:Velocity[
+		ADSdomain:hasFloatNumber "6.6667"^^xsd:float
+	]
+	instance pov-3.type : ADSdomain:VehicleType[
+		ADSdomain:hasString "Car"
+	]
+	instance pov-3.acc : ADSdomain:Acceleration[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-3.orientation : ADSdomain:Orientation[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-3.steering : ADSdomain:Steering[
+		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+
+	
 	instance heavyRain : Weather:HeavyRain[
 		EnverionmentalCondition:weatherPattern "HardRainNoon"
 		EnverionmentalCondition:cloudiness "100.0"^^xsd:float

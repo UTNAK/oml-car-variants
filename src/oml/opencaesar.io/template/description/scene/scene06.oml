@@ -59,7 +59,7 @@ description <http://opencaesar.io/template/description/scene/scene06#> as scene0
 		ADSdomain:hasTP CarsVehicleTypes
 		ADSdomain:hasTP Trucks-LightTrucks
 		ADSdomain:hasTP Trucks-LargeTrucks
-		ADSdomain:hasTP OtherAutomatedVehicles
+		// ADSdomain:hasTP OtherAutomatedVehicles
 		ADSdomain:hasEC MildRain
 		ADSdomain:hasConnectivity V2I
 		ADSdomain:hasConnectivity GPS
@@ -91,7 +91,7 @@ description <http://opencaesar.io/template/description/scene/scene06#> as scene0
 	instance CarsVehicleTypes : RoadUser:CarsVehicleTypes
 	instance Trucks-LightTrucks : RoadUser:LightTrucksVehicleTypes
 	instance Trucks-LargeTrucks : RoadUser:LargeTrucksVehicleTypes
-	instance OtherAutomatedVehicles : RoadUser:AutonomousMovingVehicles
+	// instance OtherAutomatedVehicles : RoadUser:AutonomousMovingVehicles
 	instance MildRain : Weather:LowRain[
 		EnverionmentalCondition:weatherPattern "SoftRainNoon"
 		EnverionmentalCondition:cloudiness "100.0"^^xsd:float
