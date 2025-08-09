@@ -53,7 +53,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	instance sv.acceleration : adsdomain:Acceleration[
 		adsdomain:hasFloatNumber "2"^^xsd:float
 
-	]   
+	]
 	instance sv.steering : adsdomain:Steering[
 		adsdomain:hasFloatNumber "0.5"^^xsd:float
 	]
