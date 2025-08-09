@@ -6,16 +6,27 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 	uses <http://purl.org/dc/elements/1.1/> as dc
     uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as weather
-	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as illumination
-    uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as road
-	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+    uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as illumination
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road#> as road
+	uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as roadFurniture
+	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as roaduser
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
+	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 
+    instance ads-test-case01 : adsdomain:AutomatedDrivingSystemDomain[
+		adsdomain:hasAV sv
+		adsdomain:hasJASPARODD odd-01
+		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Complex Positive 35 PLC_CP_35"
+	]
+ 
     instance odd-01 : adsdomain:JASPARODD[
 		adsdomain:hasEC duststorm
 		adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
-		adsdomain:hasPI privateRoads
+		adsdomain:hasPI curb
+		adsdomain:hasTP pov-1
+
 	]  
 
 	instance sv : adsdomain:AutomatedVehicle[
@@ -27,64 +38,103 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 		adsdomain:hasAcceleration sv.acceleration
 		adsdomain:hasSteering sv.steering
 		adsdomain:hasOrientation sv.orientation
-		adsdomain:hasVehicleType sv.type
-		
 	]
+
 
 	instance sv.type : adsdomain:VehicleType[
 		adsdomain:hasString "Car"
 	]
-
 	instance sv.pos.x : adsdomain:Pos-X[
-		adsdomain:hasFloatNumber "50.0"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
-
 	instance sv.pos.y : adsdomain:Pos-Y[
-		adsdomain:hasFloatNumber "50.0"^^xsd:float
+		adsdomain:hasFloatNumber "-3.6"^^xsd:float
 	]
-
 	instance sv.pos.z : adsdomain:Pos-Z[
-		adsdomain:hasFloatNumber "50.0"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]  
-
 	instance sv.velocity : adsdomain:Velocity[
-		adsdomain:hasFloatNumber "50.0"^^xsd:float
+		adsdomain:hasFloatNumber "15.556"^^xsd:float
 	]   
-
 	instance sv.acceleration : adsdomain:Acceleration[
-		adsdomain:hasFloatNumber "1.5"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
-
 	instance sv.steering : adsdomain:Steering[
-		adsdomain:hasFloatNumber "1.0"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]
-
 	instance sv.orientation : adsdomain:Orientation[
-		adsdomain:hasFloatNumber "0.5"^^xsd:float
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
 	]     
+
+
+
+
+
 
 
 	instance duststorm : weather:Duststorm[
 		EnverionmentalCondition:weatherPattern "DustStorm"
-		EnverionmentalCondition:cloudiness "100.0"^^xsd:float
-		EnverionmentalCondition:dust_storm "100.0"^^xsd:float
-		EnverionmentalCondition:fog_density "90.0"^^xsd:float
-		EnverionmentalCondition:fog_distance "100.0"^^xsd:float
-		EnverionmentalCondition:fog_falloff "-1.0"^^xsd:float
-		EnverionmentalCondition:mie_scattering_scale "45.0"^^xsd:float
-		EnverionmentalCondition:precipitation "7.0"^^xsd:float
-		EnverionmentalCondition:precipitation_deposits "0.75"^^xsd:float
-		EnverionmentalCondition:rayleigh_scattering_scale "0.1"^^xsd:float
-		EnverionmentalCondition:scattering_intensity "0.0"^^xsd:float
-		EnverionmentalCondition:sun_altitude_angle "1.0"^^xsd:float
-		EnverionmentalCondition:sun_azimuth_angle "0.03"^^xsd:float
-		EnverionmentalCondition:wetness "0.0331"^^xsd:float
-		EnverionmentalCondition:wind_intensity "0.0"^^xsd:float
+		//EnverionmentalCondition:cloudiness "100.0"^^xsd:float
+		//EnverionmentalCondition:dust_storm "100.0"^^xsd:float
+		//EnverionmentalCondition:fog_density "90.0"^^xsd:float
+		//EnverionmentalCondition:fog_distance "100.0"^^xsd:float
+		//EnverionmentalCondition:fog_falloff "-1.0"^^xsd:float
+		//EnverionmentalCondition:mie_scattering_scale "45.0"^^xsd:float
+		//EnverionmentalCondition:precipitation "7.0"^^xsd:float
+		//EnverionmentalCondition:precipitation_deposits "0.75"^^xsd:float
+		//EnverionmentalCondition:rayleigh_scattering_scale "0.1"^^xsd:float
+		//EnverionmentalCondition:scattering_intensity "0.0"^^xsd:float
+		//EnverionmentalCondition:sun_altitude_angle "1.0"^^xsd:float
+		//EnverionmentalCondition:sun_azimuth_angle "0.03"^^xsd:float
+		//EnverionmentalCondition:wetness "0.0331"^^xsd:float
+		//EnverionmentalCondition:wind_intensity "0.0"^^xsd:float
 	]
+
 	instance day : illumination:Day
 
 	instance dividedHighway : road:DividedHighway
-	instance privateRoads : road:PrivateRoads
+	//instance privateRoads : roadFurniture:PrivateRoads
+    instance curb : roadFurniture:Curb
+
+	
+
+	instance pov-1 : roaduser:ManualMovingVehicles[
+		adsdomain:hasVehicleType pv1.type
+		adsdomain:hasPos-X pv1.pos.x
+		adsdomain:hasPos-Y pv1.pos.y
+		adsdomain:hasPos-Z pv1.pos.z
+		adsdomain:hasVelocity pv1.velocity
+		adsdomain:hasAcceleration pv1.acceleration
+		adsdomain:hasSteering pv1.steering
+		adsdomain:hasOrientation pv1.orientation
+	]
+
+
+	instance pv1.type : adsdomain:VehicleType[
+		adsdomain:hasString "Car"
+	]
+	instance pv1.pos.x : adsdomain:Pos-X[
+		adsdomain:hasFloatNumber "6.0"^^xsd:float
+	]
+	instance pv1.pos.y : adsdomain:Pos-Y[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pv1.pos.z : adsdomain:Pos-Z[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv1.velocity : adsdomain:Velocity[
+		adsdomain:hasFloatNumber "15.556"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv1.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+
+	]
+	instance pv1.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pv1.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]
 
 	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/Weather#> as Weather
 	// uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure#> as Physicalinfrastructure
