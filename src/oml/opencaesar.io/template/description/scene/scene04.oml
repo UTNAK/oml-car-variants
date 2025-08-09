@@ -5,7 +5,7 @@ description <http://opencaesar.io/template/description/scene/scene04#> as scene0
 	
 	uses <http://purl.org/dc/elements/1.1/> as dc
 
-    uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as Adsdomain
+    uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
 
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as Weather
     uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Illumination#> as Illumination
@@ -14,53 +14,169 @@ description <http://opencaesar.io/template/description/scene/scene04#> as scene0
     uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as RoadFurniture
     uses <http://www.w3.org/2001/XMLSchema#> as xsd
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
+	uses<http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as roaduser
+	
     
 
-    instance odd-04 :  Adsdomain:JASPARODD[
-        Adsdomain:hasEC Wind
-        Adsdomain:hasEC Dawn
-        Adsdomain:hasPI Multi-Lane
-        Adsdomain:hasPI LineMarkers
-        Adsdomain:hasPI Shoulder
+    instance odd-04 :  adsdomain:JASPARODD[
+        adsdomain:hasEC Wind
+        adsdomain:hasEC Dawn
+        adsdomain:hasPI Multi-Lane
+        adsdomain:hasPI LineMarkers
+        adsdomain:hasPI Shoulder
+		adsdomain:hasTP pov-1
+		adsdomain:hasTP pov-2
+		adsdomain:hasTP pov-3
     ]
 
-   	instance sv : Adsdomain:AutomatedVehicle[
-		Adsdomain:hasVehicleType sv.type
-		Adsdomain:hasPos-X sv.pos.x
-		Adsdomain:hasPos-Y sv.pos.y
-		Adsdomain:hasPos-Z sv.pos.z
-		Adsdomain:hasVelocity sv.velocity
-        Adsdomain:hasAcceleration sv.acceleration
-        Adsdomain:hasSteering sv.steering
-        Adsdomain:hasOrientation sv.orientation
+   	instance sv : adsdomain:AutomatedVehicle[
+		adsdomain:hasVehicleType sv.type
+		adsdomain:hasPos-X sv.pos.x
+		adsdomain:hasPos-Y sv.pos.y
+		adsdomain:hasPos-Z sv.pos.z
+		adsdomain:hasVelocity sv.velocity
+        adsdomain:hasAcceleration sv.acceleration
+        adsdomain:hasSteering sv.steering
+        adsdomain:hasOrientation sv.orientation
         
 	]
-	instance sv.type : Adsdomain:VehicleType[
-		Adsdomain:hasString "Car"
+	instance sv.type : adsdomain:VehicleType[
+		adsdomain:hasString "Car"
 	]
-	instance sv.pos.x : Adsdomain:Pos-X[
-		Adsdomain:hasFloatNumber "50"^^xsd:float
+	instance sv.pos.x : adsdomain:Pos-X[
+		adsdomain:hasFloatNumber "0"^^xsd:float
 	]
-	instance sv.pos.y : Adsdomain:Pos-Y[
-		Adsdomain:hasFloatNumber "3.5"^^xsd:float
+	instance sv.pos.y : adsdomain:Pos-Y[
+		adsdomain:hasFloatNumber "0"^^xsd:float
 	]
-	instance sv.pos.z : Adsdomain:Pos-Z[
-		Adsdomain:hasFloatNumber "0"^^xsd:float
+	instance sv.pos.z : adsdomain:Pos-Z[
+		adsdomain:hasFloatNumber "0"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
-	instance sv.velocity : Adsdomain:Velocity[
-		Adsdomain:hasFloatNumber "27"^^xsd:float
+	instance sv.velocity : adsdomain:Velocity[
+		adsdomain:hasFloatNumber "15.556"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
-    instance sv.acceleration : Adsdomain:Acceleration[
-		Adsdomain:hasFloatNumber "0"^^xsd:float
+    instance sv.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "0"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
-    instance sv.steering : Adsdomain:Steering[
-		Adsdomain:hasFloatNumber "0"^^xsd:float
+    instance sv.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "0"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
-    instance sv.orientation : Adsdomain:Orientation[
-		Adsdomain:hasFloatNumber "0"^^xsd:float
+    instance sv.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 
 
+
+
+instance pov-1 : roaduser:ManualMovingVehicles[
+		adsdomain:hasVehicleType pv1.type
+		adsdomain:hasPos-X pv1.pos.x
+		adsdomain:hasPos-Y pv1.pos.y
+		adsdomain:hasPos-Z pv1.pos.z
+		adsdomain:hasVelocity pv1.velocity
+		adsdomain:hasAcceleration pv1.acceleration
+		adsdomain:hasSteering pv1.steering
+		adsdomain:hasOrientation pv1.orientation
+	]
+	instance pv1.type : adsdomain:VehicleType[
+		adsdomain:hasString "Car"
+	]
+	instance pv1.pos.x : adsdomain:Pos-X[
+		adsdomain:hasFloatNumber "12.5"^^xsd:float
+	]
+	instance pv1.pos.y : adsdomain:Pos-Y[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
+	instance pv1.pos.z : adsdomain:Pos-Z[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv1.velocity : adsdomain:Velocity[
+		adsdomain:hasFloatNumber "15.555"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv1.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+
+	]
+	instance pv1.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
+	instance pv1.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
+
+
+instance pov-2 : roaduser:ManualMovingVehicles[
+		adsdomain:hasVehicleType pv2.type
+		adsdomain:hasPos-X pv2.pos.x
+		adsdomain:hasPos-Y pv2.pos.y
+		adsdomain:hasPos-Z pv2.pos.z
+		adsdomain:hasVelocity pv2.velocity
+		adsdomain:hasAcceleration pv2.acceleration
+		adsdomain:hasSteering pv2.steering
+		adsdomain:hasOrientation pv2.orientation
+	]
+	instance pv2.type : adsdomain:VehicleType[
+		adsdomain:hasString "Car"
+	]
+	instance pv2.pos.x : adsdomain:Pos-X[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
+	instance pv2.pos.y : adsdomain:Pos-Y[
+		adsdomain:hasFloatNumber "-3.5"^^xsd:float
+	]
+	instance pv2.pos.z : adsdomain:Pos-Z[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv2.velocity : adsdomain:Velocity[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv2.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+
+	]
+	instance pv2.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
+	instance pv2.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
+
+
+instance pov-3 : roaduser:ManualMovingVehicles[
+		adsdomain:hasVehicleType pv3.type
+		adsdomain:hasPos-X pv3.pos.x
+		adsdomain:hasPos-Y pv3.pos.y
+		adsdomain:hasPos-Z pv3.pos.z
+		adsdomain:hasVelocity pv3.velocity
+		adsdomain:hasAcceleration pv3.acceleration
+		adsdomain:hasSteering pv3.steering
+		adsdomain:hasOrientation pv3.orientation
+	]
+	instance pv3.type : adsdomain:VehicleType[
+		adsdomain:hasString "Car"
+	]
+	instance pv3.pos.x : adsdomain:Pos-X[
+		adsdomain:hasFloatNumber "-12.5"^^xsd:float
+	]
+	instance pv3.pos.y : adsdomain:Pos-Y[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
+	instance pv3.pos.z : adsdomain:Pos-Z[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv3.velocity : adsdomain:Velocity[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv3.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+
+	]
+	instance pv3.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
+	instance pv3.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0"^^xsd:float
+	]
 
 
 
