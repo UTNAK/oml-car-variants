@@ -14,6 +14,7 @@ description <http://opencaesar.io/template/description/scene/scene04#> as scene0
     uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as RoadFurniture
     uses <http://www.w3.org/2001/XMLSchema#> as xsd
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
+    
 
     instance odd-04 :  Adsdomain:JASPARODD[
         Adsdomain:hasEC Wind
@@ -22,6 +23,47 @@ description <http://opencaesar.io/template/description/scene/scene04#> as scene0
         Adsdomain:hasPI LineMarkers
         Adsdomain:hasPI Shoulder
     ]
+
+   	instance sv : Adsdomain:AutomatedVehicle[
+		Adsdomain:hasVehicleType sv.type
+		Adsdomain:hasPos-X sv.pos.x
+		Adsdomain:hasPos-Y sv.pos.y
+		Adsdomain:hasPos-Z sv.pos.z
+		Adsdomain:hasVelocity sv.velocity
+        Adsdomain:hasAcceleration sv.acceleration
+        Adsdomain:hasSteering sv.steering
+        Adsdomain:hasOrientation sv.orientation
+        
+	]
+	instance sv.type : Adsdomain:VehicleType[
+		Adsdomain:hasString "Car"
+	]
+	instance sv.pos.x : Adsdomain:Pos-X[
+		Adsdomain:hasFloatNumber "50"^^xsd:float
+	]
+	instance sv.pos.y : Adsdomain:Pos-Y[
+		Adsdomain:hasFloatNumber "3.5"^^xsd:float
+	]
+	instance sv.pos.z : Adsdomain:Pos-Z[
+		Adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance sv.velocity : Adsdomain:Velocity[
+		Adsdomain:hasFloatNumber "27"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+    instance sv.acceleration : Adsdomain:Acceleration[
+		Adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+    instance sv.steering : Adsdomain:Steering[
+		Adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+    instance sv.orientation : Adsdomain:Orientation[
+		Adsdomain:hasFloatNumber "0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+
+
+
+
+
     instance Wind : Weather:Wind[
         EnverionmentalCondition:weatherPattern "CloudyNight"
         EnverionmentalCondition:cloudiness "100.0"^^xsd:float
