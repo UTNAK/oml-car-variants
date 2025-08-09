@@ -39,6 +39,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         restricts hasAcceleration to exactly 1
         restricts hasVehicleType to exactly 1
     ]
+
     aspect CarlaParameter < vim4:QuantityValue
 
     @rdfs:label "hasFloatNumber"
