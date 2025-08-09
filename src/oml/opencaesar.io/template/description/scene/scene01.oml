@@ -13,6 +13,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
 	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+	uses <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as ddt
 
 	instance ads-test-case01 : adsdomain:AutomatedDrivingSystemDomain[
 		adsdomain:hasAV sv
@@ -28,8 +29,13 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasTP pov-1
 		// adsdomain:hasTP pov-2
     ]
+	instance low-speed-merge : ddt:Low-Speed-Merge
+	instance ads-system : adsdomain:AutomatedDrivingSystem[
+		adsdomain:performs low-speed-merge
+	]
 
 	instance sv : adsdomain:AutomatedVehicle[
+		adsdomain:equippes ads-system
 		adsdomain:hasVehicleType sv.type
 		adsdomain:hasPos-X sv.pos.x
 		adsdomain:hasPos-Y sv.pos.y

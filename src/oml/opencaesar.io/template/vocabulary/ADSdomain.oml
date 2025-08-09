@@ -7,6 +7,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 	extends <http://purl.org/dc/elements/1.1/> as dc
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
     extends <http://bipm.org/jcgm/vim4#> as vim4
+    extends <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as ddt
     
 
 
@@ -326,6 +327,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 		forward isECOf
 		reverse hasEC
   ]
+
+    relation entity Perform [
+        from ADSdomain:AutomatedDrivingSystem
+        to ddt:DynamicDrivingTask
+        forward performs
+        reverse isPerformedBy
+    ]
+
 	// concept Displacement < vim4:InherentUnitaryQuantity [
 	// 	restricts vim4:instantiates to iso-80000-3.4:volume
 	// ]

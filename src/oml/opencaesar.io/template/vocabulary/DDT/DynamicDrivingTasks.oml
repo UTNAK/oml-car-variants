@@ -1,0 +1,24 @@
+@dc:title "Example Vocabulary"
+@dc:creator "Example Company"
+@dc:rights "Copyright 2019, by Example Company"
+vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as DynamicDrivingTasks {
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+
+	// extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
+    extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
+
+    concept DynamicDrivingTask < mission:Objective
+
+	@rdfs:label "Parking"
+	@dc:description "ADS comes to a complete stop within a vacant parking spot; may be further qualified by parallel or perpendicular orientations, lot type (closed/open), initiation conditions, etc."
+    concept Parking < DynamicDrivingTask
+
+	@rdfs:label "Low-Speed Merge"
+    @dc:description "ADS merges into a lane below about 45 mph, for example from
+    an exit ramp, by identifying a vacant lane position and matching speed."
+    concept Low-Speed-Merge  < DynamicDrivingTask
+
+}
