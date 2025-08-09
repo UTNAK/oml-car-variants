@@ -12,10 +12,18 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as roaduser
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+	uses <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as ddt
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
 
 	instance ads-test-case01 : adsdomain:AutomatedDrivingSystemDomain[
 		adsdomain:hasAV sv
 		adsdomain:hasJASPARODD odd-01
+		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Simple Positive 15 PLC_SP_15"
+	]
+
+	instance low-speed-merge : ddt:Low-Speed-Merge
+	instance ads-system : adsdomain:AutomatedDrivingSystem[
+		adsdomain:performs low-speed-merge
 	]
 
     instance odd-01 : adsdomain:JASPARODD[
@@ -23,11 +31,12 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
         adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
 		adsdomain:hasPI curb
-		// adsdomain:hasTP pov-1
+		adsdomain:hasTP pov-1
 		// adsdomain:hasTP pov-2
     ]
 
 	instance sv : adsdomain:AutomatedVehicle[
+		adsdomain:equippes ads-system
 		adsdomain:hasVehicleType sv.type
 		adsdomain:hasPos-X sv.pos.x
 		adsdomain:hasPos-Y sv.pos.y
@@ -66,6 +75,43 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	]
 
 
+	// Rear bumper 6 m (20 ft) in front of SV front bumper
+	instance pov-1 : roaduser:ManualMovingVehicles[
+		adsdomain:hasVehicleType pv1.type
+		adsdomain:hasPos-X pv1.pos.x
+		adsdomain:hasPos-Y pv1.pos.y
+		adsdomain:hasPos-Z pv1.pos.z
+		adsdomain:hasVelocity pv1.velocity
+		adsdomain:hasAcceleration pv1.acceleration
+		adsdomain:hasSteering pv1.steering
+		adsdomain:hasOrientation pv1.orientation
+	]
+
+	instance pv1.type : adsdomain:VehicleType[
+		adsdomain:hasString "Car"
+	]
+	instance pv1.pos.x : adsdomain:Pos-X[
+		adsdomain:hasFloatNumber "6.0"^^xsd:float
+	]
+	instance pv1.pos.y : adsdomain:Pos-Y[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pv1.pos.z : adsdomain:Pos-Z[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv1.velocity : adsdomain:Velocity[
+		adsdomain:hasFloatNumber "6.667"^^xsd:float
+	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
+	instance pv1.acceleration : adsdomain:Acceleration[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+
+	]
+	instance pv1.steering : adsdomain:Steering[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pv1.orientation : adsdomain:Orientation[
+		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]
 
 
 
