@@ -29,6 +29,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	// ClearNoon = { 5.0f, 0.0f, 0.0f, 10.0f, -1.0f, 45.0f, 2.0f, 0.75f, 0.1f, 0.0f, 1.0f, 0.03f, 0.0331f, 0.0f }
 
     instance clearNoon : weather:ClearNoon[
+		EnverionmentalCondition:weatherPattern "ClearNooN"
 		EnverionmentalCondition:cloudiness "5.0"^^xsd:float
 		EnverionmentalCondition:dust_storm "0.0"^^xsd:float
 		EnverionmentalCondition:fog_density "0.0"^^xsd:float

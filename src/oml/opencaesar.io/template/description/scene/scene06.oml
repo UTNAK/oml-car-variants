@@ -92,7 +92,23 @@ description <http://opencaesar.io/template/description/scene/scene06#> as scene0
 	instance Trucks-LightTrucks : RoadUser:LightTrucksVehicleTypes
 	instance Trucks-LargeTrucks : RoadUser:LargeTrucksVehicleTypes
 	instance OtherAutomatedVehicles : RoadUser:AutonomousMovingVehicles
-	instance MildRain : Weather:LowRain
+	instance MildRain : Weather:LowRain[
+		EnverionmentalCondition:weatherPattern "SoftRainNoon"
+		EnverionmentalCondition:cloudiness "100.0"^^xsd:float
+		EnverionmentalCondition:dust_storm "100.0"^^xsd:float
+		EnverionmentalCondition:fog_density "90.0"^^xsd:float
+		EnverionmentalCondition:fog_distance "100.0"^^xsd:float
+		EnverionmentalCondition:fog_falloff "-1.0"^^xsd:float
+		EnverionmentalCondition:mie_scattering_scale "45.0"^^xsd:float
+		EnverionmentalCondition:precipitation "7.0"^^xsd:float
+		EnverionmentalCondition:precipitation_deposits "0.75"^^xsd:float
+		EnverionmentalCondition:rayleigh_scattering_scale "0.1"^^xsd:float
+		EnverionmentalCondition:scattering_intensity "0.0"^^xsd:float
+		EnverionmentalCondition:sun_altitude_angle "1.0"^^xsd:float
+		EnverionmentalCondition:sun_azimuth_angle "0.03"^^xsd:float
+		EnverionmentalCondition:wetness "0.0331"^^xsd:float
+		EnverionmentalCondition:wind_intensity "0.0"^^xsd:float
+	]
 	instance V2I : Connectivity:V2XCommunicationSystem
 	instance GPS : Connectivity:GPS
 	instance 3-DMaps : Connectivity:3-DMaps

@@ -12,13 +12,14 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 
     instance odd-01 : adsdomain:JASPARODD[
-		adsdomain:hasEC snow
+		adsdomain:hasEC duststorm
 		adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
 		adsdomain:hasPI privateRoads
 	]  
 
-	instance snow : weather:Snow[
+	instance duststorm : weather:Duststorm[
+		EnverionmentalCondition:weatherPattern "DustStorm"
 		EnverionmentalCondition:cloudiness "100.0"^^xsd:float
 		EnverionmentalCondition:dust_storm "100.0"^^xsd:float
 		EnverionmentalCondition:fog_density "90.0"^^xsd:float
