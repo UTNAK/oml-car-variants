@@ -5,6 +5,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
     extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    extends <http://www.w3.org/2003/11/swrlb#> as swrlb
+    extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
+        
 
 
 	// extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
@@ -19,6 +23,28 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 	@rdfs:label "Low-Speed Merge"
     @dc:description "ADS merges into a lane below about 45 mph, for example from
     an exit ramp, by identifying a vacant lane position and matching speed."
-    concept Low-Speed-Merge  < DynamicDrivingTask
 
+    
+   concept Low-Speed-Merge  < DynamicDrivingTask[
+        // restricts maxVelocity to exactly 1
+    ]
+    
+    scalar property maxVelocity[
+		domain DynamicDrivingTask
+		range xsd:float
+		// functional
+        
+	]
+
+    aspect NotValidVel
+
+ 	rule low-speed-merge-velocity[
+        maxVelocity(ddt, vmax) &
+         adsdomain:isPerformedBy(ddt, ads) &
+          adsdomain:isEquippedTo(ads, sv) & 
+           adsdomain:hasVelocity(sv, vel) &
+            adsdomain:hasFloatNumber(vel, value) &
+             builtIn ( swrlb:lessThan, vmax, value) -> NotValidVel(vel)
+    ]
 }
+
