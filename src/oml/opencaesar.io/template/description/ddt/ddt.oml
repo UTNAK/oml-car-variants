@@ -14,7 +14,7 @@ description <http://opencaesar.io/template/description/ddt/ddt#> as ddt {
         base:hasDescription "ADS merges into a lane below about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
         base:hasCanonicalName "Low-Speed Merge"
         ddt:maxVelocity "12.5"^^xsd:float // 45mph->m/s
-        // ddt:MinimumTHW "2.0"^^xsd:float // Example value for minimum time to collision
+        ddt:MinimumTHW "2.0"^^xsd:float // Example value for minimum time to collision
     ]
 
     instance parking : ddt:Parking[

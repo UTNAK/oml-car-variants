@@ -22,6 +22,8 @@ description <http://opencaesar.io/template/description/scene/scene04#> as scene0
         Adsdomain:hasPI Multi-Lane
         Adsdomain:hasPI LineMarkers
         Adsdomain:hasPI Shoulder
+		Adsdomain:MinimumRelativeDistanceX "0.0"^^xsd:float // Example value for minimum relative distance in X
+		Adsdomain:MinimumRelativeDistanceY "3.0"^^xsd:float // Example value for minimum relative distance in Y
     ]
 
    	instance sv : Adsdomain:AutomatedVehicle[

@@ -16,6 +16,8 @@ description <http://opencaesar.io/template/description/scene/scene03#> as scene0
 		adsdomain:hasEC day
 		adsdomain:hasPI dividedHighway
 		adsdomain:hasPI privateRoads
+		adsdomain:MinimumRelativeDistanceX "0.0"^^xsd:float // Example value for minimum relative distance in X
+		adsdomain:MinimumRelativeDistanceY "3.0"^^xsd:float // Example value for minimum relative distance in Y
 	]  
 
 	instance sv : adsdomain:AutomatedVehicle[

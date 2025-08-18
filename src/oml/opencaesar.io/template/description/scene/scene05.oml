@@ -5,6 +5,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 
 	uses <http://purl.org/dc/elements/1.1/> as dc
 
+
 	uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as Weather
@@ -42,6 +43,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasAV sv
 		ADSdomain:hasJASPARODD odd-01
 		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Simple Negative 15 PLC_SN_15"
+		
 	]
 
 	instance odd-01 : ADSdomain:JASPARODD[
@@ -54,7 +56,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasOC 60kph
 		ADSdomain:hasOC 100kph
 		ADSdomain:hasOC normalTraffic
-		ADSdomain:hasTP buses
+		// ADSdomain:hasTP buses
 		ADSdomain:hasTP deer
 		ADSdomain:hasConnectivity V2X
 		ADSdomain:hasPI asphalt
@@ -64,6 +66,8 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 	    ADSdomain:hasTP pov-1
 		ADSdomain:hasTP pov-2
 		ADSdomain:hasTP pov-3
+		ADSdomain:MinimumRelativeDistanceX "0.0"^^xsd:float // Example value for minimum relative distance in X
+		ADSdomain:MinimumRelativeDistanceY "3.0"^^xsd:float // Example value for minimum relative distance in Y
 
 	]
 	// instance environmentalcondition1 :ADSdomain:EnverionmentalCondition[
@@ -111,6 +115,8 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasAcceleration pov-1.acc
 		ADSdomain:hasOrientation pov-1.orientation
 		ADSdomain:hasSteering pov-1.steering
+
+		
 	]
 	instance pov-1.pos.x : ADSdomain:Pos-X[
 		ADSdomain:hasFloatNumber "5.0"^^xsd:float
@@ -233,7 +239,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 	instance 60kph : SpeedLimit:MinimumSpeedLimit
 	instance 100kph : SpeedLimit:MaximumSpeedLimit
 	instance normalTraffic : TrafficConditions:NormalTraffic
-	instance buses : RoadUser:BusesVehicleTypes
+	// instance buses : RoadUser:BusesVehicleTypes
 	instance deer : NonRoadUser:DeerAnimals
 	instance V2X :  Connectivity:V2XCommunicationSystem
 	instance asphalt : RoadInfrastructure:AsphaltRoadSurface

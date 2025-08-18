@@ -37,6 +37,8 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasPI dividedHighway
 		adsdomain:hasPI curb
 		adsdomain:hasTP pov-1
+		adsdomain:MinimumRelativeDistanceX "0.0"^^xsd:float // Example value for minimum relative distance in X
+		adsdomain:MinimumRelativeDistanceY "3.0"^^xsd:float // Example value for minimum relative distance in Y
 		// adsdomain:hasTP pov-2
     ]
 
@@ -90,7 +92,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasAcceleration pv1.acceleration
 		adsdomain:hasSteering pv1.steering
 		adsdomain:hasOrientation pv1.orientation
-		
+
 	]
 
 	instance pv1.type : adsdomain:VehicleType[

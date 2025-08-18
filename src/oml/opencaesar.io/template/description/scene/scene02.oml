@@ -28,6 +28,8 @@ description <http://opencaesar.io/template/description/scene/scene02#> as scene0
 		adsdomain:hasPI rails
 		adsdomain:hasEC day
 		adsdomain:hasTP pov-1
+		adsdomain:MinimumRelativeDistanceX "0.0"^^xsd:float // Example value for minimum relative distance in X
+		adsdomain:MinimumRelativeDistanceY "3.0"^^xsd:float // Example value for minimum relative distance in Y
 	]
 
 	instance sv : adsdomain:AutomatedVehicle[

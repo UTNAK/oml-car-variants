@@ -8,6 +8,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
     extends <http://bipm.org/jcgm/vim4#> as vim4
     extends <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as ddt
+    extends <http://www.w3.org/2003/11/swrlb#> as swrlb
+
     
 
 
@@ -21,6 +23,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 	]
 
     concept JASPARODD  < mission:Component [
+      restricts MinimumRelativeDistanceX to exactly 1
+      restricts MinimumRelativeDistanceY to exactly 1
 
     ]
 
@@ -333,6 +337,49 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         to ddt:DynamicDrivingTask
         forward performs
         reverse isPerformedBy
+    ]
+
+    scalar property MinimumRelativeDistanceX[
+        domain ADSdomain:JASPARODD
+        range xsd:float
+        functional
+    ]
+
+    scalar property MinimumRelativeDistanceY[
+        domain ADSdomain:JASPARODD
+        range xsd:float
+        functional
+    ]
+
+    aspect NotValidRelativeDistanceX
+    aspect NotValidRelativeDistanceY
+
+
+    rule RelativeDistanceX[
+        MinimumRelativeDistanceX(ddt, minrelX) &
+         ADSdomain:isPerformedBy(ddt, ads) &
+          ADSdomain:isEquippedTo(ads, sv) &
+           ADSdomain:isAVOf(sv, av) &
+            ADSdomain:hasJASPARODD(av, odd) &
+             ADSdomain:hasTP(odd, tp) &
+              ADSdomain:hasPos-X(tp, posX) &
+               ADSdomain:hasFloatNumber(posX, value) &
+                // builtIn (swrlb:abs, value, absValue) &
+                 builtIn (swrlb:lessThan, value, minrelX) -> NotValidRelativeDistanceX(posX)
+    ]
+
+
+    rule RelativeDistanceY[
+        MinimumRelativeDistanceY(ddt, minrelY) &
+         ADSdomain:isPerformedBy(ddt, ads) &
+          ADSdomain:isEquippedTo(ads, sv) &
+           ADSdomain:isAVOf(sv, av) &
+            ADSdomain:hasJASPARODD(av, odd) &
+             ADSdomain:hasTP(odd, tp) &
+              ADSdomain:hasPos-Y(tp, posY) &
+               ADSdomain:hasFloatNumber(posY, value) &
+                // builtIn (swrlb:abs, value, absValue) &
+                 builtIn (swrlb:lessThan, value, minrelY) -> NotValidRelativeDistanceY(posY)
     ]
 
 	// concept Displacement < vim4:InherentUnitaryQuantity [
