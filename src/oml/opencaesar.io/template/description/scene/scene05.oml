@@ -5,7 +5,6 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 
 	uses <http://purl.org/dc/elements/1.1/> as dc
 
-
 	uses <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/Weather#> as Weather
