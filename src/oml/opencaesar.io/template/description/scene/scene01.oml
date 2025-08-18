@@ -12,8 +12,10 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#> as roaduser
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
-	uses <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as ddt
 	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+	// uses <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as ddt
+
+	extends <http://opencaesar.io/template/description/ddt/ddt#> as ddt
 
 	instance ads-test-case01 : adsdomain:AutomatedDrivingSystemDomain[
 		adsdomain:hasAV sv
@@ -21,9 +23,8 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Simple Positive 15 PLC_SP_15"
 	]
 
-	instance low-speed-merge : ddt:Low-Speed-Merge
 	instance ads-system : adsdomain:AutomatedDrivingSystem[
-		adsdomain:performs low-speed-merge
+		adsdomain:performs ddt:low-speed-merge
 	]
 
     instance odd-01 : adsdomain:JASPARODD[
@@ -61,7 +62,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasFloatNumber "30"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 	instance sv.velocity : adsdomain:Velocity[
-		adsdomain:hasFloatNumber "60"^^xsd:float
+		adsdomain:hasFloatNumber "12.5"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 	instance sv.acceleration : adsdomain:Acceleration[
 		adsdomain:hasFloatNumber "2"^^xsd:float

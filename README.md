@@ -2,13 +2,14 @@
 
 [![Build Status](https://github.com/opencaesar/oml-template/actions/workflows/ci.yml/badge.svg)](https://github.com/opencaesar/oml-template/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/opencaesar/oml-template?label=Release)](https://github.com/opencaesar/oml-template/releases/latest)
-[![Documentation](https://img.shields.io/badge/Documentation-HTML-orange)](https://www.opencaesar.io/oml-template/) 
+[![Documentation](https://img.shields.io/badge/Documentation-HTML-orange)](https://www.opencaesar.io/oml-template/)
 
 This repository has a template [OML](https://github.com/opencaesar/oml) project. It is meant to be forked as a starting point by pressing the 'Use this template' button above.
 
 > this template is suitable for use with OML Rosetta and OML Luxor (but not OML Vision)
 
 ## Clone
+
 ```
   git clone https://github.com/UTNAK/oml-imce-vocabulary.git
   cd oml-imce-vocabulary
@@ -73,6 +74,7 @@ Run the SPARQL queries
 Inspect the results at `build/results/template`
 
 ## Run SHACL Rules
+
 Run the SHACL rules
 
 ```
@@ -108,7 +110,6 @@ The name of this project is `oml-template`. You can change it to your own projec
 - `src/sparcl/*` (namespaces of ontologies)
 - `src/shacl/*` (namespaces of ontologies)
 
-
 # Experiment #1 : Query and Visualize using Quarto Notebook
 
 1. `R --version`
@@ -121,8 +122,6 @@ The name of this project is `oml-template`. You can change it to your own projec
 8. `quarto render script/objective_report.qmd
 9. Then you will get the `script/objective_report.html`
 10. Open in browser
-
-
 
 # Experiment #2
 
@@ -166,15 +165,12 @@ WHERE {
 }ORDER BY ?iri
 ```
 
-
-
-
 # Expetiment #3 Reasoner Test
 
 Using [DL Flag](https://www.opencaesar.io/oml/#UnreifiedRelation-LR), reasoner can detect model inconsistencies.
 
-
 ## Semantic Validation #1 : Car without Engine
+
 エンジンをもたない車のインスタンスを定義
 
 Change `descrpition1.oml` as follows,
@@ -184,6 +180,7 @@ Change `descrpition1.oml` as follows,
 		// vocabulary1:hasEngine kens-SR14-v1
 	]
 ```
+
 Then run `./gradlew build`.
 
 You may get a response like this,
@@ -195,8 +192,8 @@ You can find the error of `Individual violates minimum cardinality restriction`.
 
 This error says `Car` must have more than one `Engine`.
 
-
 ## Semantic Validation #2 hasEngineにCarを指定
+
 正しくはEngineを指定する必要がある
 
 Change `descrpition1.oml` as follows,
@@ -210,7 +207,6 @@ Change `descrpition1.oml` as follows,
 エディタに埋め込まれたSyntaxエラー検知機能を使って、オントロジーの使い方の間違いを指摘してくれる。
 
 ![1750488602204](image/README/1750488602204.png)
-
 
 ## Semantic Validation #3 CX-9に異なる型式のエンジンを指定するとエラーとして検知してくれる。
 
@@ -233,8 +229,8 @@ You can find the error of `An individual belongs to a type and its complement`.
 
 ![1750488933716](image/README/1750488933716.png)
 
-
 ## Semantic Validation #4 : ノード間の関係性（エッジ）に制約を与える
+
 複数の子をもってはいけない
 
 Change `descrpition1.oml` as follows,
@@ -262,11 +258,7 @@ This error says the same `Engine` cannot become `isEngineOf` in more than one `C
 
 ![1750484404481](image/README/1750484404481.png)
 
-
-As Dr. Maged Elaasar mentions [here](https://bentleyjoakes.github.io/assets/publications/Elaasar2023%20-%20openCAESAR%20Balancing%20Agility%20and%20Rigor%20in%20Model-Based%20Systems%20Engineering.pdf), in openCAESAR, analysis happens at two levels. First, the logical consistency of the models is checked using OML and description logic reasoners. Second, other analyses investigate other properties of the system. OML models can easily be checked for logical consistency with an off-the-shelf descrip- tion logic (DL) reasoner. This check is typically done very early in an analysis pipeline as in the Kepler16b example CI pipeline. Completeness checks can be encoded in a vocabulary directly using minimum/exact cardinality restrictions on properties. They can also be captured using libraries of well-formedness rules that query consistent models. The advantage of the latter is the ability to separate those two concerns, and the ability to use other analyses frameworks than a DL reasoner.
-
-
-
+As Dr. Maged Elaasar mentions [here](https://bentleyjoakes.github.io/assets/publications/Elaasar2023%20-%20openCAESAR%20Balancing%20Agility%20and%20Rigor%20in%20Model-Based%20Systems%20Engineering.pdf), in openCAESAR, analysis happens at two levels. First, the logical consistency of the models is checked using OML and description logic reasoners. Second, other analyses investigate other properties of the system. OML models can easily be checked for logical consistency with an off-the-shelf description logic (DL) reasoner. This check is typically done very early in an analysis pipeline as in the Kepler16b example CI pipeline. Completeness checks can be encoded in a vocabulary directly using minimum/exact cardinality restrictions on properties. They can also be captured using libraries of well-formedness rules that query consistent models. The advantage of the latter is the ability to separate those two concerns, and the ability to use other analyses frameworks than a DL reasoner.
 
 ## operational design domain (ODD)
 
@@ -276,12 +268,9 @@ As Dr. Maged Elaasar mentions [here](https://bentleyjoakes.github.io/assets/publ
 
 ![1751697933110](image/README/1751697933110.png)
 
-
 ### Descriptions
 
 ![1751698134350](image/README/1751698134350.png)
-
-
 
 ## Scene and Query
 

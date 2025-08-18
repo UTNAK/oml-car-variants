@@ -28,6 +28,7 @@ vocabulary bundle <http://opencaesar.io/template/vocabulary/bundle#> as vocabula
 	includes <http://opencaesar.io/template/vocabulary/TrafficParticipants/TrafficParticipants#>
 	includes <http://opencaesar.io/template/vocabulary/TrafficParticipants/RoadUser#>
 	includes <http://opencaesar.io/template/vocabulary/TrafficParticipants/NonRoadUser#>
+	includes <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#>
 
 
 
