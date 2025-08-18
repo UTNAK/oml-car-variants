@@ -6,10 +6,70 @@ vocabulary <http://opencaesar.io/template/vocabulary/TrafficParticipants/Traffic
 	extends <http://purl.org/dc/elements/1.1/> as dc
 
 	extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    extends <http://www.w3.org/2003/11/swrlb#> as swrlb
     // concept TrafficParticipants < ADSdomain:TrafficParticipants
     
-    concept RoadUser < ADSdomain:TrafficParticipants
+    concept RoadUser < ADSdomain:TrafficParticipants[
+        restricts MinimumRelativeDistanceX to exactly 1
+        restricts MinimumRelativeDistanceY to exactly 1
+    ]
     concept NonRoadUser < ADSdomain:TrafficParticipants
+
+    scalar property MinimumRelativeDistanceX[
+        domain TrafficParticipants:RoadUser
+        range xsd:float
+        functional
+    ]
+
+    scalar property MinimumRelativeDistanceY[
+        domain TrafficParticipants:RoadUser
+        range xsd:float
+        functional
+    ]
+
+    aspect NotValidRelativeDistanceX
+    aspect NotValidRelativeDistanceY
+
+
+    rule RelativeDistanceX[
+        MinimumRelativeDistanceX(ddt, minrelX) &
+         ADSdomain:isPerformedBy(ddt, ads) &
+          ADSdomain:isEquippedTo(ads, sv) &
+           ADSdomain:isAVOf(sv, av) &
+            ADSdomain:hasJASPARODD(av, odd) &
+             ADSdomain:hasTP(odd, tp) &
+              ADSdomain:hasPos-X(tp, posX) &
+               ADSdomain:hasFloatNumber(posX, value) &
+                builtIn (swrlb:abs, value, absValue) &
+                 builtIn (swrlb:lessThan, absValue, minrelX) -> NotValidRelativeDistanceX(posX)
+    ]
+
+    // rule RelativeDistanceY[
+    //     MinimumRelativeDistanceY(ddt, minrelY) &
+    //      ADSdomain:isPerformedBy(ddt, ads) &
+    //       ADSdomain:isEquippedTo(ads, sv) &
+    //        ADSdomain:isAVOf(sv, av) &
+    //         ADSdomain:hasJASPARODD(av, odd) &
+    //          ADSdomain:hasTP(odd, tp) &
+    //           ADSdomain:hasPos-Y(tp, posY) &
+    //            ADSdomain:hasFloatNumber(posY, value) &
+    //             builtIn (swrlb:abs, value, absValue) &
+    //              builtIn (swrlb:lessThan, absValue, minrelY) -> NotValidRelativeDistanceY(posY)
+    // ]
+    rule RelativeDistanceY[
+        MinimumRelativeDistanceY(ddt, minrelY) &
+         ADSdomain:isPerformedBy(ddt, ads) &
+          ADSdomain:isEquippedTo(ads, sv) &
+           ADSdomain:isAVOf(sv, av) &
+            ADSdomain:hasJASPARODD(av, odd) &
+             ADSdomain:hasTP(odd, tp) &
+              ADSdomain:hasPos-Y(tp, posY) &
+               ADSdomain:hasFloatNumber(posY, value) &
+                builtIn (swrlb:abs, value, absValue) &
+                 builtIn (swrlb:lessThan, Value, minrelY) -> NotValidRelativeDistanceY(posY)
+    ]
+
 
     // concept VehicleTypes < TrafficParticipants:RoadUser
 

@@ -90,6 +90,7 @@ description <http://opencaesar.io/template/description/scene/scene01#> as scene0
 		adsdomain:hasAcceleration pv1.acceleration
 		adsdomain:hasSteering pv1.steering
 		adsdomain:hasOrientation pv1.orientation
+		
 	]
 
 	instance pv1.type : adsdomain:VehicleType[

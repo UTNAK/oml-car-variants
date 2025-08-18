@@ -13,7 +13,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     extends <http://www.w3.org/2003/11/swrlb#> as swrlb
 
 
-    concept DynamicDrivingTask < mission:Objective
+    concept DynamicDrivingTask < mission:Objective[    
+    ]
 
 	@rdfs:label "Parking"
 	@dc:description "ADS comes to a complete stop within a vacant parking spot; may be further qualified by parallel or perpendicular orientations, lot type (closed/open), initiation conditions, etc."
@@ -32,7 +33,27 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         functional  
     ]
 
+    scalar property MinimumTHW[
+        domain DynamicDrivingTask
+        range xsd:float
+        functional
+    ]
+    
+    // scalar property MinimumRelativeDistanceX[
+    //     domain DynamicDrivingTask
+    //     range xsd:float
+    //     functional
+    // ]
+
+    // scalar property MinimumRelativeDistanceY[
+    //     domain DynamicDrivingTask
+    //     range xsd:float
+    //     functional
+    // ]
+
     aspect NotValidVel
+    // aspect NotValidRelativeDistanceX
+    // aspect NotValidRelativeDistanceY
 
     rule low-speed-merge-velocity[
         maxVelocity(ddt, vmax) &
@@ -42,5 +63,32 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
             adsdomain:hasFloatNumber(vel, value) &
              builtIn ( swrlb:lessThan, vmax, value) -> NotValidVel(vel)
     ]
+
+    // rule RelativeDistanceX[
+    //     MinimumRelativeDistanceX(ddt, minrelX) &
+    //      adsdomain:isPerformedBy(ddt, ads) &
+    //       adsdomain:isEquippedTo(ads, sv) &
+    //        adsdomain:isAVOf(sv, av) &
+    //         adsdomain:hasJASPARODD(av, odd) &
+    //          adsdomain:hasTP(odd, tp) &
+    //           adsdomain:hasPos-X(tp, posX) &
+    //            adsdomain:hasFloatNumber(posX, value) &
+    //             builtIn ( swrlb:lessThan, value, minrelX) -> NotValidRelativeDistanceX(posX)
+    // ]
+
+    // rule RelativeDistanceY[
+    //     MinimumRelativeDistanceY(ddt, minrelY) &
+    //      adsdomain:isPerformedBy(ddt, ads) &
+    //       adsdomain:isEquippedTo(ads, sv) &
+    //        adsdomain:isAVOf(sv, av) &
+    //         adsdomain:hasJASPARODD(av, odd) &
+    //          adsdomain:hasTP(odd, tp) &
+    //           adsdomain:hasPos-Y(tp, posY) &
+    //            adsdomain:hasFloatNumber(posY, value) &
+    //             builtIn ( swrlb:lessThan, value, minrelY) -> NotValidRelativeDistanceY(posY)
+    // ]
+
+    
+
 
 }
