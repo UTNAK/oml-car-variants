@@ -1,0 +1,35 @@
+PREFIX ad: <http://schemas.talis.com/2005/address/schema#>
+PREFIX analysis:  <http://imce.jpl.nasa.gov/foundation/analysis#>
+PREFIX constraint: <http://opencaesar.io/firesat-telecom/telecom-supplier/vocabulary/constraint#>
+PREFIX rdfs:      <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ads:       <http://opencaesar.io/template/vocabulary/ADSdomain#>
+PREFIX ec:        <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#>
+SELECT DISTINCT* #?odd ?oe ?iri ?weatherPattern
+WHERE {
+#  VALUES ?odd { <http://opencaesar.io/template/description/scene/scene05#ads-test-case01> }
+  VALUES ?oe { ads:AutomatedDrivingSystemDomain }
+  ?iri a ?oe ;
+  	ads:hasJASPARODD [ads:hasEC [ ec:weatherPattern ?weatherPattern]];
+    ads:hasAV [ ads:hasVehicleType [ ads:hasString ?SVVehicleType]];
+    ads:hasAV [ ads:hasPos-X [ ads:hasFloatNumber ?SVposx]];                                     
+    ads:hasAV [ ads:hasPos-Y [ ads:hasFloatNumber ?SVposy]];                                     
+    ads:hasAV [ ads:hasPos-Z [ ads:hasFloatNumber ?SVposz]];
+    ads:hasAV [ ads:hasVelocity [ ads:hasFloatNumber ?SVvel]];
+    ads:hasAV [ ads:hasAcceleration [ ads:hasFloatNumber ?SVacc]];
+    ads:hasAV [ ads:hasSteering [ ads:hasFloatNumber ?SVsteering]];
+    ads:hasAV [ ads:hasOrientation [ ads:hasFloatNumber ?SVorientation]];                                      
+  	ads:hasJASPARODD [ads:hasTP ?pov];
+    OPTIONAL{
+    	?pov ads:hasVehicleType [ ads:hasString ?PovVehicleType];
+             ads:hasPos-X [ ads:hasFloatNumber ?Povposx];
+             ads:hasPos-Y [ ads:hasFloatNumber ?Povposy];
+             ads:hasPos-Z [ ads:hasFloatNumber ?Povposz];
+  			 ads:hasVelocity [ ads:hasFloatNumber ?Povvel];
+  			 ads:hasAcceleration [ ads:hasFloatNumber ?Povacc];
+  			 ads:hasSteering [ ads:hasFloatNumber ?Povsteering];
+  			 ads:hasOrientation [ ads:hasFloatNumber ?Povorientation];                              
+  	}
+                     
+
+}
+ORDER BY ?odd ?oe

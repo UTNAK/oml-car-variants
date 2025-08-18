@@ -79,13 +79,13 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasSteering sv.steering
 	]
 	instance sv.pos.x : ADSdomain:Pos-X[
-		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+		ADSdomain:hasFloatNumber "87.53738403320312"^^xsd:float
 	]
 	instance sv.pos.y : ADSdomain:Pos-Y[
-		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+		ADSdomain:hasFloatNumber "13.280508518218994"^^xsd:float
 	]
 	instance sv.pos.z : ADSdomain:Pos-Z[
-		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+		ADSdomain:hasFloatNumber "10.905505180358887"^^xsd:float
 	]
 	instance sv.v : ADSdomain:Velocity[
 		ADSdomain:hasFloatNumber "6.6667"^^xsd:float
@@ -97,7 +97,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance sv.orientation : ADSdomain:Orientation[
-		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+		ADSdomain:hasFloatNumber "101.6"^^xsd:float
 	]
 	instance sv.steering : ADSdomain:Steering[
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
@@ -117,7 +117,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasFloatNumber "5.0"^^xsd:float
 	]
 	instance pov-1.pos.y : ADSdomain:Pos-Y[
-		ADSdomain:hasFloatNumber "-3.6"^^xsd:float
+		ADSdomain:hasFloatNumber "-3.5"^^xsd:float
 	]
 	instance pov-1.pos.z : ADSdomain:Pos-Z[
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
@@ -152,7 +152,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance pov-2.pos.y : ADSdomain:Pos-Y[
-		ADSdomain:hasFloatNumber "-3.6"^^xsd:float
+		ADSdomain:hasFloatNumber "-3.5"^^xsd:float
 	]
 	instance pov-2.pos.z : ADSdomain:Pos-Z[
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
@@ -187,7 +187,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 		ADSdomain:hasFloatNumber "-5.0"^^xsd:float
 	]
 	instance pov-3.pos.y : ADSdomain:Pos-Y[
-		ADSdomain:hasFloatNumber "-3.6"^^xsd:float
+		ADSdomain:hasFloatNumber "-3.5"^^xsd:float
 	]
 	instance pov-3.pos.z : ADSdomain:Pos-Z[
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
