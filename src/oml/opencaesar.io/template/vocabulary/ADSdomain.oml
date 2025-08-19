@@ -364,8 +364,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
              ADSdomain:hasTP(odd, tp) &
               ADSdomain:hasPos-X(tp, posX) &
                ADSdomain:hasFloatNumber(posX, value) &
-                // builtIn (swrlb:abs, value, absValue) &
-                 builtIn (swrlb:lessThan, value, minrelX) -> NotValidRelativeDistanceX(posX)
+               builtIn (swrlb:abs, absValue, value) &
+                builtIn (swrlb:lessThan, value, minrelX) -> NotValidRelativeDistanceX(posX)
     ]
 
 
@@ -378,7 +378,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
              ADSdomain:hasTP(odd, tp) &
               ADSdomain:hasPos-Y(tp, posY) &
                ADSdomain:hasFloatNumber(posY, value) &
-                // builtIn (swrlb:abs, value, absValue) &
+                builtIn (swrlb:abs, absValue, value) &
                  builtIn (swrlb:lessThan, value, minrelY) -> NotValidRelativeDistanceY(posY)
     ]
 
