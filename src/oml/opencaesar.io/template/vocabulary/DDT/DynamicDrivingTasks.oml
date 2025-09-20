@@ -30,6 +30,18 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         restricts RelativeVelocity to exactly 1
     ]
 
+	@rdfs:label "Navigate On/Off-Ramps"
+	@dc:description "ADS drives on on/off-ramps, which are typically one-way, steeply curved, and banked road segments."
+	concept Navigate-OnOff-Ramps < DynamicDrivingTask
+
+    @rdfs:label "Follow Driving Laws"
+	@dc:description "ADS obeys motor vehicle codes and local ordinances; for example, following distances, speed limits, etc. This may include driving norms that vary by region as well."
+	concept Follow-Driving-Laws < DynamicDrivingTask
+
+    @rdfs:label "Right-of-Way Decisions"
+	@dc:description "ADS obeys directional restrictions; for example, one-way roads and actively managed lanes."
+	concept Right-of-Way-Decisions < DynamicDrivingTask
+
     scalar property maxVelocity[
         domain DynamicDrivingTask
         range xsd:float
