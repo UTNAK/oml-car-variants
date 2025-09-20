@@ -64,25 +64,32 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     an exit ramp, by identifying a vacant lane position and matching speed."
     concept Low-Speed-Merge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
+        // rule: odd must have two or more lanes
     ]
 
     @rdfs:label "High-speed Marge"
     @dc:description "ADS merges into alane above about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
     concept High-speed-Marge  < DynamicDrivingTask[
         restricts minVelocity to exactly 1
+        // rule: odd must have two or more lanes
     ]
 
 	@rdfs:label "Navigate On/Off-Ramps"
 	@dc:description "ADS drives on on/off-ramps, which are typically one-way, steeply curved, and banked road segments."
 	concept Navigate-OnOff-Ramps < DynamicDrivingTask
+    // rule: scene must have on or off ramps
 
     @rdfs:label "Follow Driving Laws"
 	@dc:description "ADS obeys motor vehicle codes and local ordinances; for example, following distances, speed limits, etc. This may include driving norms that vary by region as well."
 	concept Follow-Driving-Laws < DynamicDrivingTask
+    // how can we use ontology to define regional rules?
+    // property: Applied Driving Laws: Specification/ region, nationality
 
     @rdfs:label "Right-of-Way Decisions"
 	@dc:description "ADS obeys directional restrictions; for example, one-way roads and actively managed lanes."
 	concept Right-of-Way-Decisions < DynamicDrivingTask
+    // property: Applied Driving Laws, 
+    // Rule: must have information of Zones or Signs, 
 
 
     @rdfs:label "Navigate-Roundabouts"
@@ -91,6 +98,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept Navigate-Roundabouts  < DynamicDrivingTask[
         //restricts maxVelocity to exactly 1
     ]
+    // rule; ood must have Roundabouts
 
     @rdfs:label "Navigate-Intersection"
     @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
@@ -99,6 +107,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept Navigate-Intersection  < DynamicDrivingTask[
         //restricts maxVelocity to exactly 1
     ]
+    // rule; ood must have Intersection
+
 
     @rdfs:label "Navigate-Crosswalk"
     @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
@@ -106,18 +116,23 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept Navigate-Crosswalk  < DynamicDrivingTask[
         //restricts maxVelocity to exactly 1
     ]
+        // rule; ood must have Crosswalk  RoadMarking:CrosswalkMarking
+
 
 	@rdfs:label "Navigate Work Zone"
 	@dc:description "ADS determines right-of-way and traffic patterns, enters, navigates and exits work zone, and communicates with other road users as necessary."
     concept Navigate-Work-Zone < DynamicDrivingTask
+    // rule : odd must have work zone:  Zone:WorkZone
 
 	@rdfs:label "N-Point Turn"
 	@dc:description "ADS makes a heading adjustment that involves alternating between forward and reverse movement and adjusting steering to reposition the vehicle within a tight space."
     concept N-Point-Turn < DynamicDrivingTask
+    // rule: pending
 
 	@rdfs:label "U-Turn"
 	@dc:description "ADS determines right-of-way, initiates, and completes a U-turn, and communicates with other road users as necessary."
     concept U-Turn < DynamicDrivingTask
+    // rule: pending, no U-Turn signs
 
 	@rdfs:label "Route Planning"
 	@dc:description "ADS uses various information to define (and potentially update) a route network including road segments, turns, etc."

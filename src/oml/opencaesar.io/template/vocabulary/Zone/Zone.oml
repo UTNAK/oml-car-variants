@@ -13,5 +13,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/Zone/Zone#> as Zone {
     concept InterferenceZone < ADSdomain:Zone
     concept TrafficManagementZone < ADSdomain:Zone
     concept RegionsStates < ADSdomain:Zone
+    concept WorkZone < ADSdomain:Zone
 
     }

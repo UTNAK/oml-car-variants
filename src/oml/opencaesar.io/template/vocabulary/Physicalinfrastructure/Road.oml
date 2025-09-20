@@ -22,9 +22,9 @@ vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road
     concept Turn-onlyLanes < Physicalinfrastructure:Road
     concept PrivateRoads < Physicalinfrastructure:Road
     concept ReversibleLanes < Physicalinfrastructure:Road
-    concept Intersections < Physicalinfrastructure:Road
     concept ManagedLanes < Physicalinfrastructure:Road
 
+    concept Intersections < Physicalinfrastructure:Road
     concept SignaledIntersections < Physicalinfrastructure:Road
     concept U-turnsIntersections < Physicalinfrastructure:Road
     concept 4-waystopIntersections < Physicalinfrastructure:Road
