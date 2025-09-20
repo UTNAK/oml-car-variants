@@ -28,6 +28,16 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         restricts RelativeVelocity to exactly 1
     ]
 
+    @rdfs:label "MaintainSpeed"
+    @dc:description "ADS maintains a safe speed set through longitudinal control with acceptable following distances."
+
+    @rdfs:label "Lane-Centering"
+    @dc:description "ADS stays within a lane through lateral control."
+
+    @rdfs:label "Lane-Switching-Overtaking"
+    @dc:description "ADS crosses lanes or overtakes an upcoming vehicle based on a projected path or hazard."
+
+
 	@rdfs:label "Navigate On/Off-Ramps"
 	@dc:description "ADS drives on on/off-ramps, which are typically one-way, steeply curved, and banked road segments."
 	concept Navigate-OnOff-Ramps < DynamicDrivingTask
