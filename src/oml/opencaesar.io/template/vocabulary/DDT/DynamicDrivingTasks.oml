@@ -19,12 +19,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 	@rdfs:label "Parking"
 	@dc:description "ADS comes to a complete stop within a vacant parking spot; may be further qualified by parallel or perpendicular orientations, lot type (closed/open), initiation conditions, etc."
     concept Parking < DynamicDrivingTask
+    // NHTSA p.128
 
     @rdfs:label "Maintain Speed"
     @dc:description "ADS maintains a safe speed set through longitudinal control with acceptable following distances"
     concept Maintain-Speed < DynamicDrivingTask[
         restricts TargetVelocity to exactly 1
     ]
+    // NHTSA p.121 -> no leading vehicle or far away leading vehicle -> verify Maintain Speed + Lane Centering
 
     @rdfs:label "Vehicle Following"
     @dc:description "ADS identifies and follows a target vehicle at acceptable following distance while staying within a lane through longitudinal and lateral control."
@@ -32,12 +34,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         restricts RelativeVelocity to exactly 1
         // needs to add acceptable following distance <scalar property>
     ]
+    // NHTSA p.121
 
     @rdfs:label "Lane Centering"
     @dc:description "ADS stays within a lane through lateral control."
     concept Lane-Centering  < DynamicDrivingTask[
         // needs to have line marking << ADD Rule: RoadFurniture:LineMarkers
     ]
+    // NHTSA p.121 -> no leading vehicle or far away leading vehicle -> verify Maintain Speed + Lane Centering
 
     @rdfs:label "Lane Switching/Overtaking"
     @dc:description "ADS crosses lanes or overtakes an upcoming vehicle based on a projected path or hazard."
@@ -46,6 +50,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         // Rule: Must have more than one lane
         // Add domain ontology : Lane Switching Context : Right lane switching or Left lane switching 
     ]
+    //　NHTSA p.121 -> changing yellow solid line to white dashed line
 
     @rdfs:label "Enhancing Conspicuity"
     @dc:description "ADS controls vehicle blinkers, headlights, horn, or other methods used to communicate with other drivers."
@@ -58,6 +63,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     // add rule : must have NonRoadUser in ODD (JASPAR: Traffic Participants）
     // restriction: NonRoadUser will affect SV
     // extended domain ontology?
+    // refer to papers related to obstacle avoidance (search for papers)
 
     @rdfs:label "Low-Speed Merge"
     @dc:description "ADS merges into a lane below about 45 mph, for example from
@@ -66,6 +72,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         restricts maxVelocity to exactly 1
         // rule: odd must have two or more lanes
     ]
+    // NHTSA p.115 + ramp
 
     @rdfs:label "High-speed Marge"
     @dc:description "ADS merges into alane above about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
@@ -73,23 +80,27 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         restricts minVelocity to exactly 1
         // rule: odd must have two or more lanes
     ]
+    // NHTSA p.115 (change speed) + ramp
 
 	@rdfs:label "Navigate On/Off-Ramps"
 	@dc:description "ADS drives on on/off-ramps, which are typically one-way, steeply curved, and banked road segments."
 	concept Navigate-OnOff-Ramps < DynamicDrivingTask
     // rule: scene must have on or off ramps
+    // focuse on one-way, steeply curved, and banked road segments. Select appropriate position in Carla
 
     @rdfs:label "Follow Driving Laws"
 	@dc:description "ADS obeys motor vehicle codes and local ordinances; for example, following distances, speed limits, etc. This may include driving norms that vary by region as well."
 	concept Follow-Driving-Laws < DynamicDrivingTask
     // how can we use ontology to define regional rules?
     // property: Applied Driving Laws: Specification/ region, nationality
+    // pending
 
     @rdfs:label "Right-of-Way Decisions"
 	@dc:description "ADS obeys directional restrictions; for example, one-way roads and actively managed lanes."
 	concept Right-of-Way-Decisions < DynamicDrivingTask
     // property: Applied Driving Laws, 
     // Rule: must have information of Zones or Signs, 
+    // pending
 
 
     @rdfs:label "Navigate-Roundabouts"
@@ -99,6 +110,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         //restricts maxVelocity to exactly 1
     ]
     // rule; ood must have Roundabouts
+    // Select appropriate position in Carla
 
     @rdfs:label "Navigate-Intersection"
     @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
@@ -108,6 +120,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         //restricts maxVelocity to exactly 1
     ]
     // rule; ood must have Intersection
+    // refer to 共同研究結果
 
 
     @rdfs:label "Navigate-Crosswalk"
@@ -117,26 +130,30 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         //restricts maxVelocity to exactly 1
     ]
         // rule; ood must have Crosswalk  RoadMarking:CrosswalkMarking
-
+        // refer to 共同研究結果
 
 	@rdfs:label "Navigate Work Zone"
 	@dc:description "ADS determines right-of-way and traffic patterns, enters, navigates and exits work zone, and communicates with other road users as necessary."
     concept Navigate-Work-Zone < DynamicDrivingTask
     // rule : odd must have work zone:  Zone:WorkZone
+    // Select appropriate position in Carla, work zone + static obstacles
 
 	@rdfs:label "N-Point Turn"
 	@dc:description "ADS makes a heading adjustment that involves alternating between forward and reverse movement and adjusting steering to reposition the vehicle within a tight space."
     concept N-Point-Turn < DynamicDrivingTask
     // rule: pending
+    // pending
 
 	@rdfs:label "U-Turn"
 	@dc:description "ADS determines right-of-way, initiates, and completes a U-turn, and communicates with other road users as necessary."
     concept U-Turn < DynamicDrivingTask
     // rule: pending, no U-Turn signs
+    // Select appropriate position in Carla
 
 	@rdfs:label "Route Planning"
 	@dc:description "ADS uses various information to define (and potentially update) a route network including road segments, turns, etc."
     concept Route-Planning < DynamicDrivingTask
+    // pending
 
 
 
