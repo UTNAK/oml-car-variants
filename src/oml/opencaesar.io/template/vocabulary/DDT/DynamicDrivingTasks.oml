@@ -42,6 +42,13 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept Vehicle-Following < DynamicDrivingTask[
         restricts RelativeVelocity to exactly 1
     ]
+    concept Lane-Centering < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
+    concept Lane-Switching-Overtaking < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
+    
 
     scalar property maxVelocity[
         domain DynamicDrivingTask
