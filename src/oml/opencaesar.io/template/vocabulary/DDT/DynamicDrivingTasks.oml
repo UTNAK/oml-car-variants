@@ -1,8 +1,6 @@
 @dc:title "Example Vocabulary"
 @dc:creator "Example Company"
 @dc:rights "Copyright 2019, by Example Company"
-@dc:description "ADS Tactical and Operational Maneuvers from p.13 of NHTSA A Framework for Automated Driving System Testable Cases and Scenarios.Through the literature review and analysis, a working list of tactical and operational maneuvers related to ADS driving control was created."
-
 vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as DynamicDrivingTasks {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
@@ -13,7 +11,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 	extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
     extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
     extends <http://www.w3.org/2003/11/swrlb#> as swrlb
-    // extends <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as RoadFurniture
 
 
     concept DynamicDrivingTask < mission:Objective[    
@@ -26,29 +23,12 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 	@rdfs:label "Low-Speed Merge"
     @dc:description "ADS merges into a lane below about 45 mph, for example from
     an exit ramp, by identifying a vacant lane position and matching speed."
-
-    @rdfs:label "MaintainSpeed"
-    @dc:description "ADS maintains a safe speed set through longitudinal control with acceptable following distances."
-
-    @rdfs:label "Lane-Centering"
-    @dc:description "ADS stays within a lane through lateral control."
-
-    @rdfs:label "Lane-Switching-Overtaking"
-    @dc:description "ADS crosses lanes or overtakes an upcoming vehicle based on a projected path or hazard."
-
-    concept Low-Speed-Merge < DynamicDrivingTask[
+    concept Low-Speed-Merge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
     ]
-    concept Vehicle-Following < DynamicDrivingTask[
+    concept Vehicle-Following  < DynamicDrivingTask[
         restricts RelativeVelocity to exactly 1
     ]
-    concept Lane-Centering < DynamicDrivingTask[
-        //restricts maxVelocity to exactly 1
-    ]
-    concept Lane-Switching-Overtaking < DynamicDrivingTask[
-        //restricts maxVelocity to exactly 1
-    ]
-    
 
     scalar property maxVelocity[
         domain DynamicDrivingTask
@@ -67,13 +47,23 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         range xsd:float
         functional
     ]
-
-    scalar property TargetVelocity[
-        domain DynamicDrivingTask
-        range xsd:float
-        functional
-    ]
     
+    @rdfs:label "Enhancing Conspicuity"
+    @dc:description "ADS controls vehicle blinkers, headlights, horn, or other methods used to communicate with other drivers."
+    concept Enhancing-Conspicuity  < DynamicDrivingTask
+
+    @rdfs:label "Obstacle Avoidance"
+    @dc:description "ADS identifies and responds to on-road hazards,such as pedestrians, debris, animals, etc."
+    concept Obstacle-Avoidance  < DynamicDrivingTask
+
+    @rdfs:label "High-speed Marge"
+    @dc:description "ADS merges into alane above about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
+    concept High-speed-Marge  < DynamicDrivingTask[
+        restricts maxVelocity to exactly 1
+    ]
+   
+
+
     // scalar property MinimumRelativeDistanceX[
     //     domain DynamicDrivingTask
     //     range xsd:float
@@ -98,17 +88,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
             adsdomain:hasFloatNumber(vel, value) &
              builtIn ( swrlb:lessThan, vmax, value) -> NotValidVel(vel)
     ]
-    // rule Lane-Switching-Overtaking-povNo[
-    //     pov(ddt, pov) &
-    //      adsdomain:isPerformedBy(ddt, ads) &
-    //       adsdomain:isEquippedTo(ads, sv) &
-    //        adsdomain:isAVOf(sv, av) &
-    //         adsdomain:hasJASPARODD(av, odd) &
-    //          adsdomain:hasTP(odd, tp) &
-    //           adsdomain:hasPos-X(tp, posX) &
-    //            adsdomain:hasFloatNumber(posX, value) ->
-    //             NotValidVel(pov)
-    // ]
 
     // rule RelativeDistanceX[
     //     MinimumRelativeDistanceX(ddt, minrelX) &
@@ -135,45 +114,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     // ]
 
     
-
-
-    @rdfs:label "Navigate-Roundabouts"
-    @dc:description " ADS determines right-of-way, enters, navigates, and exits a 
-     roundabout, and communicates with other road users as necessary. "
-    concept Navigate-Roundabouts  < DynamicDrivingTask[
-        //restricts maxVelocity to exactly 1
-    ]
-
-    @rdfs:label "Navigate-Intersection"
-    @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
-     intersections, including signalized, stop signs, 4/3/2-ways, and communicates with 
-     other road users as necessary; may include left or right turns across oncoming traffic.  "
-    concept Navigate-Intersection  < DynamicDrivingTask[
-        //restricts maxVelocity to exactly 1
-    ]
-
-    @rdfs:label "Navigate-Crosswalk"
-    @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
-     pedestrian crosswalks, and communicates with other road users as necessary. "
-    concept Navigate-Crosswalk  < DynamicDrivingTask[
-        //restricts maxVelocity to exactly 1
-    ]
-
-	@rdfs:label "Navigate Work Zone"
-	@dc:description "ADS determines right-of-way and traffic patterns, enters, navigates and exits work zone, and communicates with other road users as necessary."
-    concept Navigate-Work-Zone < DynamicDrivingTask
-
-	@rdfs:label "N-Point Turn"
-	@dc:description "ADS makes a heading adjustment that involves alternating between forward and reverse movement and adjusting steering to reposition the vehicle within a tight space."
-    concept N-Point-Turn < DynamicDrivingTask
-
-	@rdfs:label "U-Turn"
-	@dc:description "ADS determines right-of-way, initiates, and completes a U-turn, and communicates with other road users as necessary."
-    concept U-Turn < DynamicDrivingTask
-
-	@rdfs:label "Route Planning"
-	@dc:description "ADS uses various information to define (and potentially update) a route network including road segments, turns, etc."
-    concept Route-Planning < DynamicDrivingTask
 
 
 }
