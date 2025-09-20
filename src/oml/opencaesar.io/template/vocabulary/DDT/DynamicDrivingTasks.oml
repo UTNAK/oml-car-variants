@@ -1,6 +1,8 @@
 @dc:title "Example Vocabulary"
 @dc:creator "Example Company"
 @dc:rights "Copyright 2019, by Example Company"
+@dc:description "ADS Tactical and Operational Maneuvers from p.13 of NHTSA A Framework for Automated Driving System Testable Cases and Scenarios.Through the literature review and analysis, a working list of tactical and operational maneuvers related to ADS driving control was created."
+
 vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as DynamicDrivingTasks {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
@@ -21,14 +23,31 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept Parking < DynamicDrivingTask
 
 	@rdfs:label "Low-Speed Merge"
-    @dc:description "ADS merges into a lane below about 45 mph, for example from
-    an exit ramp, by identifying a vacant lane position and matching speed."
+    @dc:description "ADS merges into a lane below about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
     concept Low-Speed-Merge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
     ]
     concept Vehicle-Following  < DynamicDrivingTask[
         restricts RelativeVelocity to exactly 1
     ]
+
+	@rdfs:label "Navigate Work Zone"
+	@dc:description "ADS determines right-of-way and traffic patterns, enters, navigates and exits work zone, and communicates with other road users as necessary."
+    concept Navigate-Work-Zone < DynamicDrivingTask
+
+	@rdfs:label "N-Point Turn"
+	@dc:description "ADS makes a heading adjustment that involves alternating between forward and reverse movement and adjusting steering to reposition the vehicle within a tight space."
+    concept N-Point-Turn < DynamicDrivingTask
+
+	@rdfs:label "U-Turn"
+	@dc:description "ADS determines right-of-way, initiates, and completes a U-turn, and communicates with other road users as necessary."
+    concept U-Turn < DynamicDrivingTask
+
+	@rdfs:label "Route Planning"
+	@dc:description "ADS uses various information to define (and potentially update) a route network including road segments, turns, etc."
+    concept Route-Planning < DynamicDrivingTask
+
+
 
     scalar property maxVelocity[
         domain DynamicDrivingTask
