@@ -1,0 +1,28 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX ads:  <http://opencaesar.io/template/vocabulary/ADSdomain#>
+PREFIX ddt:  <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX ads: <http://opencaesar.io/template/vocabulary/ADSdomain#>
+
+
+SELECT DISTINCT
+  ?odd ?tp ?posY ?value ?minrelYNum ?absValue ?result
+WHERE {
+  VALUES ?odd { <http://opencaesar.io/template/description/scene/scene01#odd-01> }
+
+  # 阈值在 ODD 上（与你截图一致）
+  ?odd ads:MinimumRelativeDistanceY ?minrelYLit .
+  BIND(xsd:double(?minrelYLit) AS ?minrelYNum)
+
+  # ODD → TP → Pos-Y → 数值
+  ?odd ads:hasTP ?tp .
+  ?tp  ads:hasPos-Y ?posY .
+  ?posY ads:hasFloatNumber ?value .
+
+  # 判定
+  BIND(ABS(xsd:double(?value)) AS ?absValue)
+  BIND(IF(?absValue <= ?minrelYNum, "NG", "OK") AS ?result)
+}
+ORDER BY ?odd ?tp

@@ -42,7 +42,7 @@ description <http://opencaesar.io/template/description/scene/scene05#> as scene0
 	instance ads-test-case01 : ADSdomain:AutomatedDrivingSystemDomain[
 		ADSdomain:hasAV sv
 		ADSdomain:hasJASPARODD odd-01
-		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Simple Negative 15 PLC_SN_15"
+		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Simple Negative 15 PLC_SN_15: A vehicle equipped with an ADS feature is driving along a straight urban street with multiple lanes. It is approaching a necessary turn and needs to change lanes to position itself in the appropriate lane to make the turn."
 		
 	]
 

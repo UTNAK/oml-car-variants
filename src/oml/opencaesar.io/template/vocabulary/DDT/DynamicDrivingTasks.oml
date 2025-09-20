@@ -26,6 +26,9 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept Low-Speed-Merge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
     ]
+    concept Vehicle-Following  < DynamicDrivingTask[
+        restricts RelativeVelocity to exactly 1
+    ]
 
     scalar property maxVelocity[
         domain DynamicDrivingTask
@@ -34,6 +37,12 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     ]
 
     scalar property MinimumTHW[
+        domain DynamicDrivingTask
+        range xsd:float
+        functional
+    ]
+
+    scalar property RelativeVelocity[
         domain DynamicDrivingTask
         range xsd:float
         functional
