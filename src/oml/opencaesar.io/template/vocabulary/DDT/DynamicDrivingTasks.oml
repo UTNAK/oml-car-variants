@@ -152,5 +152,21 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         //restricts maxVelocity to exactly 1
     ]
 
+	@rdfs:label "Navigate Work Zone"
+	@dc:description "ADS determines right-of-way and traffic patterns, enters, navigates and exits work zone, and communicates with other road users as necessary."
+    concept Navigate-Work-Zone < DynamicDrivingTask
+
+	@rdfs:label "N-Point Turn"
+	@dc:description "ADS makes a heading adjustment that involves alternating between forward and reverse movement and adjusting steering to reposition the vehicle within a tight space."
+    concept N-Point-Turn < DynamicDrivingTask
+
+	@rdfs:label "U-Turn"
+	@dc:description "ADS determines right-of-way, initiates, and completes a U-turn, and communicates with other road users as necessary."
+    concept U-Turn < DynamicDrivingTask
+
+	@rdfs:label "Route Planning"
+	@dc:description "ADS uses various information to define (and potentially update) a route network including road segments, turns, etc."
+    concept Route-Planning < DynamicDrivingTask
+
 
 }
