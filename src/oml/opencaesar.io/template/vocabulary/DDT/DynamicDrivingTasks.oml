@@ -30,25 +30,34 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     @dc:description "ADS identifies and follows a target vehicle at acceptable following distance while staying within a lane through longitudinal and lateral control."
     concept Vehicle-Following  < DynamicDrivingTask[
         restricts RelativeVelocity to exactly 1
+        // needs to add acceptable following distance <scalar property>
     ]
 
     @rdfs:label "Lane Centering"
     @dc:description "ADS stays within a lane through lateral control."
     concept Lane-Centering  < DynamicDrivingTask[
+        // needs to have line marking << ADD Rule: RoadFurniture:LineMarkers
     ]
 
     @rdfs:label "Lane Switching/Overtaking"
     @dc:description "ADS crosses lanes or overtakes an upcoming vehicle based on a projected path or hazard."
     concept Lane-Switching-Overtaking  < DynamicDrivingTask[
+        // Rule: Overtaking must have more than POV
+        // Rule: Must have more than one lane
+        // Add domain ontology : Lane Switching Context : Right lane switching or Left lane switching 
     ]
 
     @rdfs:label "Enhancing Conspicuity"
     @dc:description "ADS controls vehicle blinkers, headlights, horn, or other methods used to communicate with other drivers."
     concept Enhancing-Conspicuity  < DynamicDrivingTask
+    // pending for detail defiitions
 
     @rdfs:label "Obstacle Avoidance"
     @dc:description "ADS identifies and responds to on-road hazards,such as pedestrians, debris, animals, etc."
     concept Obstacle-Avoidance  < DynamicDrivingTask
+    // add rule : must have NonRoadUser in ODD (JASPAR: Traffic Participants）
+    // restriction: NonRoadUser will affect SV
+    // extended domain ontology?
 
     @rdfs:label "Low-Speed Merge"
     @dc:description "ADS merges into a lane below about 45 mph, for example from
@@ -62,6 +71,19 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept High-speed-Marge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
     ]
+
+	@rdfs:label "Navigate On/Off-Ramps"
+	@dc:description "ADS drives on on/off-ramps, which are typically one-way, steeply curved, and banked road segments."
+	concept Navigate-OnOff-Ramps < DynamicDrivingTask
+
+    @rdfs:label "Follow Driving Laws"
+	@dc:description "ADS obeys motor vehicle codes and local ordinances; for example, following distances, speed limits, etc. This may include driving norms that vary by region as well."
+	concept Follow-Driving-Laws < DynamicDrivingTask
+
+    @rdfs:label "Right-of-Way Decisions"
+	@dc:description "ADS obeys directional restrictions; for example, one-way roads and actively managed lanes."
+	concept Right-of-Way-Decisions < DynamicDrivingTask
+
 
     @rdfs:label "Navigate-Roundabouts"
     @dc:description " ADS determines right-of-way, enters, navigates, and exits a 
