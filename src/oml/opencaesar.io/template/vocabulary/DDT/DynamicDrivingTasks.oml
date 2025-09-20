@@ -122,6 +122,27 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 
 
 
+    @rdfs:label "Navigate-Roundabouts"
+    @dc:description " ADS determines right-of-way, enters, navigates, and exits a 
+     roundabout, and communicates with other road users as necessary. "
+    concept Navigate-Roundabouts  < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
+
+    @rdfs:label "Navigate-Intersection"
+    @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
+     intersections, including signalized, stop signs, 4/3/2-ways, and communicates with 
+     other road users as necessary; may include left or right turns across oncoming traffic.  "
+    concept Navigate-Intersection  < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
+
+    @rdfs:label "Navigate-Crosswalk"
+    @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
+     pedestrian crosswalks, and communicates with other road users as necessary. "
+    concept Navigate-Crosswalk  < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
 
     // scalar property MinimumRelativeDistanceX[
     //     domain DynamicDrivingTask
