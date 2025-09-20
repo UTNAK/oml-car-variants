@@ -13,11 +13,12 @@ description bundle <http://opencaesar.io/template/description/bundle#> as descri
 
 	includes <http://opencaesar.io/template/description/ADSdomain#>
 
-	includes <http://opencaesar.io/template/description/scene/scene01#>
-	includes <http://opencaesar.io/template/description/scene/scene02#>
-    includes <http://opencaesar.io/template/description/scene/scene03#>
-	includes <http://opencaesar.io/template/description/scene/scene04#>
-	includes <http://opencaesar.io/template/description/scene/scene05#>
-	includes <http://opencaesar.io/template/description/scene/scene06#>
+	includes <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene01#>
+	includes <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene02#>
+    includes <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene03#>
+	includes <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene04#>
+	includes <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene05#>
+	includes <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene06#>
+	includes <http://opencaesar.io/template/description/scene/VehicleFollowing/scene07#>
 
 }
