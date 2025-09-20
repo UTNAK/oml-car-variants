@@ -20,29 +20,94 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 	@dc:description "ADS comes to a complete stop within a vacant parking spot; may be further qualified by parallel or perpendicular orientations, lot type (closed/open), initiation conditions, etc."
     concept Parking < DynamicDrivingTask
 
-	@rdfs:label "Low-Speed Merge"
+    @rdfs:label "Maintain Speed"
+    @dc:description "ADS maintains a safe speed set through longitudinal control with acceptable following distances"
+    concept Maintain-Speed < DynamicDrivingTask[
+        restricts TargetVelocity to exactly 1
+    ]
+
+    @rdfs:label "Vehicle Following"
+    @dc:description "ADS identifies and follows a target vehicle at acceptable following distance while staying within a lane through longitudinal and lateral control."
+    concept Vehicle-Following  < DynamicDrivingTask[
+        restricts RelativeVelocity to exactly 1
+    ]
+
+    @rdfs:label "Lane Centering"
+    @dc:description "ADS stays within a lane through lateral control."
+    concept Lane-Centering  < DynamicDrivingTask[
+    ]
+
+    @rdfs:label "Lane Switching/Overtaking"
+    @dc:description "ADS crosses lanes or overtakes an upcoming vehicle based on a projected path or hazard."
+    concept Lane-Switching-Overtaking  < DynamicDrivingTask[
+    ]
+
+    @rdfs:label "Enhancing Conspicuity"
+    @dc:description "ADS controls vehicle blinkers, headlights, horn, or other methods used to communicate with other drivers."
+    concept Enhancing-Conspicuity  < DynamicDrivingTask
+
+    @rdfs:label "Obstacle Avoidance"
+    @dc:description "ADS identifies and responds to on-road hazards,such as pedestrians, debris, animals, etc."
+    concept Obstacle-Avoidance  < DynamicDrivingTask
+
+    @rdfs:label "Low-Speed Merge"
     @dc:description "ADS merges into a lane below about 45 mph, for example from
     an exit ramp, by identifying a vacant lane position and matching speed."
     concept Low-Speed-Merge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
     ]
-	@rdfs:label "Vehicle Following"
-    @dc:description "ADS identifies and follows a target vehicle at acceptable following distance while staying within a lane through longitudinal and lateral control."
-    concept Vehicle-Following  < DynamicDrivingTask[
-        restricts RelativeVelocity to exactly 1
+
+    @rdfs:label "High-speed Marge"
+    @dc:description "ADS merges into alane above about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
+    concept High-speed-Marge  < DynamicDrivingTask[
+        restricts maxVelocity to exactly 1
     ]
 
 	@rdfs:label "Navigate On/Off-Ramps"
 	@dc:description "ADS drives on on/off-ramps, which are typically one-way, steeply curved, and banked road segments."
 	concept Navigate-OnOff-Ramps < DynamicDrivingTask
 
+    @rdfs:label "Right-of-Way Decisions"
+	@dc:description "ADS obeys directional restrictions; for example, one-way roads and actively managed lanes."
+	concept Right-of-Way-Decisions < DynamicDrivingTask
+
+
     @rdfs:label "Follow Driving Laws"
 	@dc:description "ADS obeys motor vehicle codes and local ordinances; for example, following distances, speed limits, etc. This may include driving norms that vary by region as well."
 	concept Follow-Driving-Laws < DynamicDrivingTask
 
-    @rdfs:label "Right-of-Way Decisions"
-	@dc:description "ADS obeys directional restrictions; for example, one-way roads and actively managed lanes."
-	concept Right-of-Way-Decisions < DynamicDrivingTask
+    @rdfs:label "Navigate Roundabouts"
+    @dc:description "ADS determines right-of-way, enters, navigates, and exits a roundabout, and communicates with other road users as necessary."
+    concept Navigate-Roundabouts < DynamicDrivingTask
+
+    @rdfs:label "Navigate Intersection"
+	@dc:description "ADS determines right-of-way, enters, navigates, and exits intersections, including signalized, stop signs, 4/3/2-ways, and communicates with other road users as necessary; may include left or right turns across oncoming traffic."
+	concept Navigate-Intersection < DynamicDrivingTask
+
+    @rdfs:label "Navigate Crosswalk"
+    @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
+     pedestrian crosswalks, and communicates with other road users as necessary. "
+    concept Navigate-Crosswalk  < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
+
+    @rdfs:label "Navigate Work Zone"
+	@dc:description "ADS determines right-of-way and traffic patterns, enters, navigates and exits work zone, and communicates with other road users as necessary."
+    concept Navigate-Work-Zone < DynamicDrivingTask
+
+	@rdfs:label "N-Point Turn"
+	@dc:description "ADS makes a heading adjustment that involves alternating between forward and reverse movement and adjusting steering to reposition the vehicle within a tight space."
+    concept N-Point-Turn < DynamicDrivingTask
+
+	@rdfs:label "U-Turn"
+	@dc:description "ADS determines right-of-way, initiates, and completes a U-turn, and communicates with other road users as necessary."
+    concept U-Turn < DynamicDrivingTask
+
+	@rdfs:label "Route Planning"
+	@dc:description "ADS uses various information to define (and potentially update) a route network including road segments, turns, etc."
+    concept Route-Planning < DynamicDrivingTask
+
+
 
     scalar property maxVelocity[
         domain DynamicDrivingTask
@@ -61,20 +126,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         range xsd:float
         functional
     ]
-    
-    @rdfs:label "Enhancing Conspicuity"
-    @dc:description "ADS controls vehicle blinkers, headlights, horn, or other methods used to communicate with other drivers."
-    concept Enhancing-Conspicuity  < DynamicDrivingTask
 
-    @rdfs:label "Obstacle Avoidance"
-    @dc:description "ADS identifies and responds to on-road hazards,such as pedestrians, debris, animals, etc."
-    concept Obstacle-Avoidance  < DynamicDrivingTask
-
-    @rdfs:label "High-speed Marge"
-    @dc:description "ADS merges into alane above about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
-    concept High-speed-Marge  < DynamicDrivingTask[
-        restricts maxVelocity to exactly 1
+    scalar property TargetVelocity[
+        domain DynamicDrivingTask
+        range xsd:float
+        functional
     ]
+    
+    
    
 
 
