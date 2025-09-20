@@ -26,6 +26,9 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept Low-Speed-Merge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
     ]
+	@rdfs:label "Low-Speed Merge"
+    @dc:description "ADS merges into a lane below about 45 mph, for example from
+    an exit ramp, by identifying a vacant lane position and matching speed."
     concept Vehicle-Following  < DynamicDrivingTask[
         restricts RelativeVelocity to exactly 1
     ]
