@@ -1,6 +1,8 @@
 @dc:title "Example Vocabulary"
 @dc:creator "Example Company"
 @dc:rights "Copyright 2019, by Example Company"
+@dc:description "ADS Tactical and Operational Maneuvers from p.13 of NHTSA A Framework for Automated Driving System Testable Cases and Scenarios.Through the literature review and analysis, a working list of tactical and operational maneuvers related to ADS driving control was created."
+
 vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as DynamicDrivingTasks {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
@@ -40,16 +42,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     concept Vehicle-Following < DynamicDrivingTask[
         restricts RelativeVelocity to exactly 1
     ]
-    concept MaintainSpeed < DynamicDrivingTask[
-        restricts TargetVelocity to exactly 1
-    ]
-    concept Lane-Centering < DynamicDrivingTask[
-        // restricts LineMarkers to exactly 1
-    ]
-    concept Lane-Switching-Overtaking < DynamicDrivingTask[
-        // restricts Lane-Switching-Overtaking-povNo to exactly 1
-    ]
-    
 
     scalar property maxVelocity[
         domain DynamicDrivingTask
@@ -136,6 +128,29 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     // ]
 
     
+
+
+    @rdfs:label "Navigate-Roundabouts"
+    @dc:description " ADS determines right-of-way, enters, navigates, and exits a 
+     roundabout, and communicates with other road users as necessary. "
+    concept Navigate-Roundabouts  < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
+
+    @rdfs:label "Navigate-Intersection"
+    @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
+     intersections, including signalized, stop signs, 4/3/2-ways, and communicates with 
+     other road users as necessary; may include left or right turns across oncoming traffic.  "
+    concept Navigate-Intersection  < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
+
+    @rdfs:label "Navigate-Crosswalk"
+    @dc:description "  ADS determines right-of-way, enters, navigates, and exits 
+     pedestrian crosswalks, and communicates with other road users as necessary. "
+    concept Navigate-Crosswalk  < DynamicDrivingTask[
+        //restricts maxVelocity to exactly 1
+    ]
 
 
 }
