@@ -6,23 +6,18 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 	extends <http://purl.org/dc/elements/1.1/> as dc
     extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
     extends <http://www.w3.org/2001/XMLSchema#> as xsd
-
-
 	extends <http://opencaesar.io/template/vocabulary/ADSdomain#> as adsdomain
     extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
     extends <http://www.w3.org/2003/11/swrlb#> as swrlb
 
-
-    concept DynamicDrivingTask < mission:Objective[    
-    ]
+    concept DynamicDrivingTask < mission:Objective
 
 	@rdfs:label "Parking"
 	@dc:description "ADS comes to a complete stop within a vacant parking spot; may be further qualified by parallel or perpendicular orientations, lot type (closed/open), initiation conditions, etc."
     concept Parking < DynamicDrivingTask
 
 	@rdfs:label "Low-Speed Merge"
-    @dc:description "ADS merges into a lane below about 45 mph, for example from
-    an exit ramp, by identifying a vacant lane position and matching speed."
+    @dc:description "ADS merges into a lane below about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
     concept Low-Speed-Merge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
     ]
