@@ -69,7 +69,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     @rdfs:label "High-speed Marge"
     @dc:description "ADS merges into alane above about 45 mph, for example from an exit ramp, by identifying a vacant lane position and matching speed."
     concept High-speed-Marge  < DynamicDrivingTask[
-        restricts maxVelocity to exactly 1
+        restricts minVelocity to exactly 1
     ]
 
 	@rdfs:label "Navigate On/Off-Ramps"
@@ -130,7 +130,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         range xsd:float
         functional  
     ]
-
+    scalar property minVelocity[
+        domain DynamicDrivingTask
+        range xsd:float
+        functional  
+    ]
     scalar property MinimumTHW[
         domain DynamicDrivingTask
         range xsd:float
