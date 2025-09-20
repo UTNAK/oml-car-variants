@@ -1,6 +1,7 @@
 @dc:title "Example Vocabulary"
 @dc:creator "Example Company"
 @dc:rights "Copyright 2019, by Example Company"
+@dc:description "ADS Tactical and Operational Maneuvers from p.13 of NHTSA A Framework for Automated Driving System Testable Cases and Scenarios.Through the literature review and analysis, a working list of tactical and operational maneuvers related to ADS driving control was created."
 vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> as DynamicDrivingTasks {
 
 	extends <http://purl.org/dc/elements/1.1/> as dc
