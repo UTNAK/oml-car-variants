@@ -92,6 +92,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 	]
 	instance sv.v : ADSdomain:Velocity[
 		ADSdomain:hasFloatNumber "11.11"^^xsd:float
+		// 40kph
 	]
 	instance sv.type : ADSdomain:VehicleType[
 		ADSdomain:hasString "Car"
