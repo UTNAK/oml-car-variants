@@ -62,7 +62,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 		ADSdomain:hasPI asphalt
 		ADSdomain:hasPI trafficSignals
 		ADSdomain:hasPI stopSign
-		ADSdomain:hasPI crosswalk
+		ADSdomain:hasPI straight
 	    ADSdomain:hasTP pov-1
 		// ADSdomain:hasTP pov-2
 		// ADSdomain:hasTP pov-3
@@ -91,7 +91,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 		ADSdomain:hasFloatNumber "10.905505180358887"^^xsd:float
 	]
 	instance sv.v : ADSdomain:Velocity[
-		ADSdomain:hasFloatNumber "7.5"^^xsd:float
+		ADSdomain:hasFloatNumber "11.11"^^xsd:float
 	]
 	instance sv.type : ADSdomain:VehicleType[
 		ADSdomain:hasString "Car"
@@ -128,7 +128,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
 	]
 	instance pov-1.v : ADSdomain:Velocity[
-		ADSdomain:hasFloatNumber "6.0667"^^xsd:float
+		ADSdomain:hasFloatNumber "8.889"^^xsd:float
 	]
 	instance pov-1.type : ADSdomain:VehicleType[
 		ADSdomain:hasString "Car"
@@ -245,5 +245,5 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 	instance asphalt : RoadInfrastructure:AsphaltRoadSurface
 	instance trafficSignals : Signage:TrafficSignals
 	instance stopSign : Signage:StopSigns
-	instance crosswalk : RoadMarking:CrosswalkMarking
+	instance straight : RoadInfrastructure:StraightawaysRoadGeometry
 }
