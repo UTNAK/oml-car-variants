@@ -24,6 +24,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 	uses <http://opencaesar.io/template/vocabulary/TrafficParticipants/NonRoadUser#> as NonRoadUser 
 	uses <http://www.w3.org/2001/XMLSchema#> as xsd
 	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+    extends <http://opencaesar.io/template/description/ddt/ddt#> as ddt
 	// uses <http://opencaesar.io/template/vocabulary/EnvironmentalCodition/EnvironmentalCodition#> as EnvironmentalCodition
 	
 	// // uses <http://opencaesar.io/template/vocabulary/Connectivity#> as Connectivity
@@ -44,6 +45,10 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 		ADSdomain:hasJASPARODD odd-01
 		base:hasDescription "Table 61. Vehicle Following Test Scenarios Straight 25, slower speed VF_S_25_Slow"
 		
+	]
+
+    instance ads-system : ADSdomain:AutomatedDrivingSystem[
+		ADSdomain:performs ddt:vehicle-following
 	]
 
 	instance odd-01 : ADSdomain:JASPARODD[
@@ -242,6 +247,6 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 	instance asphalt : RoadInfrastructure:AsphaltRoadSurface
 	instance trafficSignals : Signage:TrafficSignals
     instance curved : RoadInfrastructure:CurvesRoadGeometry[
-        // RoadInfrastructure:curveRadius "500.0"^^xsd:float
+        RoadInfrastructure:curveRadius "500.0"^^xsd:string
     ]
 }

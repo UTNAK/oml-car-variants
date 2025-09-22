@@ -6,6 +6,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road
     extends <http://purl.org/dc/elements/1.1/> as dc
 
     extends <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Physicalinfrastructure#> as Physicalinfrastructure
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
     // // Roadway Surfaces
     // concept RoadSurface < Physicalinfrastructure:RoadInfrastructure
@@ -76,7 +77,9 @@ vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road
     // Roadway Geometry
     concept RoadGeometry < Physicalinfrastructure:RoadInfrastructure
     concept StraightawaysRoadGeometry < Physicalinfrastructure:RoadInfrastructure
-    concept CurvesRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+    concept CurvesRoadGeometry < Physicalinfrastructure:RoadInfrastructure[
+        restricts curveRadius to exactly 1
+    ]
     concept HillsRoadGeometry < Physicalinfrastructure:RoadInfrastructure
     concept LateralCrestsRoadGeometry < Physicalinfrastructure:RoadInfrastructure
     concept CornersRoadGeometry < Physicalinfrastructure:RoadInfrastructure
@@ -84,4 +87,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/Road
     concept BlindCornersRoadGeometry < Physicalinfrastructure:RoadInfrastructure
     concept NegativeObstaclesRoadGeometry < Physicalinfrastructure:RoadInfrastructure
     concept LaneWidthRoadGeometry < Physicalinfrastructure:RoadInfrastructure
+
+    scalar property curveRadius [
+    domain CurvesRoadGeometry
+    range xsd:string
+    functional
+    ] 
 }

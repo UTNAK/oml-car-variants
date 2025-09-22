@@ -23,6 +23,14 @@ description <http://opencaesar.io/template/description/ddt/ddt#> as ddt {
 
     ]
 
+    instance vehicle-following : ddt:Vehicle-Following[
+        base:hasDescription "ADS follows a lead vehicle in the same lane, maintaining a safe distance and speed relative to the lead vehicle."
+        base:hasCanonicalName "Vehicle Following"
+        ddt:maxVelocity "29.1667"^^xsd:float // 105mph->m/s
+        ddt:MinimumTHW "2.0"^^xsd:float // Example value for minimum time to collision
+        ddt:AcceptableFollowingDistance "SafeDistancebyMobileye"^^xsd:string // acceptable following distance calculaed using Mobileye formula
+        // ddt:AcceptableFollowingDistance "100"^^xsd:float // Example value for acceptable following distance
+    ]
     // instance ddt-notvalid : ddt:Low-Speed-Merge, ddt:notValidMaxVelocityOfDDT[
     //     ddt:maxVelocity "40.0"^^xsd:float
     // ]

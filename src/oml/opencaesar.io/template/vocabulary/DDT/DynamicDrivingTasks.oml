@@ -31,10 +31,15 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     @rdfs:label "Vehicle Following"
     @dc:description "ADS identifies and follows a target vehicle at acceptable following distance while staying within a lane through longitudinal and lateral control."
     concept Vehicle-Following  < DynamicDrivingTask[
-        restricts RelativeVelocity to exactly 1
+        restricts AcceptableFollowingDistance to exactly 1
         // needs to add acceptable following distance <scalar property>
     ]
     // NHTSA p.121
+    scalar property AcceptableFollowingDistance[
+        domain Vehicle-Following
+        range xsd:string
+        functional  
+    ]
 
     @rdfs:label "Lane Centering"
     @dc:description "ADS stays within a lane through lateral control."

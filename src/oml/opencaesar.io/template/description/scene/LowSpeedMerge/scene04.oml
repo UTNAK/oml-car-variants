@@ -14,9 +14,20 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
     uses <http://opencaesar.io/template/vocabulary/Physicalinfrastructure/RoadFurniture#> as RoadFurniture
     uses <http://www.w3.org/2001/XMLSchema#> as xsd
 	uses <http://opencaesar.io/template/vocabulary/EnverionmentalCondition/EnverionmentalCondition#> as EnverionmentalCondition
+	uses <http://imce.jpl.nasa.gov/foundation/base#> as base
+	extends <http://opencaesar.io/template/description/ddt/ddt#> as ddt
     
+	instance ads-test-case01 : Adsdomain:AutomatedDrivingSystemDomain[
+		Adsdomain:hasAV sv
+		Adsdomain:hasJASPARODD odd-01
+		base:hasDescription "Table 60. Perform Lane Change Test Scenarios Simple Positive 15 PLC_SP_15"
+	]
 
-    instance odd-04 :  Adsdomain:JASPARODD[
+	instance ads-system : Adsdomain:AutomatedDrivingSystem[
+		Adsdomain:performs ddt:low-speed-merge
+	]
+
+    instance odd-01 :  Adsdomain:JASPARODD[
         Adsdomain:hasEC Wind
         Adsdomain:hasEC Dawn
         Adsdomain:hasPI Multi-Lane
