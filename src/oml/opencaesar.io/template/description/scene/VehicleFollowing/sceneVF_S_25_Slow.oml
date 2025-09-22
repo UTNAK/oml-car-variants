@@ -61,7 +61,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 		ADSdomain:hasConnectivity V2X
 		ADSdomain:hasPI asphalt
 		ADSdomain:hasPI trafficSignals
-		ADSdomain:hasPI stopSign
+		// ADSdomain:hasPI stopSign
 		ADSdomain:hasPI straight
 	    ADSdomain:hasTP pov-1
 		// ADSdomain:hasTP pov-2
@@ -245,6 +245,6 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 	instance V2X :  Connectivity:V2XCommunicationSystem
 	instance asphalt : RoadInfrastructure:AsphaltRoadSurface
 	instance trafficSignals : Signage:TrafficSignals
-	instance stopSign : Signage:StopSigns
+	// instance stopSign : Signage:StopSigns
 	instance straight : RoadInfrastructure:StraightawaysRoadGeometry
 }

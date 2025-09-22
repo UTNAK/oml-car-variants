@@ -20,6 +20,8 @@ description bundle <http://opencaesar.io/template/description/bundle#> as descri
 	includes <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene05#>
 	includes <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene06#>
 	includes <http://opencaesar.io/template/description/scene/VehicleFollowing/sceneVF_S_25_Slow#>
+	includes <http://opencaesar.io/template/description/scene/VehicleFollowing/sceneVF_S_45_Slow#>
+	includes <http://opencaesar.io/template/description/scene/VehicleFollowing/sceneVF_S_65_Slow#>
 	includes <http://opencaesar.io/template/description/scene/VehicleFollowing/sceneVF_C_65_Slow#>
 
 }
