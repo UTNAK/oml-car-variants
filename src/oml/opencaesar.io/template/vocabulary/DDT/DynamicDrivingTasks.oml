@@ -32,7 +32,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     @dc:description "ADS identifies and follows a target vehicle at acceptable following distance while staying within a lane through longitudinal and lateral control."
     concept Vehicle-Following  < DynamicDrivingTask[
         restricts AcceptableFollowingDistance to exactly 1
-        // restricts Num_of_POV to at least 2
         // needs to add acceptable following distance <scalar property>
     ]
     // NHTSA p.121
@@ -208,6 +207,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     // ]
 
     aspect NotValidVel
+    aspect ValidDDT
     // aspect NotValidRelativeDistanceX
     // aspect NotValidRelativeDistanceY
 
@@ -223,12 +223,13 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     
 
     rule Num_of_POV[
-        maxVelocity(ddt, vmax) &
+        Vehicle-Following(ddt) &
          adsdomain:isPerformedBy(ddt, ads) &
           adsdomain:isEquippedTo(ads, sv) & 
-           adsdomain:hasVelocity(sv, vel) &
-            adsdomain:hasFloatNumber(vel, value) &
-             builtIn ( swrlb:lessThan, vmax, value) -> NotValidVel(vel)
+           adsdomain:isAVOf(sv, av) &
+            adsdomain:hasJASPARODD(av, odd) &
+             adsdomain:hasTP(odd, pov) &
+              adsdomain:Vehicle(pov) -> ValidDDT(ddt)
     ]
 
     // rule RelativeDistanceX[
