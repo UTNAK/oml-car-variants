@@ -207,8 +207,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     // ]
 
     aspect NotValidVel
-    aspect ValidDDT
-    aspect ValidScene
     aspect NotValidRelativeVelocity
     // aspect NotValidRelativeDistanceX
     // aspect NotValidRelativeDistanceY
@@ -222,17 +220,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
              builtIn ( swrlb:lessThan, vmax, value) -> NotValidVel(vel)
     ]
 
-    
 
-    rule Num_of_POV[
-        Vehicle-Following(ddt) &
-         adsdomain:isPerformedBy(ddt, ads) &
-          adsdomain:isEquippedTo(ads, sv) & 
-           adsdomain:isAVOf(sv, ad) &
-            adsdomain:hasJASPARODD(ad, odd) &
-             adsdomain:hasTP(odd, pov) &
-              adsdomain:Vehicle(pov) -> ValidDDT(ad)
-    ]
 
     rule VelocityCheck_VF[
         Vehicle-Following(ddt) &
@@ -250,10 +238,35 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 
     ]
     
-    rule CheckValidScene[
-        adsdomain:AutomatedDrivingSystemDomain(ads) & ValidDDT(ads)
-         -> ValidScene(ads)
+    aspect LeadingVehicle
+    // concept LeadingVehicle < adsdomain:Vehicle // this causes errors
+    relation entity Follows
+    [
+        from FollowingVehicle
+        to LeadingVehicle
+        forward follows
+        reverse isFollowedBy
     ]
+    concept FollowingVehicle < adsdomain:AutomatedVehicle[
+        restricts follows to exactly 1
+    ]
+
+    rule infer-following-vehicle[
+        Vehicle-Following(ddt) &
+            adsdomain:isPerformedBy(ddt, ads) &
+            adsdomain:isEquippedTo(ads, sv) & 
+            adsdomain:isAVOf(sv, ad) -> FollowingVehicle(sv)
+    ]
+    rule infer-leadging-following-vehicle[
+        Vehicle-Following(ddt) &
+            adsdomain:isPerformedBy(ddt, ads) &
+            adsdomain:isEquippedTo(ads, sv) & 
+            adsdomain:isAVOf(sv, ad) &
+            adsdomain:hasJASPARODD(ad, odd) &
+                adsdomain:hasTP(odd, pov) &
+                adsdomain:Vehicle(pov) -> follows(sv, pov) & LeadingVehicle(pov) 
+    ]
+
 
     // rule RelativeDistanceX[
     //     MinimumRelativeDistanceX(ddt, minrelX) &
