@@ -76,6 +76,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 	]
 	// instance environmentalcondition1 :ADSdomain:EnverionmentalCondition[
 	instance sv :ADSdomain:AutomatedVehicle[
+		ADSdomain:equippes ads-system
 		ADSdomain:hasPos-X sv.pos.x
 		ADSdomain:hasPos-Y sv.pos.y
 		ADSdomain:hasPos-Z sv.pos.z
@@ -219,7 +220,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 
 	
 	instance ClearNoon : Weather:ClearNoon[
-		// EnverionmentalCondition:weatherPattern "ClearNoon"
+		EnverionmentalCondition:weatherPattern "ClearNoon"
 		// EnverionmentalCondition:cloudiness "100.0"^^xsd:float
 		// EnverionmentalCondition:dust_storm "100.0"^^xsd:float
 		// EnverionmentalCondition:fog_density "90.0"^^xsd:float

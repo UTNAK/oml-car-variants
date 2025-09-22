@@ -8,7 +8,7 @@ PREFIX ec:        <http://opencaesar.io/template/vocabulary/EnverionmentalCondit
 SELECT DISTINCT ?iri ?weatherPattern ?SVVehicleType ?SVposx ?SVposy ?SVposz ?SVvel ?SVacc ?SVsteering ?SVorientation
                 ?PovVehicleType ?Povposx ?Povposy ?Povposz ?Povvel ?Povacc ?Povsteering ?Povorientation
 WHERE {
-  VALUES ?iri { <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene05#ads-test-case01> }
+  VALUES ?iri { <http://opencaesar.io/template/description/scene/VehicleFollowing/sceneVF_S_25_Slow#ads-test-case01> }
 
   ?iri a ads:AutomatedDrivingSystemDomain ;
        ads:hasJASPARODD [ ads:hasEC [ ec:weatherPattern ?weatherPattern ] ;

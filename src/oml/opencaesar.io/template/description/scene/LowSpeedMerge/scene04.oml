@@ -38,6 +38,7 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
     ]
 
    	instance sv : Adsdomain:AutomatedVehicle[
+		Adsdomain:equippes ads-system
 		Adsdomain:hasVehicleType sv.type
 		Adsdomain:hasPos-X sv.pos.x
 		Adsdomain:hasPos-Y sv.pos.y

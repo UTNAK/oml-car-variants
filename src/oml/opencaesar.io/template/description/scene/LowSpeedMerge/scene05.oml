@@ -77,6 +77,7 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
 	]
 	// instance environmentalcondition1 :ADSdomain:EnverionmentalCondition[
 	instance sv :ADSdomain:AutomatedVehicle[
+		ADSdomain:equippes ads-system
 		ADSdomain:hasPos-X sv.pos.x
 		ADSdomain:hasPos-Y sv.pos.y
 		ADSdomain:hasPos-Z sv.pos.z
