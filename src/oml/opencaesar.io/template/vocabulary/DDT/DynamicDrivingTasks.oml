@@ -208,6 +208,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
 
     aspect NotValidVel
     aspect ValidDDT
+    aspect ValidScene
+    aspect NotValidRelativeVelocity
     // aspect NotValidRelativeDistanceX
     // aspect NotValidRelativeDistanceY
 
@@ -226,10 +228,31 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
         Vehicle-Following(ddt) &
          adsdomain:isPerformedBy(ddt, ads) &
           adsdomain:isEquippedTo(ads, sv) & 
-           adsdomain:isAVOf(sv, av) &
-            adsdomain:hasJASPARODD(av, odd) &
+           adsdomain:isAVOf(sv, ad) &
+            adsdomain:hasJASPARODD(ad, odd) &
              adsdomain:hasTP(odd, pov) &
-              adsdomain:Vehicle(pov) -> ValidDDT(ddt)
+              adsdomain:Vehicle(pov) -> ValidDDT(ad)
+    ]
+
+    rule VelocityCheck_VF[
+        Vehicle-Following(ddt) &
+         adsdomain:isPerformedBy(ddt, ads) &
+          adsdomain:isEquippedTo(ads, sv) & 
+           adsdomain:isAVOf(sv, ad) &
+            adsdomain:hasJASPARODD(ad, odd) &
+             adsdomain:hasTP(odd, pov) &
+              adsdomain:Vehicle(pov) &
+               adsdomain:hasVelocity(sv, vel) &
+                adsdomain:hasFloatNumber(vel, value) &
+                 adsdomain:hasVelocity(pov, velpov) &
+                  adsdomain:hasFloatNumber(velpov, valuepov) &
+                   builtIn ( swrlb:lessThan, value, valuepov) -> NotValidRelativeVelocity(vel)
+
+    ]
+    
+    rule CheckValidScene[
+        adsdomain:AutomatedDrivingSystemDomain(ads) & ValidDDT(ads)
+         -> ValidScene(ads)
     ]
 
     // rule RelativeDistanceX[
