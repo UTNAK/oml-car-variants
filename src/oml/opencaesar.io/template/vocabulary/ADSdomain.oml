@@ -147,7 +147,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     concept Physicalinfrastructure < mission:Component,affectedOEDRElement, connectedElement, ODDElements [
 
-    ]
+]
 
     concept TrafficParticipants < mission:Component,affectedOEDRElement, connectedElement [
 
@@ -168,8 +168,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
 
     concept Weather < EnverionmentalCondition [
     ]
-	// concept rain < Weather [
-    // ]
+
     concept Illumination < EnverionmentalCondition [
     ]
     concept ParticulateMatter < EnverionmentalCondition [
@@ -182,7 +181,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
     ]
     
 	
-	concept SchoolZone < Zone [
+	  concept SchoolZone < Zone [
     ]
     concept Geo-FensingZone < Zone [
     ]
@@ -194,19 +193,19 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
     ]
     
 	
-	concept SpeedLimit < OperationalConstraints [
+	  concept SpeedLimit < OperationalConstraints [
     ]
     concept TrafficConditions < OperationalConstraints [
     ]
     
 	
-	concept NonRoadUser < TrafficParticipants [
+	  concept NonRoadUser < TrafficParticipants [
     ]
     concept RoadUser < TrafficParticipants [
     ]
     
 	
-	concept RoadFurniture < Physicalinfrastructure [
+	  concept RoadFurniture < Physicalinfrastructure [
     ]
     concept Road < Physicalinfrastructure [
     ]
