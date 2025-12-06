@@ -48,7 +48,7 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
 	]
 
 	instance ads-system : ADSdomain:AutomatedDrivingSystem[
-		ADSdomain:performs ddt:low-speed-merge
+		ADSdomain:performs ddt:baseline
 	]
 
 	instance odd-01 : ADSdomain:JASPARODD[
@@ -62,15 +62,15 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
 		ADSdomain:hasOC 100kph
 		ADSdomain:hasOC normalTraffic
 		// ADSdomain:hasTP buses
-		ADSdomain:hasTP deer
+		// ADSdomain:hasTP deer
 		ADSdomain:hasConnectivity V2X
 		ADSdomain:hasPI asphalt
 		ADSdomain:hasPI trafficSignals
 		ADSdomain:hasPI stopSign
 		ADSdomain:hasPI crosswalk
-	    ADSdomain:hasTP pov-1
-		ADSdomain:hasTP pov-2
-		ADSdomain:hasTP pov-3
+	    // ADSdomain:hasTP pov-1
+		// ADSdomain:hasTP pov-2
+		// ADSdomain:hasTP pov-3
 		ADSdomain:MinimumRelativeDistanceX "0.0"^^xsd:float // Example value for minimum relative distance in X
 		ADSdomain:MinimumRelativeDistanceY "3.0"^^xsd:float // Example value for minimum relative distance in Y
 
