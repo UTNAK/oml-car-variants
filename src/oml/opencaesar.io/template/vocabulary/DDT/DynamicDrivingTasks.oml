@@ -75,18 +75,23 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     an exit ramp, by identifying a vacant lane position and matching speed."
     concept Low-Speed-Merge  < DynamicDrivingTask[
         restricts maxVelocity to exactly 1
+        // restricts SubjectVehicle to exactly 1
         // rule: odd must have two or more lanes
     ]
     concept Baseline < Low-Speed-Merge[
+        restricts maxVelocity to exactly 1
         // restricts surrounds to max 0
     ]
     concept Simple-Positive < Low-Speed-Merge[
+        restricts maxVelocity to exactly 1
         // restricts surrounds to exactly 1
     ]
     concept Complex-Positive < Low-Speed-Merge[
+        restricts maxVelocity to exactly 1
         // restricts surrounds to exactly 2
     ]
     concept Simple-Negative < Low-Speed-Merge[
+        restricts maxVelocity to exactly 1
         // restricts surrounds to min 3
     ]
     // NHTSA p.115 + ramp
@@ -218,7 +223,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
     //     functional
     // ]
 
-    aspect NotValidVel
+    aspect ValidVel
     aspect NotValidRelativeVelocity
     // aspect NotValidRelativeDistanceX
     // aspect NotValidRelativeDistanceY
@@ -229,7 +234,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
           adsdomain:isEquippedTo(ads, sv) & 
            adsdomain:hasVelocity(sv, vel) &
             adsdomain:hasFloatNumber(vel, value) &
-             builtIn ( swrlb:lessThan, vmax, value) -> NotValidVel(vel)
+             builtIn ( swrlb:greaterThan, vmax, value) -> ValidVel(vel)
     ]
 
     // rule low-speed-merge-velocity[
@@ -290,17 +295,36 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
             adsdomain:isAVOf(sv, ad) &
             adsdomain:hasJASPARODD(ad, odd) &
                 adsdomain:hasTP(odd, pov) &
-                adsdomain:Vehicle(pov) -> follows(sv, pov) & LeadingVehicle(pov) 
+                adsdomain:Vehicle(pov) &
+                adsdomain:hasPos-X(pov, xp) &
+                adsdomain:hasFloatNumber(xp, valuexp) &
+                builtIn ( swrlb:greaterThan, valuexp, 0.0) &
+                adsdomain:hasLaneID(pov, lp) &
+                adsdomain:hasString(lp, valuelp) &
+                builtIn ( swrlb:equal, valuelp, "0") -> follows(sv, pov) & LeadingVehicle(pov)    
     ]
+    // rule infer-leading-following-vehicle[
+    //     Vehicle-Following(ddt) &
+    //         adsdomain:isPerformedBy(ddt, ads) &
+    //         adsdomain:isEquippedTo(ads, sv) & 
+    //         adsdomain:isAVOf(sv, ad) &
+    //         adsdomain:hasJASPARODD(ad, odd) &
+    //             adsdomain:hasTP(odd, pov) &
+    //             adsdomain:Vehicle(pov) -> follows(sv, pov) & LeadingVehicle(pov) 
+    //             // adsdomain:hasLaneID(sv, xs) &
+                
+    // ]
 
 
-    concept SubjectVehicle < adsdomain:AutomatedVehicle
-    rule subject-vehicle[
-        Low-Speed-Merge(ddt) &
-            adsdomain:isPerformedBy(ddt, ads) &
-            adsdomain:isEquippedTo(ads, sv) & 
-            adsdomain:isAVOf(sv, ad) -> SubjectVehicle(sv)
-    ]
+    // concept SubjectVehicle < adsdomain:AutomatedVehicle
+    // rule subject-vehicle[
+    //     Low-Speed-Merge(ddt) &
+    //         adsdomain:isPerformedBy(ddt, ads) &
+    //         adsdomain:isEquippedTo(ads, sv) & 
+    //         adsdomain:hasVelocity(sv, vel) &
+    //         adsdomain:hasFloatNumber(vel, value) &
+    //          builtIn ( swrlb:greaterThan, vmax, value)-> SubjectVehicle(sv)
+    // ]
     aspect SurroundingVehicle
     relation entity Surrounds
     [
@@ -330,9 +354,18 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
             adsdomain:isEquippedTo(ads, sv) & 
             adsdomain:isAVOf(sv, ad) &
             adsdomain:hasJASPARODD(ad, odd) &
-                adsdomain:hasTP(odd, pov) ->  ODD-Baseline(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
+            adsdomain:hasTP(odd, pov) ->  ODD-Baseline(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
                 // & ODD-Baseline(odd) & surrounds(odd, pov)
     ]
+    // rule baselinerule[
+    //     Baseline(ddt) &
+    //         adsdomain:isPerformedBy(ddt, ads) &
+    //         adsdomain:isEquippedTo(ads, sv) & 
+    //         adsdomain:isAVOf(sv, ad) &
+    //         adsdomain:hasJASPARODD(ad, odd) &
+    //             adsdomain:hasTP(odd, pov) ->  ODD-Baseline(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
+    //             // & ODD-Baseline(odd) & surrounds(odd, pov)
+    // ]
 
     rule simple-positiverule[
         Simple-Positive(ddt) &
@@ -340,7 +373,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
             adsdomain:isEquippedTo(ads, sv) & 
             adsdomain:isAVOf(sv, ad) &
             adsdomain:hasJASPARODD(ad, odd) &
-                adsdomain:hasTP(odd, pov) ->  ODD-Simple-Positive(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
+                adsdomain:hasTP(odd, pov) &
+                adsdomain:hasLaneID(pov, lp) &
+                adsdomain:hasString(lp, valuelp) &
+                builtIn ( swrlb:equal, valuelp, "1")->  ODD-Simple-Positive(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
                 // & ODD-Baseline(odd) & surrounds(odd, pov)
     ]
     rule complex-positiverule[
@@ -349,7 +385,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
             adsdomain:isEquippedTo(ads, sv) & 
             adsdomain:isAVOf(sv, ad) &
             adsdomain:hasJASPARODD(ad, odd) &
-                adsdomain:hasTP(odd, pov) ->  ODD-Complex-Positive(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
+                adsdomain:hasTP(odd, pov) &
+                adsdomain:hasLaneID(pov, lp) &
+                adsdomain:hasString(lp, valuelp) &
+                builtIn ( swrlb:equal, valuelp, "1")->  ODD-Complex-Positive(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
                 // & ODD-Baseline(odd) & surrounds(odd, pov)
     ]
     rule simple-negativerule[
@@ -358,8 +397,15 @@ vocabulary <http://opencaesar.io/template/vocabulary/DDT/DynamicDrivingTasks#> a
             adsdomain:isEquippedTo(ads, sv) & 
             adsdomain:isAVOf(sv, ad) &
             adsdomain:hasJASPARODD(ad, odd) &
-                adsdomain:hasTP(odd, pov) ->  ODD-Simple-Negative(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
+                adsdomain:hasTP(odd, pov) &
+                adsdomain:hasLaneID(pov, lp) &
+                adsdomain:hasString(lp, valuelp) &
+                builtIn ( swrlb:equal, valuelp, "1")->  ODD-Simple-Negative(odd) & SurroundingVehicle(pov) & surrounds(odd, pov)
                 // & ODD-Baseline(odd) & surrounds(odd, pov)
+                // &
+                // adsdomain:hasVelocity(pov, vel) &
+                // adsdomain:hasFloatNumber(vel, value) &
+                // builtIn ( swrlb:greaterThan, vmax, value)
     ]
 
     

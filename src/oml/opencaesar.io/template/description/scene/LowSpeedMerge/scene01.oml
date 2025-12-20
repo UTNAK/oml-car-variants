@@ -68,7 +68,7 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
 		adsdomain:hasFloatNumber "30"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 	instance sv.velocity : adsdomain:Velocity[
-		adsdomain:hasFloatNumber "12.5"^^xsd:float
+		adsdomain:hasFloatNumber "15.5"^^xsd:float
 	]    // instance environmentalCondition : adsdomain:EnverionmentalCondition
 	instance sv.acceleration : adsdomain:Acceleration[
 		adsdomain:hasFloatNumber "2"^^xsd:float
@@ -92,6 +92,7 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
 		adsdomain:hasAcceleration pv1.acceleration
 		adsdomain:hasSteering pv1.steering
 		adsdomain:hasOrientation pv1.orientation
+		adsdomain:hasLaneID pv1.laneID
 
 	]
 
@@ -119,6 +120,9 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
 	]
 	instance pv1.orientation : adsdomain:Orientation[
 		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pv1.laneID : adsdomain:LaneID[
+		adsdomain:hasString "1"
 	]
 
 

@@ -110,6 +110,7 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
 		adsdomain:hasAcceleration pv1.acceleration
 		adsdomain:hasSteering pv1.steering
 		adsdomain:hasOrientation pv1.orientation
+		adsdomain:hasLaneID pv1.laneID
 	]
 
 	instance pv1.type : adsdomain:VehicleType [
@@ -142,6 +143,9 @@ description <http://opencaesar.io/template/description/scene/LowSpeedMerge/scene
 
 	instance pv1.orientation : adsdomain:Orientation [
 		adsdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pv1.laneID : adsdomain:LaneID [
+		adsdomain:hasString "1"
 	]
 
 

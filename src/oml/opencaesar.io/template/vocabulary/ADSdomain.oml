@@ -45,6 +45,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
         restricts hasOrientation to exactly 1
         restricts hasSteering to exactly 1
         restricts hasVehicleType to exactly 1
+        // restricts hasLaneID to exactly 1
     ]
 
     aspect CarlaParameter < vim4:QuantityValue
@@ -55,6 +56,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
       range xsd:float
       functional
     ]
+
+    
     @rdfs:label "hasString"
     scalar property hasString [
         domain CarlaParameter
@@ -72,7 +75,23 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
       reverse hasPos-X
     ] < vim4:Characterizes
 
+    concept LaneID < CarlaParameter[
+      restricts all vim4:characterizes to Vehicle
+      // lane of s.v. -> lane id = 0, right lane of s.v. -> lane id = 1, left lane of s.v. -> lane id = -1
+    ]
+    relation entity IsLaneIDOf [
+      from LaneID
+      to Vehicle
+      forward isLaneIDOf
+      reverse hasLaneID
+    ] < vim4:Characterizes
 
+    // @rdfs:label "hasLaneID"
+    // scalar property hasLaneID [
+    //   domain CarlaParameter
+    //   range xsd:string
+    //   functional
+    // ]
     concept Pos-Y < CarlaParameter[
       restricts all vim4:characterizes to Vehicle
     ]   
@@ -324,12 +343,12 @@ vocabulary <http://opencaesar.io/template/vocabulary/ADSdomain#> as ADSdomain {
   ]
   
 
-    	relation entity IsECOf [
+    relation entity IsECOf [
 		from EnverionmentalCondition
 		to  JASPARODD
 		forward isECOf
 		reverse hasEC
-  ]
+    ]
 
     relation entity Perform [
         from ADSdomain:AutomatedDrivingSystem

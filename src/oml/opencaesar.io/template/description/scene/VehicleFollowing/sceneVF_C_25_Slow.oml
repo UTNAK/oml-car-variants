@@ -85,6 +85,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 		ADSdomain:hasAcceleration sv.acc
 		ADSdomain:hasOrientation sv.orientation
 		ADSdomain:hasSteering sv.steering
+		ADSdomain:hasLaneID sv.laneID
 	]
 	instance sv.pos.x : ADSdomain:Pos-X[
 		ADSdomain:hasFloatNumber "87.53738403320312"^^xsd:float
@@ -111,6 +112,9 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 	instance sv.steering : ADSdomain:Steering[
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
 	]
+	instance sv.laneID : ADSdomain:LaneID[
+		ADSdomain:hasString "0"
+	]
 
 	instance pov-1 : RoadUser:ManualMovingVehicles[
 		ADSdomain:hasPos-X pov-1.pos.x
@@ -121,6 +125,7 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 		ADSdomain:hasAcceleration pov-1.acc
 		ADSdomain:hasOrientation pov-1.orientation
 		ADSdomain:hasSteering pov-1.steering
+		ADSdomain:hasLaneID pov-1.laneID
 
 		
 	]
@@ -147,6 +152,9 @@ description <http://opencaesar.io/template/description/scene/VehicleFollowing/sc
 	]
 	instance pov-1.steering : ADSdomain:Steering[
 		ADSdomain:hasFloatNumber "0.0"^^xsd:float
+	]
+	instance pov-1.laneID : ADSdomain:LaneID[
+		ADSdomain:hasString "0"
 	]
 	
 	// instance pov-2 : RoadUser:ManualMovingVehicles[
